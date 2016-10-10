@@ -1,0 +1,38 @@
+import com.csc108.drools.OrderMessage;
+import com.csc108.log.LogFactory;
+import quickfix.fix42.NewOrderSingle;
+
+no-loop true
+enabled true
+salience 1
+
+rule "CancelRequestRule"
+    when
+        task:OrderMessage(task.getMessage()!=null && IsCancelOrderMessage())
+    then
+        LogFactory.droolsLog("Before calling CancelRequestRule : "+task.getMessage());
+         if(task.getMessage().isSetField(58)){
+            task.getMessage().removeField(58);
+        }
+
+        if(task.getMessage().isSetField(15)){
+            task.getMessage().removeField(15);
+        }
+
+        if(task.getMessage().isSetField(40)){
+            task.getMessage().removeField(40);
+        }
+
+        if(task.getMessage().isSetField(44)){
+            task.getMessage().removeField(44);
+        }
+
+        if(task.getMessage().isSetField(59)){
+            task.getMessage().removeField(59);
+        }
+
+        if(task.getMessage().isSetField(207)){
+            task.getMessage().removeField(207);
+        }
+        LogFactory.droolsLog("After calling CancelRequestRule : "+task.getMessage());
+end

@@ -1,0 +1,113 @@
+import com.csc108.drools.OrderMessage;
+import com.csc108.log.LogFactory;
+import quickfix.fix42.NewOrderSingle;
+
+no-loop true
+enabled true
+salience 2
+
+rule "NewOrderRule"
+    when
+        task:OrderMessage(task.getMessage()!=null && IsNewOrderMessage())
+    then
+        //LogFactory.droolsLog("Before calling NewOrderRule : "+task.getMessage());
+        if(task.getMessage().isSetField(10)){
+                task.getMessage().removeField(10);
+            }
+
+          	if(task.getMessage().isSetField(6297)){
+          	    task.getMessage().removeField(6297);
+            }
+
+          	if(task.getMessage().isSetField(6298)){
+          	    task.getMessage().removeField(6298);
+            }          
+
+          	if(task.getMessage().isSetField(6065)){
+          	    task.getMessage().removeField(6065);
+            }
+			
+			if(task.getMessage().isSetField(6297)){
+          	    task.getMessage().removeField(6297);
+            }
+
+          	if(!task.getMessage().isSetField(6064)){
+          	    task.getMessage().setString(6064,"30");
+            }
+
+          	if(task.getMessage().isSetField(6065)){
+          	    task.getMessage().removeField(6065);
+            }
+
+          	if(task.getMessage().isSetField(111)){
+          	        task.getMessage().removeField(111);
+            }
+
+          	if(task.getMessage().isSetField(115)){
+          	    task.getMessage().removeField(115);
+            }
+
+            if(task.getMessage().isSetField(126)){
+                task.getMessage().removeField(126);
+            }
+
+            if(task.getMessage().isSetField(58)){
+                task.getMessage().removeField(58);
+            }
+
+            if(task.getMessage().isSetField(59)){
+                task.getMessage().removeField(59);
+            }
+
+            if(task.getMessage().isSetField(50)){
+                task.getMessage().removeField(50);
+            }
+
+            if(task.getMessage().isSetField(207)){
+           	    task.getMessage().setString(100,task.getMessage().getString(207));
+            }
+
+            if(!task.getMessage().isSetField(21)){
+                task.getMessage().setString(21,"1");
+            }
+            if((!task.getMessage().isSetField(109)) && (task.getMessage().getHeader().isSetField(116))){
+                task.getMessage().setString(109,"Cld_O32_"+task.getMessage().getHeader().getString(116));
+            }else{
+				task.getMessage().setString(109,"Cld_O32_01");
+			}
+
+            if(task.getMessage().isSetField(7001) && !(task.getMessage().getString(7001).equals(null))){
+                String accountId = task.getMessage().getString(7001).trim();
+                int len = accountId.length();
+                switch (len){
+                    case 8:
+                        accountId ="0000"+accountId ;
+                        break;
+                    default:
+                }
+                task.getMessage().setString(1,accountId);
+            }else if((!task.getMessage().isSetField(7001)) || (task.getMessage().getString(7001).equals(null))||(task.getMessage().getString(7001).equals(""))){
+                task.getMessage().setString(1,"Acct_PB_01");
+            }
+			
+			//remove conditonal order related tag
+			if(task.getMessage().isSetField(7200)){
+                task.getMessage().removeField(7200);
+            }
+			if(task.getMessage().isSetField(7202)){
+                task.getMessage().removeField(7202);
+            }
+			if(task.getMessage().isSetField(7201)){
+                task.getMessage().removeField(7201);
+            }
+			if(task.getMessage().isSetField(7204)){
+                task.getMessage().removeField(7204);
+            }
+			if(task.getMessage().isSetField(7205)){
+                task.getMessage().removeField(7205);
+            }
+			if(task.getMessage().isSetField(7206)){
+                task.getMessage().removeField(7206);
+            }
+        //LogFactory.droolsLog("After calling NewOrderRule : "+task.getMessage());
+end

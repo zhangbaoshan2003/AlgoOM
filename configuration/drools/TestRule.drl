@@ -1,0 +1,12 @@
+import com.csc108.drools.AlgoFact;
+
+no-loop true
+enabled true
+salience 10
+
+rule "TestRule"
+    when
+
+    then
+        System.out.println("Test rule." );
+end

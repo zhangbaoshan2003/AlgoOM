@@ -1,0 +1,15 @@
+import com.csc108.drools.OrderMessage;
+import com.csc108.log.LogFactory;
+import quickfix.fix42.NewOrderSingle;
+
+no-loop true
+enabled true
+salience 3
+
+rule "ExecutionReportRule"
+    when
+        task:OrderMessage(task.getMessage()!=null && IsExecutionReport())
+    then
+        LogFactory.droolsLog("Before calling ExecutionReportRule : "+task.getMessage());
+        LogFactory.droolsLog("Before calling ExecutionReportRule : "+task.getMessage());
+end

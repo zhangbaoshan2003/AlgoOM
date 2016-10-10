@@ -1,0 +1,16 @@
+import com.csc108.drools.OrderMessage;
+import com.csc108.log.LogFactory;
+import quickfix.fix42.NewOrderSingle;
+
+no-loop true
+enabled true
+salience 4
+
+rule "CancelRejectRule"
+    when
+         task:OrderMessage(task.getMessage()!=null && IsCancelRejected())
+    then
+         LogFactory.droolsLog("Before calling CancelRejectRule : "+task.getMessage());
+		 
+         LogFactory.droolsLog("Before calling CancelRejectRule : "+task.getMessage());
+end

@@ -63,14 +63,16 @@ public class CancelRejectedEventHandler  extends EventHandlerBase  {
                 LogFactory.warn("Can't process reject cancel message for a completed order, whose current order status is +"+exchangeOrder.getFixStatusDisplay());
             }
 
-            exchangeOrder.restoreOrderStatusBeforeCancel();
-
             //Todo: potential issue when multiple exchange orders generated for a client order
             if(clientOrder.getOrderHandler()!=null)
                 if(clientOrder.getOrderHandler().isPeggingOrder()==false){
                     //normal algo order, sent response back
-                    clientOrder.restoreOrderStatusBeforeCancel();
-                    FixMsgHelper.rejectCancelRequestToClient(clientOrder,clientOrder.getCancelRequestMsg(),"Cancel rejected from exchange!");
+                    if(clientOrder.getCancelRequestMsg()!=null){
+                        //add check condition to avoid a cancel reject response from exchange directly, where no cancel request sent
+                        clientOrder.restoreOrderStatusBeforeCancel();
+                        FixMsgHelper.rejectCancelRequestToClient(clientOrder,clientOrder.getCancelRequestMsg(),"Cancel rejected from exchange!");
+                    }
+
                 }else{
                     DisruptorController controller = clientOrder.getOrderHandler().getController();
                     if(controller!=null){

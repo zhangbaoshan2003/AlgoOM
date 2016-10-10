@@ -19,9 +19,13 @@
     Date: 20160925-4.2.3.14
     New feature: none
     Bug fixing: add syncrized to fix essions pool manipulation
+
+    Date: 20161010-4.2.3.16
+    New feature: none
+    Bug fixing: failed to process cancel reject msg when no corresponding cancel request initiated
      -->
 
-    <version>4.2.3.14</version>
+    <version>4.2.3.16</version>
 
     <properties>
         <jdk.version>1.8</jdk.version>

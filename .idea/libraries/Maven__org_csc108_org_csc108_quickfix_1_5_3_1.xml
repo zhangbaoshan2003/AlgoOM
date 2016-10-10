@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.csc108:org.csc108.quickfix:1.5.3_1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/csc108/org.csc108.quickfix/1.5.3_1/org.csc108.quickfix-1.5.3_1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/csc108/org.csc108.quickfix/1.5.3_1/org.csc108.quickfix-1.5.3_1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/csc108/org.csc108.quickfix/1.5.3_1/org.csc108.quickfix-1.5.3_1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

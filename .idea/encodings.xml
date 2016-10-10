@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/configuration/defaultSecurityList.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/configuration/defaultSecurityList2.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/exceptions/CacheOperationException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/exceptions/TimeOutException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/exceptions/UnknownValueException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/IEvaluationData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/ITimeable.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/Iterval.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/cache/AlgoCache.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/cache/MTimeSeriesDataCache.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/cache/TimeSeriesDataCache.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/data/OrderSide.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/data/Security.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/data/SecurityType.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/data/SessionGroup.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/data/TradingSession.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/market/OrderBook.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/market/OrderBookParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/market/Quote.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/market/ReadonlyOrderBook.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/market/Transaction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/utility/Constants.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/utility/DateUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/utility/FormattedTable.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/utility/MathUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/csc108/utility/Util.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/model/OrderBookTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/model/QuoteTest.java" charset="UTF-8" />
+  </component>
+</project>

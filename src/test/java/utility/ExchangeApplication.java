@@ -8,6 +8,7 @@ import com.csc108.model.fix.order.ClientOrder;
 import com.csc108.model.fix.order.ExchangeOrder;
 import com.csc108.model.fix.order.ManuallyOrder;
 import com.csc108.utility.FixMsgHelper;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.CancelRequestMessage;
 import junit.framework.Test;
 import quickfix.*;
 import quickfix.Message;
@@ -126,8 +127,16 @@ public class ExchangeApplication  extends MessageCracker implements Application 
             canceledReport.set(new LastPx(0));
             canceledReport.set(new LastShares(0));
             Session.sendToTarget(canceledReport, this.sessionID);
+
         }else if(TestUtility.Purpose==TestPurpose.MANUALLY_ORDER_CANCEL_THEN_PARTIAL_FILL){
             responseManuuallyOrderCancelThenPartialFill(exchangeOrder);
+
+        }else if(TestUtility.Purpose==TestPurpose.CANCEL_REJECT_THEN_FILL_DIRECTLY_FROM_EXG){
+            OrderCancelReject reject = new OrderCancelReject(new OrderID( UUID.randomUUID().toString()), new ClOrdID(UUID.randomUUID().toString()),
+                    new OrigClOrdID(exchangeOrder.getClientOrderId()),new OrdStatus(OrdStatus.FILLED),new CxlRejResponseTo('1'));
+            Session.sendToTarget(reject,this.sessionID);
+
+            fillOrder(exchangeOrder.getClientOrderId(),qtyOrder);
         }
     }
 

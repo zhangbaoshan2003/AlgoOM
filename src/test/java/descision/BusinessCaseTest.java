@@ -339,6 +339,23 @@ public class BusinessCaseTest extends TestCaseBase {
         assertEquals(manuallyOrder.getLeavsQty(), manuallyOrder.getOrderQty() - manuallyOrder.getCumQty());
     }
 
+    public void test005CancelRejectWithoutCancelRequestFromExchange() throws Exception {
+        clientApplication.getOrderSet().clear();
+        exchangeApplication.getOrderSet().clear();
+        OrderPool.getManuallyOrderMap().clear();
+
+        TestUtility.Purpose = TestPurpose.CANCEL_REJECT_THEN_FILL_DIRECTLY_FROM_EXG;
+
+        String symbol = "600000";
+        double price=10.1;
+        double qty=10000;
+
+        ClientOrder order = clientApplication.sendNewSingleOrder(symbol, qty, price,null);
+        TimeUnit.SECONDS.sleep(1);
+        assertEquals(order.getOrdStatus().getValue(), OrdStatus.FILLED);
+
+    }
+
     public void test99Wrapup(){
         boolean noException = TestUtility.checkFileEmpty("Syslog/Error.log");
         assertEquals("Exception happened!", true, noException);

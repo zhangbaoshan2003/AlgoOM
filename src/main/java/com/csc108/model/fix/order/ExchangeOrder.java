@@ -312,7 +312,6 @@ public class ExchangeOrder extends ClientOrder {
                         controller.enqueueEvent(com.csc108.disruptor.event.EventType.EVALUATION, orderHandler, null);
                     }
                 }
-
                 break;
 
             default:

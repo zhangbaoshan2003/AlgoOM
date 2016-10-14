@@ -141,7 +141,7 @@ public class FixMsgHelper {
                throw new IllegalArgumentException("Unrecognized restatement report!@"+responseReport);
             }
             responseReport.set(new ClOrdID(clientOrder.getClientOrderId()));
-            FixMsgHelper.sendMessage(responseReport,clientOrder.getSessionID(),logMsg,clientOrder.getClientOrderId());
+            FixMsgHelper.sendMessage(responseReport, clientOrder.getSessionID(), logMsg, clientOrder.getClientOrderId());
 
         }catch (SessionNotFound ex){
             Alert.fireAlert(Alert.Severity.Critical,String.format(Alert.SESSION_NOT_FOUND_KEY,clientOrder.getSessionID(),clientOrder.getClientOrderId()),
@@ -239,6 +239,17 @@ public class FixMsgHelper {
             cancelRequest =new OrderCancelRequest(new OrigClOrdID(exchangeOrder.getClientOrderId()),
                     new ClOrdID(UUID.randomUUID().toString()),new Symbol(exchangeOrder.getSymbol()),
                     exchangeOrder.getOrderSide(),new TransactTime());
+
+            //need to assing master order id when initiated cancel request for exchange order
+            cancelRequest.setString(526, exchangeOrder.getParent().getSecondaryCloId());
+
+            cancelRequest.setString(167, "CS");
+            if(exchangeOrder.getParent().getExchangeDest().toUpperCase().equals("SH")){
+                cancelRequest.setString(207,"SS");
+            }else{
+                cancelRequest.setString(207,"SZ");
+            }
+            cancelRequest.setString(1, exchangeOrder.getParent().getAccountId());
         }
 
         cancelRequest.set(new OrigClOrdID(exchangeOrder.getClientOrderId()));
@@ -259,21 +270,6 @@ public class FixMsgHelper {
         newOrderSingle.set(new Price(exchangeOrder.getPrice()));
         sendMessage(newOrderSingle, exchangeOrder.getSessionID(), EXG_NEW_ORDER_LOG, exchangeOrder.getParent().getClientOrderId());
         exchangeOrder.setOrderState(OrderState.SENT_TO_EXCHANGE);
-
-//        try{
-//
-//
-//        }catch (SessionNotFound ex){
-//            Alert.fireAlert(Alert.Severity.Major,String.format(Alert.SESSION_NOT_FOUND_KEY,exchangeOrder.getSessionID(),
-//                            exchangeOrder.getClientOrderId()),
-//                    newOrderSingle.toString(),ex);
-//        }catch (FieldNotFound ex){
-//            Alert.fireAlert(Alert.Severity.Major,String.format(Alert.FIELD_NOT_FOUND_KEY,ex.field,exchangeOrder.getClientOrderId()),
-//                    newOrderSingle.toString(),ex);
-//        }catch (Exception ex){
-//            Alert.fireAlert(Alert.Severity.Major,String.format(Alert.SENDING_MSG_ERROR,exchangeOrder.getClientOrderId()),
-//                    ex.getMessage(),ex);
-//        }
     }
 
     /*incoming message handling*/

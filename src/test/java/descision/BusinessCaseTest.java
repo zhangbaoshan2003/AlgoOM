@@ -350,10 +350,32 @@ public class BusinessCaseTest extends TestCaseBase {
         double price=10.1;
         double qty=10000;
 
-        ClientOrder order = clientApplication.sendNewSingleOrder(symbol, qty, price,null);
+        ClientOrder order = clientApplication.sendNewSingleOrder(symbol, qty, price, null);
         TimeUnit.SECONDS.sleep(1);
         assertEquals(order.getOrdStatus().getValue(), OrdStatus.FILLED);
 
+    }
+
+    public void test007ManuallyOrderFilledThenPartialFilled() throws Exception {
+        clientApplication.getOrderSet().clear();
+        exchangeApplication.getOrderSet().clear();
+        OrderPool.getManuallyOrderMap().clear();
+
+        TestUtility.Purpose = TestPurpose.MANUALLY_ORDER_FILLED_THEN_PARTIAL_FILL;
+
+        String symbol = "600000";
+        double price=10.1;
+        double qty=10000;
+
+        ClientOrder order = clientApplication.sendNewSingleOrder(symbol, qty, price,null);
+        TimeUnit.SECONDS.sleep(1);
+        assertEquals(order.getOrdStatus().getValue(), OrdStatus.NEW);
+        assertTrue(OrderPool.getManuallyOrderMap().size() > 0);
+        ManuallyOrder manuallyOrder = OrderPool.getManuallyOrderMap().values().stream().findAny().get();
+        assertNotNull(manuallyOrder);
+
+        //assertEquals(0, manuallyOrder.getLeavsQty());
+        assertEquals(manuallyOrder.getOrdStatus().getValue(), OrdStatus.FILLED);
     }
 
     public void test99Wrapup(){

@@ -74,6 +74,8 @@ public class CancelRejectedEventHandler  extends EventHandlerBase  {
                     }
 
                 }else{
+                    //if pegging, which means only to restore change orders previous status before cancel
+                    exchangeOrder.restoreOrderStatusBeforeCancel();
                     DisruptorController controller = clientOrder.getOrderHandler().getController();
                     if(controller!=null){
                         controller.enqueueEvent(com.csc108.disruptor.event.EventType.EVALUATION, clientOrder.getOrderHandler(), null);

@@ -184,11 +184,11 @@ public class OrderbookDataManager {
                 if(handlers!=null && handlers.length>0){
                     for (Object oHandler : handlers){
                         OrderHandler handler = (OrderHandler)oHandler;
-                        //OrderBookEvaluationData orderBookEvaluationData = new OrderBookEvaluationData(localOrderBook);
+                        OrderBookEvaluationData orderBookEvaluationData = new OrderBookEvaluationData(localOrderBook);
                         try {
                             DisruptorController controller = handler.getController();
                             if(controller!=null){
-                                controller.enqueueEvent(EventType.EVALUATION, handler, null);
+                                controller.enqueueEvent(EventType.EVALUATION, handler, orderBookEvaluationData);
                             }
                         } catch (Exception ex) {
                             LogFactory.error("orderBookUpdated for controller in queue error", ex);

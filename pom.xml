@@ -25,7 +25,7 @@
     Bug fixing: failed to process cancel reject msg when no corresponding cancel request initiated
      -->
 
-    <version>4.2.3.16</version>
+    <version>4.2.4.2</version>
 
     <properties>
         <jdk.version>1.8</jdk.version>

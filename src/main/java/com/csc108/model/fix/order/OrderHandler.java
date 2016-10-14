@@ -171,6 +171,18 @@ public class OrderHandler implements IDataHandler {
 
     //initialize new order
     public void initialize(){
+        try{
+            if(  this.getClientOrder().getNewOrderRequestMsg().isSetField(109)){
+                this.getClientOrder().setClientId(this.getClientOrder().getNewOrderRequestMsg().getString(109));
+            }else{
+                if (this.getClientOrder().getNewOrderRequestMsg().isSetField(1))
+                    this.getClientOrder().setClientId(this.getClientOrder().getNewOrderRequestMsg().getString(1));
+            }
+        }catch (Exception ex){
+            Alert.fireAlert(Alert.Severity.Critical,String.format(Alert.FIELD_NOT_FOUND_KEY,"Client ID",this.getID()),
+                    this.getClientOrder().getNewOrderRequestMsg().toString(),ex);
+        }
+
         //set order qty
 
         try{
@@ -346,11 +358,9 @@ public class OrderHandler implements IDataHandler {
         }
 
         //only subscribe reference market data when it's a conditional order
-        if(this.condition!=null){
+        if(this.isConditionalOrder()==true){
             subscribeOrderBookMarketData(this.condition.getReferSecurity());
         }
-
-
     }
 
     private void subscribeOrderBookMarketData(String symbol){
@@ -415,17 +425,17 @@ public class OrderHandler implements IDataHandler {
         });
     }
 
-    public void process() throws Exception {
+    public void process(boolean flushLog) throws Exception {
         //Todo: should use unallocated qty to tell if should split and sent out
         ArrayList<Allocation> allocations = new ArrayList<>();
         ArrayList<OmEvent> events = new ArrayList<>();
         ArrayList<String> logLines=new ArrayList<>();
 
-        logLines.add("========**************============" + "Begin processing @ " + LocalTime.now() + "========**************============");
+        logLines.add("========**************============ Begin processing @ " + LocalTime.now() + " ========**************============");
 
         if(this.getClientOrder().getLeavesQty()==0.0){
             logLines.add("Zero quantity to allocate! @ "+this.getClientOrder().getFixStatusDisplay());
-            logLines.add("========**************============"+"End processing @ "+lastProcessedTime+"========**************============\r\n\r\n");
+            logLines.add("========**************============ End processing @ "+lastProcessedTime+" ========**************============\r\n\r\n");
             //flush log
             LogFactory.logOrder(this.getClientOrder().getClientOrderId(), logLines);
             return ;
@@ -433,7 +443,7 @@ public class OrderHandler implements IDataHandler {
 
         if(this.getClientOrder().getLeavesQty()<0.0){
             logLines.add("Negative quantity to allocate! @ "+this.getClientOrder().getFixStatusDisplay());
-            logLines.add("========**************============"+"End processing @ "+lastProcessedTime+"========**************============\r\n\r\n");
+            logLines.add("========**************============ End processing @ "+lastProcessedTime+" ========**************============\r\n\r\n");
             //flush log
             LogFactory.logOrder(this.getClientOrder().getClientOrderId(), logLines);
             return ;
@@ -450,12 +460,13 @@ public class OrderHandler implements IDataHandler {
             this.assignNewCancelExchangeOrders(exchangeOrderToCreate, exchangeOrderToCancel,
                     this.exchangeOrders, allocations, logLines);
 
-            logLines.add("The exited exchange orders ...");
+            logLines.add("The existed exchange orders ...");
             this.getExchangeOrders().forEach(x -> {
                 logLines.add(x.toString());
             });
 
             if (exchangeOrderToCancel.size() > 0) {
+
                 logLines.add("Cancel the following exchange orders ...");
                 logLines.add(ClientOrder.printOut(exchangeOrderToCancel));
 
@@ -476,6 +487,7 @@ public class OrderHandler implements IDataHandler {
                 });
 
             }else if(exchangeOrderToCreate.size()>0){
+
                 logLines.add("Generate the following exchange orders ...");
                 ArrayList<ExchangeOrder> exchangeOrdersToGenerate = new ArrayList<>();
                 for(Allocation allocation:exchangeOrderToCreate){
@@ -514,12 +526,13 @@ public class OrderHandler implements IDataHandler {
 
         lastProcessedTime = LocalDateTime.now();
 
-        logLines.add("========**************============"+"End processing @ "+lastProcessedTime+"========**************============\r\n\r\n");
+        logLines.add("========**************============ End processing @ "+lastProcessedTime+" ========**************============\r\n\r\n");
 
         //flush log
-        if(this.isPeggingOrder()==true){
+        publishMsg(false);
+
+        if(flushLog==true){
             LogFactory.logOrder(this.getClientOrder().getClientOrderId(),logLines);
-            publishMsg(false);
         }
     }
 
@@ -704,7 +717,7 @@ public class OrderHandler implements IDataHandler {
             msgDic.put("OrderState", order.getOrderStateDisplay());
             msgDic.put("Algo", this.isPeggingOrder()?"PEGGING":"ALGO");
             msgDic.put("SecondaryClOrd", order.getSecondaryCloId());
-            msgDic.put("ClientID", order.getClientOrderId());
+            msgDic.put("ClientID", order.getClientId());
             msgDic.put("OpenClose", "N/A");
             msgDic.put("ParticipationRate", Double.toString(order.getParticipationRate()) );
             if (!StringUtils.isEmpty(order.getAccountId()))

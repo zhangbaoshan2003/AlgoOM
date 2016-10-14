@@ -10,6 +10,6 @@ rule "ExecutionReportRule"
     when
         task:OrderMessage(task.getMessage()!=null && IsExecutionReport())
     then
-        //LogFactory.droolsLog("Before calling ExecutionReportRule : "+task.getMessage());
-        //LogFactory.droolsLog("Before calling ExecutionReportRule : "+task.getMessage());
+        LogFactory.droolsLog("Before calling ExecutionReportRule : "+task.getMessage());
+        LogFactory.droolsLog("Before calling ExecutionReportRule : "+task.getMessage());
 end

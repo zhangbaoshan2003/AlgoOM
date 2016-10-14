@@ -39,6 +39,8 @@ public class ClientOrder implements Serializable {
     private String symbol="N/A";
 
     private String accountId="";
+    private String clientId="";
+
     private String secondaryCloId="";
     private String exchangeDest="";
     private String securityType="";
@@ -134,6 +136,9 @@ public class ClientOrder implements Serializable {
 
     //restore to previous order status
     public void restoreOrderStatusBeforeCancel(){
+        if(previousStatusBeforePendingCancel==null)
+            throw new IllegalArgumentException("Prev ordstatus is null before being canceled!");
+
         this.ordStatus = previousStatusBeforePendingCancel;
     }
 
@@ -236,18 +241,12 @@ public class ClientOrder implements Serializable {
 
         this.newOrderRequestMsg = (NewOrderSingle)message;
 
-        //populate message
         ClOrdID clOrdID = new ClOrdID();
         this.newOrderRequestMsg.get(clOrdID);
-        this.setClientOrderId(clOrdID.getValue().toString());
 
-        //set id
-        //this.algoOrderID= String.format("%s@%s",this.getClientOrderId(),this.getSessionID());
+        this.setClientOrderId(clOrdID.getValue().toString());
     }
 
-//    public String getAlgoOrderID() {
-//        return algoOrderID;
-//    }
 
     public String getSymbol() {
         return symbol;
@@ -549,14 +548,18 @@ public class ClientOrder implements Serializable {
                             new ExecType(ExecType.CANCELED), FixMsgHelper.CLIENT_IN_REPORT_CANCELED, this.getCancelRequestMsg());
                 }else{
                     //expired client order since there is nothing to do any longer
-                    OrdStatus ordStatusExpected = expectClientOrderStatus();
-                    this.setOrdStatus(ordStatusExpected);
+                    if(this.getOrderHandler().isPeggingOrder()==false){
+                        OrdStatus ordStatusExpected = expectClientOrderStatus();
+                        this.setOrdStatus(ordStatusExpected);
 
-                    if(ordStatusExpected.getValue()==OrdStatus.CANCELED){
-                        //it's a cancelled directly from exchange
-                        responseReport.setField(new OrigClOrdID(this.getClientOrderId()));
+                        if(ordStatusExpected.getValue()==OrdStatus.CANCELED){
+                            //it's a cancelled directly from exchange
+                            responseReport.setField(new OrigClOrdID(this.getClientOrderId()));
+                        }
+                        FixMsgHelper.responseClientOrderWhenCompleted(this,responseReport);
+                    }else{
+                        //todo: check expire logic
                     }
-                    FixMsgHelper.responseClientOrderWhenCompleted(this,responseReport);
                 }
             }
 
@@ -644,5 +647,13 @@ public class ClientOrder implements Serializable {
 
     public void setStockName(String stockName) {
         this.stockName = stockName;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 }

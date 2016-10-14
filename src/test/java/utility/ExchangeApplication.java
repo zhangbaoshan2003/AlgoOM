@@ -131,6 +131,9 @@ public class ExchangeApplication  extends MessageCracker implements Application 
         }else if(TestUtility.Purpose==TestPurpose.MANUALLY_ORDER_CANCEL_THEN_PARTIAL_FILL){
             responseManuuallyOrderCancelThenPartialFill(exchangeOrder);
 
+        }else if(TestUtility.Purpose==TestPurpose.MANUALLY_ORDER_FILLED_THEN_PARTIAL_FILL){
+            responseManuuallyOrderFilledThenPartialFill(exchangeOrder);
+
         }else if(TestUtility.Purpose==TestPurpose.CANCEL_REJECT_THEN_FILL_DIRECTLY_FROM_EXG){
             OrderCancelReject reject = new OrderCancelReject(new OrderID( UUID.randomUUID().toString()), new ClOrdID(UUID.randomUUID().toString()),
                     new OrigClOrdID(exchangeOrder.getClientOrderId()),new OrdStatus(OrdStatus.FILLED),new CxlRejResponseTo('1'));
@@ -145,7 +148,7 @@ public class ExchangeApplication  extends MessageCracker implements Application 
         if(exchangeOrder==null)
             throw new NullPointerException("Can't find exchange order for "+cloOrderId);
 
-        exchangeOrder.setCumQty(exchangeOrder.getCumQty() + (long)qtyToFill);
+        exchangeOrder.setCumQty(exchangeOrder.getCumQty() + (long) qtyToFill);
 
         OrdStatus ordStatus = null;
         ExecType execType = null;
@@ -325,6 +328,72 @@ public class ExchangeApplication  extends MessageCracker implements Application 
             exchangeOrder.setOrdStatus(new OrdStatus(OrdStatus.CANCELED));
             Session.sendToTarget(canceledReport, this.sessionID);
         }
+    }
+
+    private void responseManuuallyOrderFilledThenPartialFill(ExchangeOrder exchangeOrder) throws Exception {
+        String exchangeOrderId=exchangeOrder.getClientOrderId();
+        ExecutionReport acknowledgement = new ExecutionReport(
+                new OrderID("Manually_"+exchangeOrderId),
+                new ExecID(UUID.randomUUID().toString()),
+                new ExecTransType(ExecTransType.NEW),
+                new ExecType(ExecType.NEW),
+                new OrdStatus(OrdStatus.NEW),
+                new Symbol(exchangeOrder.getSymbol()),
+                exchangeOrder.getOrderSide(),
+                new LeavesQty(exchangeOrder.getOrderQty()),
+                new CumQty(0),
+                new AvgPx(exchangeOrder.getPrice())
+        );
+
+        acknowledgement.setString(ManuallyOrder.TAG_MANUA_MASTER_ORDER_ID,"123456");
+        acknowledgement.set(new ClOrdID("Manually_" + exchangeOrderId));
+        acknowledgement.set(new Price(exchangeOrder.getPrice()));
+        acknowledgement.set(new OrderQty(exchangeOrder.getOrderQty()));
+
+        Session.sendToTarget(acknowledgement, this.sessionID);
+
+        //fill
+        double partialFillQty=100;
+        double fillQty = exchangeOrder.getOrderQty()-partialFillQty;
+        ExecutionReport fillReport = new ExecutionReport(
+                new OrderID("Manually_" + exchangeOrderId),
+                new ExecID(UUID.randomUUID().toString()),
+                new ExecTransType(ExecTransType.NEW),
+                new ExecType(ExecType.FILL),
+                new OrdStatus(OrdStatus.FILLED),
+                new Symbol(exchangeOrder.getSymbol()),
+                exchangeOrder.getOrderSide(),
+                new LeavesQty(0),
+                new CumQty(fillQty),
+                new AvgPx(exchangeOrder.getPrice())
+        );
+        fillReport.set(new ClOrdID("Manually_" + exchangeOrder.getClientOrderId()));
+        fillReport.set(new LastPx(exchangeOrder.getPrice()));
+        fillReport.set(new LastShares((long)fillQty));
+        exchangeOrder.setCumQty((long)fillQty);
+        Session.sendToTarget(fillReport, this.sessionID);
+
+
+//        //partialFilled
+//        double leavesQty = exchangeOrder.getOrderQty()-partialFillQty;
+//        ExecutionReport canceledReport = new ExecutionReport(
+//                new OrderID("Manually_" +exchangeOrder.getClientOrderId()),
+//                new ExecID(UUID.randomUUID().toString()),
+//                new ExecTransType(ExecTransType.NEW),
+//                new ExecType(ExecType.PARTIAL_FILL),
+//                new OrdStatus(OrdStatus.PARTIALLY_FILLED),
+//                new Symbol(exchangeOrder.getSymbol()),
+//                exchangeOrder.getOrderSide(),
+//                new LeavesQty(leavesQty),
+//                new CumQty(partialFillQty),
+//                new AvgPx(exchangeOrder.getPrice())
+//        );
+//        canceledReport.set(new ClOrdID(UUID.randomUUID().toString()));
+//        canceledReport.set(new OrigClOrdID("Manually_" +exchangeOrder.getClientOrderId()));
+//        canceledReport.set(new LastPx(0));
+//        canceledReport.set(new LastShares(0));
+//        Session.sendToTarget(canceledReport, this.sessionID);
+
     }
 
     private void responseManuuallyOrderCancelThenPartialFill(ExchangeOrder exchangeOrder) throws Exception {

@@ -169,10 +169,13 @@ public class ClientApplication  extends MessageCracker implements  Application {
                 clientOrderId = message.getString(11);
                 gateWay = gatewaysLocks.get(clientOrderId);
                 clientOrder = orderSet.get(clientOrderId);
-                clientOrder.setOrdStatus(new OrdStatus(OrdStatus.FILLED));
-                lastFill = message.get(new LastShares()).getValue();
-                clientOrder.setCumQty(clientOrder.getCumQty() + (long)lastFill);
-                LogFactory.info("Receiving  fill :" + clientOrderId + " leave qty " + clientOrder.getLeavesQty());
+                if(clientOrder!=null){
+                    clientOrder.setOrdStatus(new OrdStatus(OrdStatus.FILLED));
+                    lastFill = message.get(new LastShares()).getValue();
+                    clientOrder.setCumQty(clientOrder.getCumQty() + (long)lastFill);
+                    LogFactory.info("Receiving  fill :" + clientOrderId + " leave qty " + clientOrder.getLeavesQty());
+                }
+
                 if(gateWay!=null){
                     gateWay.countDown();
                 }

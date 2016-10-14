@@ -33,20 +33,19 @@ public class MarketDataUpdatedEventHandler extends EventHandlerBase {
                 if (eventSource.getTriggerData() instanceof RealTimeMarketData) {
                     RealTimeMarketData eventData = (RealTimeMarketData) eventSource.getTriggerData();
                     orderHandler.setRealTimeMarketData(eventData);
-                    orderHandler.process();
+                    orderHandler.process(false);
                 }
 
                 if (eventSource.getTriggerData() instanceof IntervalMarketData) {
                     IntervalMarketData eventData = (IntervalMarketData) eventSource.getTriggerData();
                     orderHandler.setIntervalMarketData(eventData);
-                    //orderHandler.publishMsg(false);
-                    orderHandler.process();
+                    orderHandler.process(false);
                 }
 
                 if (eventSource.getTriggerData() instanceof AllDayIntervalMarketData) {
                     AllDayIntervalMarketData eventData = (AllDayIntervalMarketData) eventSource.getTriggerData();
                     orderHandler.setAllDayIntervalMarketData(eventData);
-                    orderHandler.process();
+                    orderHandler.process(false);
                 }
             }
         } catch (Exception ex) {

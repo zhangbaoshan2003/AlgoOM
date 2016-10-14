@@ -139,6 +139,43 @@ public class ManuallyOrder {
                 break;
 
             case ExecType.FILL:
+                double lastPxFromFill =message.getField(new LastPx()).getValue();
+
+                LeavesQty leavesQtyFieldFromFilledReport= new LeavesQty();
+                message.get(leavesQtyFieldFromFilledReport);
+                double lastShareFilled = leavesQtyFieldFromFilledReport.getValue();
+
+                if((lastShareFilled+this.getCumQty())!=this.orderQty){
+                    //missing a partial fill, suplement it
+                    double missQty = this.orderQty - (lastShareFilled+this.getCumQty());
+                    cumQty = cumQty+missQty;
+
+                    ExecutionReport fillReport = new ExecutionReport(
+                            new OrderID(manuallyClOrdID),
+                            new ExecID(UUID.randomUUID().toString()),
+                            new ExecTransType(ExecTransType.NEW),
+                            new ExecType(ExecType.PARTIAL_FILL),
+                            new OrdStatus(OrdStatus.PARTIALLY_FILLED),
+                            new Symbol(this.symbol),
+                            this.orderSide,
+                            new LeavesQty(),
+                            new CumQty(this.getCumQty()+missQty),
+                            new AvgPx(this.avgPrice)
+                    );
+                    fillReport.set(new ClOrdID(manuallyClOrdID));
+                    fillReport.set(new LastPx(lastPxFromFill));
+                    fillReport.set(new LastShares(missQty));
+
+                    //FixMsgHelper.sendMessage(fillReport, sessionID, "Client << Exec Report(Manually Partial Fill due to wrong cancel qty)", this.manuallyClOrdID);
+                    SessionPool.getInstance().getClientSessions().forEach(sessionID -> {
+                        try {
+                            FixMsgHelper.sendMessage(message, sessionID, "Client << Exec Report(Manually Partial Fill due to wrong fill qty)", this.manuallyClOrdID);
+                        } catch (Exception ex) {
+                            LogFactory.error("Iterate send out manually order response failed!", ex);
+                        }
+                    });
+                }
+
                 ordStatus = new OrdStatus(OrdStatus.FILLED);
                 //FixMsgHelper.sendMessage(message,sessionID,"Client << Exec Report(Manually Fill)",this.manuallyClOrdID);
                 SessionPool.getInstance().getClientSessions().forEach(sessionID -> {

@@ -234,7 +234,7 @@ public class EventDispatcher implements ILifetimeCycle {
                         try{
                             manuallyOrder.processReportAndNotifyClient(executionReport);
                         }catch (Exception ex){
-                            LogFactory.error("Process manually order error! @"+executionReport,null);
+                            LogFactory.error("Process manually order error! @"+executionReport,ex);
                         }
                         return;
                     }

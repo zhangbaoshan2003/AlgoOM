@@ -4,6 +4,8 @@ import com.csc108.disruptor.event.OmEvent;
 import com.csc108.log.LogFactory;
 import com.csc108.model.fix.order.ClientOrder;
 import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.market.OrderBookEvaluationData;
+import com.csc108.model.market.RealTimeMarketData;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FixUtil;
 
@@ -43,13 +45,13 @@ public class EvaluationEventHandler extends EventHandlerBase {
         }
 
         try{
-//            if(eventSource.getTriggerData()!=null){
-//                if(eventSource.getTriggerData() instanceof OrderBookEvaluationData){
-//                    OrderBookEvaluationData eventData = (OrderBookEvaluationData)eventSource.getTriggerData();
-//                    clientOrderHandler.receiveNewOrderBook(eventData.getOrderBookUpdated());
-//                }
-//            }
-            clientOrderHandler.process();
+            boolean flushLog=false;
+            if(eventSource.getTriggerData() != null){
+                if (eventSource.getTriggerData() instanceof OrderBookEvaluationData) {
+                    flushLog=true;
+                }
+            }
+            clientOrderHandler.process(flushLog);
         }catch (Exception ex){
             Alert.fireAlert(Alert.Severity.Major,String.format(Alert.PROCESS_ORDER_ERROR,clientOrderId), ex.getMessage(),ex);
         }

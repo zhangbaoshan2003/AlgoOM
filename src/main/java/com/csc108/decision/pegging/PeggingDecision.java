@@ -128,25 +128,24 @@ public class PeggingDecision  extends BaseDecision {
 
         PegConfiguration configuration = orderHandler.getPegConfiguration();
         if(configuration==null){
-            logLines.add("There is no pegging configuration for pegging order!");
-            return true;
+            throw new IllegalArgumentException("There is no pegging configuration for pegging order!");
         }
 
         String securityID = orderHandler.getClientOrder().getSecurityId();
         logLines.add("Security id : "+securityID);
         OrderBook latestOrderbook = OrderbookDataManager.getInstance().getLatestOrderBook(securityID);
         if(latestOrderbook==null){
-            logLines.add("No order book available for " + orderHandler.getClientOrder().getSymbol() + ", no pegging");
+
             Alert.fireAlert(Alert.Severity.Major,getAlertKey(orderHandler),"OrderBook "
                     +orderHandler.getClientOrder().getSecurityId()+" is not available for the pegging order!",null);
-            return true;
+
+            throw new IllegalArgumentException("No order book available for " + orderHandler.getClientOrder().getSymbol() + ", no pegging");
         }
 
         Alert.clearAlert(getAlertKey(orderHandler));
 
-        logLines.add("Last orderbook @"+latestOrderbook.toString());
-        logLines.add("Last order processed time @"+orderHandler.getLastProcessedTime());
-
+        logLines.add("The latest orderbook @"+latestOrderbook.toString());
+        logLines.add("The latest order processed time @"+orderHandler.getLastProcessedTime());
 
         try{
             logLines.add("Begin pegging allocation @ configuration:");

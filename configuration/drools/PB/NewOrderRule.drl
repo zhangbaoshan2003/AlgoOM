@@ -10,7 +10,7 @@ rule "NewOrderRule"
     when
         task:OrderMessage(task.getMessage()!=null && IsNewOrderMessage())
     then
-        //LogFactory.droolsLog("Before calling NewOrderRule : "+task.getMessage());
+        LogFactory.droolsLog("Before calling NewOrderRule : "+task.getMessage());
         if(task.getMessage().isSetField(10)){
                 task.getMessage().removeField(10);
             }
@@ -93,21 +93,27 @@ rule "NewOrderRule"
 			//remove conditonal order related tag
 			if(task.getMessage().isSetField(7200)){
                 task.getMessage().removeField(7200);
+				task.getMessage().setString(15012,"dummy_pegging");
             }
 			if(task.getMessage().isSetField(7202)){
                 task.getMessage().removeField(7202);
+				//task.getMessage().setString(15012,"dummy_pegging");
             }
 			if(task.getMessage().isSetField(7201)){
                 task.getMessage().removeField(7201);
+				//task.getMessage().setString(15012,"dummy_pegging");
             }
 			if(task.getMessage().isSetField(7204)){
                 task.getMessage().removeField(7204);
+				//task.getMessage().setString(15012,"dummy_pegging");
             }
 			if(task.getMessage().isSetField(7205)){
                 task.getMessage().removeField(7205);
+				//task.getMessage().setString(15012,"dummy_pegging");
             }
 			if(task.getMessage().isSetField(7206)){
                 task.getMessage().removeField(7206);
+				//task.getMessage().setString(15012,"dummy_pegging");
             }
-        //LogFactory.droolsLog("After calling NewOrderRule : "+task.getMessage());
+        LogFactory.droolsLog("After calling NewOrderRule : "+task.getMessage());
 end

@@ -45,6 +45,9 @@ public class NewOrderEventHandler extends EventHandlerBase {
                 return;
             }
 
+            OrderMessage orderMessage = new OrderMessage(clientOrderHandler.getClientOrder().getNewOrderRequestMsg());
+            DroolsUtility.processMessage(orderMessage, DroolsType.NEW_SINGLE_ORDER_REQUEST);
+
             if(clientOrderHandler.getClientOrder().getOrderState()!=OrderState.INITIALIZED){
                 clientOrderHandler.initialize();
                 clientOrderHandler.getClientOrder().setOrderState(OrderState.INITIALIZED);
@@ -59,11 +62,8 @@ public class NewOrderEventHandler extends EventHandlerBase {
                         String.format(Alert.INITIALIZE_CLIENT_ORDER_KEY,clientOrderHandler.getAlertID()),"Can't initialize client order more than once!",null);
             }
 
-            OrderMessage orderMessage = new OrderMessage(clientOrderHandler.getClientOrder().getNewOrderRequestMsg());
-            DroolsUtility.processMessage(orderMessage, DroolsType.NEW_SINGLE_ORDER_REQUEST);
-
             try{
-                clientOrderHandler.process();
+                clientOrderHandler.process(false);
             }catch (Exception ex){
                 Alert.fireAlert(Alert.Severity.Major,String.format(Alert.PROCESS_ORDER_ERROR,clientOrderHandler.getAlertID()), ex.getMessage(),ex);
             }

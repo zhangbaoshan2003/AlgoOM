@@ -10,7 +10,7 @@ rule "CancelRequestRule"
     when
         task:OrderMessage(task.getMessage()!=null && IsCancelOrderMessage())
     then
-        //LogFactory.droolsLog("Before calling CancelRequestRule : "+task.getMessage());
+        LogFactory.droolsLog("Before calling CancelRequestRule : "+task.getMessage());
          if(task.getMessage().isSetField(58)){
             task.getMessage().removeField(58);
         }
@@ -34,5 +34,5 @@ rule "CancelRequestRule"
         if(task.getMessage().isSetField(207)){
             task.getMessage().removeField(207);
         }
-        //LogFactory.droolsLog("After calling CancelRequestRule : "+task.getMessage());
+        LogFactory.droolsLog("After calling CancelRequestRule : "+task.getMessage());
 end

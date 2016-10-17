@@ -19,6 +19,7 @@ import java.util.List;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class OrderBookTest {
@@ -391,6 +392,7 @@ public class OrderBookTest {
 		ask.add(new Quote(10.1, 2000));
 		ask.add(new Quote(10.2, 3000));
 
+
 		List<Quote> bid = new ArrayList<Quote>();
 		bid.add(new Quote(9.9, 4000));
 		bid.add(new Quote(9.8, 5000));
@@ -405,6 +407,14 @@ public class OrderBookTest {
 		assertEquals(true, ob1.equals(ob2));
 		assertTrue(ob1.equals(ob2));
 
+		assertEquals(true, ob1.princeLevelEquals(ob2, 3));
+
+		ask = new ArrayList<Quote>();
+		ask.add(new Quote(10.0, 1000));
+		ask.add(new Quote(10.1, 2000));
+		ask.add(new Quote(10.3, 3000));
+		ob2.setAsk(ask);
+		assertEquals(false, ob1.princeLevelEquals(ob2, 3));
 	}
 
 	@Test

@@ -23,6 +23,10 @@
     Date: 20161010-4.2.3.16
     New feature: none
     Bug fixing: failed to process cancel reject msg when no corresponding cancel request initiated
+
+    Date: 20161010-4.2.5.18
+    New feature: format exchangers output
+    Bug fixing: for pegging, can't continue when cancelling all of exchange orders
      -->
 
     <version>4.2.4.2</version>

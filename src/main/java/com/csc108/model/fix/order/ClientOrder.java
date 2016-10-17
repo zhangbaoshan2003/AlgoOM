@@ -17,10 +17,7 @@ import quickfix.fix42.OrderCancelRequest;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -271,7 +268,7 @@ public class ClientOrder implements Serializable {
 
     public String getFixStatusDisplay() {
         if (this.getOrdStatus().getValue() == '0') return "New";
-        if (this.getOrdStatus().getValue() == '1') return "PartiallyFilled";
+        if (this.getOrdStatus().getValue() == '1') return "PartialFilled";
         if (this.getOrdStatus().getValue() == '2') return "Filled";
         if (this.getOrdStatus().getValue() == '3') return "Done for day";
         if (this.getOrdStatus().getValue() == '4') return "Canceled";
@@ -297,6 +294,46 @@ public class ClientOrder implements Serializable {
         if (this.getOrderState().getValue() == 6) return "PENDING_RESUME";
         if (this.getOrderState().getValue() == 7) return "RESUMED";
         return "<UNKNOWN>";
+    }
+
+    public static String toString(ArrayList<ExchangeOrder> orders ){
+        FormattedTable table = new FormattedTable();
+        List<Object> header = new ArrayList<Object>();
+        header.add("clOrdId");
+        header.add("side");
+        header.add("price");
+        header.add("orderQty");
+        header.add("cumQty");
+        header.add("leavesQty");
+        header.add("symbol");
+        header.add("orderStatus");
+        header.add("orderState");
+        header.add("accountId");
+        table.AddRow(header);
+
+        if(orders!=null && orders.size()>0){
+            orders.forEach(order->{
+                try{
+                    List<Object> row = new ArrayList<Object>();
+                    row.add(order.getClientOrderId());
+                    row.add(order.getOrderSide().getValue());
+                    row.add(Double.toString(order.getPrice()));
+                    row.add(Double.toString(order.getOrderQty()));
+                    row.add(Double.toString(order.getCumQty()));
+                    row.add(Double.toString(order.getLeavesQty()));
+                    row.add(order.getSymbol());
+                    row.add(order.getFixStatusDisplay());
+                    row.add(order.getOrderStateDisplay());
+                    row.add(order.getAccountId());
+
+                    table.AddRow(row);
+                }catch (Exception ex){
+                    LogFactory.error("Parse error!",ex);
+                }
+            });
+            return table.toString();
+        }
+        return "N/A";
     }
 
     @Override

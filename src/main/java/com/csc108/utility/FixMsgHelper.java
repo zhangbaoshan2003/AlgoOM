@@ -232,8 +232,9 @@ public class FixMsgHelper {
     public static void cancelExchangeOrder(ExchangeOrder exchangeOrder) throws Exception {
 
         OrderCancelRequest cancelRequest=null;
+        boolean isPeggingOrder = exchangeOrder.getParent().getOrderHandler().isPeggingOrder();
 
-        if(exchangeOrder.getParent().getCancelRequestMsg()!=null){
+        if(exchangeOrder.getParent().getCancelRequestMsg()!=null && isPeggingOrder==false){
             cancelRequest = (OrderCancelRequest )exchangeOrder.getParent().getCancelRequestMsg().clone();
         }else{
             cancelRequest =new OrderCancelRequest(new OrigClOrdID(exchangeOrder.getClientOrderId()),

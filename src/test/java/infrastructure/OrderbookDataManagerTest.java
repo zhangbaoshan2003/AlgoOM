@@ -80,6 +80,17 @@ public class OrderbookDataManagerTest extends TestCase {
         assertEquals("Exception happened!", true, noException);
     }
 
+    public void testSubscribeSZSecurityWorks() throws Exception {
+        OrderbookDataManager.getInstance().subscribeOrderBook("300367.sz", false,null);
+        outputService.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(OrderbookDataManager.getInstance().toString());
+            }
+        }, 1000, 1000, TimeUnit.MICROSECONDS);
+        Thread.sleep(3 * 1000);
+    }
+
     public void testPublishDataToMqWorks() throws Exception {
         String symbol = "600000";
         double preClose=11.01;

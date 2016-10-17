@@ -322,6 +322,15 @@ public class OrderBook implements Cloneable, Serializable, ITimeable,Comparable<
 		return Util.deepCopy(this);
 	}
 
+	public boolean princeLevelEquals(OrderBook ob, int level){
+		for (int i=0;i<level;i++){
+			if(this.getAsk(i).getPrice()!=ob.getAsk(i).getPrice() || this.getBid(i).getPrice()!=ob.getBid(i).getPrice()){
+				return false;
+			}
+		}
+		return true;
+	}
+
 	@Override
 	public String toString() {
 		FormattedTable table = new FormattedTable();

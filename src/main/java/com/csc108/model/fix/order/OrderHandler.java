@@ -261,7 +261,7 @@ public class OrderHandler implements IDataHandler {
 
         try{
             SecurityExchange exDest =this.getClientOrder().getNewOrderRequestMsg().getSecurityExchange();
-            if(exDest.getValue()=="SZ"){
+            if(exDest.getValue().equalsIgnoreCase("SZ")){
                 this.getClientOrder().setExchangeDest("sz");
             }else{
                 this.getClientOrder().setExchangeDest("sh");
@@ -461,14 +461,13 @@ public class OrderHandler implements IDataHandler {
                     this.exchangeOrders, allocations, logLines);
 
             logLines.add("The existed exchange orders ...");
-            this.getExchangeOrders().forEach(x -> {
-                logLines.add(x.toString());
-            });
+
+            logLines.add(ClientOrder.toString(this.getExchangeOrders()));
 
             if (exchangeOrderToCancel.size() > 0) {
 
                 logLines.add("Cancel the following exchange orders ...");
-                logLines.add(ClientOrder.printOut(exchangeOrderToCancel));
+                logLines.add(ClientOrder.toString(exchangeOrderToCancel));
 
                 exchangeOrderToCancel.forEach(x -> {
                     try {
@@ -487,7 +486,6 @@ public class OrderHandler implements IDataHandler {
                 });
 
             }else if(exchangeOrderToCreate.size()>0){
-
                 logLines.add("Generate the following exchange orders ...");
                 ArrayList<ExchangeOrder> exchangeOrdersToGenerate = new ArrayList<>();
                 for(Allocation allocation:exchangeOrderToCreate){
@@ -505,7 +503,8 @@ public class OrderHandler implements IDataHandler {
                 }
 
                 this.getExchangeOrders().addAll(exchangeOrdersToGenerate);
-                logLines.add(ClientOrder.printOut(exchangeOrdersToGenerate));
+                //logLines.add(ClientOrder.printOut(exchangeOrdersToGenerate));
+                logLines.add(ClientOrder.toString(exchangeOrdersToGenerate));
             }
         }
 

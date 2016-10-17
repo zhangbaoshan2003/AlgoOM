@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class PeggingDecision  extends BaseDecision {
     private boolean peggingAlertFiredBefore=false;
+    private OrderBook lastTriggedOrderBook=null;
 
     private String getAlertKey(OrderHandler orderHandler){
         return String.format(Alert.PEG_NO_ALLOCATION_ERROR,orderHandler.getClientOrder().getClientOrderId());
@@ -132,9 +133,9 @@ public class PeggingDecision  extends BaseDecision {
         }
 
         String securityID = orderHandler.getClientOrder().getSecurityId();
-        logLines.add("Security id : "+securityID);
-        OrderBook latestOrderbook = OrderbookDataManager.getInstance().getLatestOrderBook(securityID);
-        if(latestOrderbook==null){
+        logLines.add("Security id : " + securityID);
+        OrderBook theLatestOrderBook = OrderbookDataManager.getInstance().getLatestOrderBook(securityID);
+        if(theLatestOrderBook==null){
 
             Alert.fireAlert(Alert.Severity.Major,getAlertKey(orderHandler),"OrderBook "
                     +orderHandler.getClientOrder().getSecurityId()+" is not available for the pegging order!",null);
@@ -144,8 +145,13 @@ public class PeggingDecision  extends BaseDecision {
 
         Alert.clearAlert(getAlertKey(orderHandler));
 
-        logLines.add("The latest orderbook @"+latestOrderbook.toString());
-        logLines.add("The latest order processed time @"+orderHandler.getLastProcessedTime());
+        //order book changed
+        if(lastTriggedOrderBook!=null){
+            logLines.add("The last orderbook triggered @" + lastTriggedOrderBook.toString());
+        }
+        logLines.add("The new arrived orderbook triggered @"+theLatestOrderBook.toString());
+
+        lastTriggedOrderBook = (OrderBook)theLatestOrderBook.clone();
 
         try{
             logLines.add("Begin pegging allocation @ configuration:");
@@ -154,7 +160,7 @@ public class PeggingDecision  extends BaseDecision {
             peggingAllocate(allocationDecisions_, qtyToAllocate_.getValue(),
                     configuration.getLadderLevel(),
                     configuration.getDisplaySize(),
-                    orderHandler.getClientOrder().getOrderSide(), latestOrderbook, 100);
+                    orderHandler.getClientOrder().getOrderSide(), theLatestOrderBook, 100);
 
             double totalAllocatedQty = allocationDecisions_.stream().mapToDouble(x->x.getAllocatedQuantity())
                     .sum();

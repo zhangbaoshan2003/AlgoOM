@@ -136,6 +136,9 @@ public class ClientOrder implements Serializable {
         if(previousStatusBeforePendingCancel==null)
             throw new IllegalArgumentException("Prev ordstatus is null before being canceled!");
 
+        if(FixUtil.IsOrderCompleted(this.ordStatus))
+            throw new IllegalArgumentException("Current ordstauts is completed as "+this.ordStatus.getValue()+", can't restore");
+
         this.ordStatus = previousStatusBeforePendingCancel;
     }
 

@@ -71,9 +71,9 @@ rule "NewOrderRule"
                 task.getMessage().setString(21,"1");
             }
             if((!task.getMessage().isSetField(109)) && (task.getMessage().getHeader().isSetField(116))){
-                task.getMessage().setString(109,"Cld_O32_"+task.getMessage().getHeader().getString(116));
+                task.getMessage().setString(109,"Cld_PEG_"+task.getMessage().getHeader().getString(116));
             }else{
-				task.getMessage().setString(109,"Cld_O32_01");
+				task.getMessage().setString(109,"Cld_PEG_01");
 			}
 
             if(task.getMessage().isSetField(7001) && !(task.getMessage().getString(7001).equals(null))){
@@ -87,33 +87,33 @@ rule "NewOrderRule"
                 }
                 task.getMessage().setString(1,accountId);
             }else if((!task.getMessage().isSetField(7001)) || (task.getMessage().getString(7001).equals(null))||(task.getMessage().getString(7001).equals(""))){
-                task.getMessage().setString(1,"Acct_PB_01");
+                task.getMessage().setString(1,"Acct_PEG_01");
             }
 			
 			//remove conditonal order related tag
-			if(task.getMessage().isSetField(7200)){
-                task.getMessage().removeField(7200);
-				task.getMessage().setString(15012,"dummy_pegging");
-            }
-			if(task.getMessage().isSetField(7202)){
-                task.getMessage().removeField(7202);
-				//task.getMessage().setString(15012,"dummy_pegging");
-            }
-			if(task.getMessage().isSetField(7201)){
-                task.getMessage().removeField(7201);
-				//task.getMessage().setString(15012,"dummy_pegging");
-            }
-			if(task.getMessage().isSetField(7204)){
-                task.getMessage().removeField(7204);
-				//task.getMessage().setString(15012,"dummy_pegging");
-            }
-			if(task.getMessage().isSetField(7205)){
-                task.getMessage().removeField(7205);
-				//task.getMessage().setString(15012,"dummy_pegging");
-            }
-			if(task.getMessage().isSetField(7206)){
-                task.getMessage().removeField(7206);
-				//task.getMessage().setString(15012,"dummy_pegging");
-            }
+//			if(task.getMessage().isSetField(7200)){
+//                task.getMessage().removeField(7200);
+//				//task.getMessage().setString(15012,"dummy_pegging");
+//            }
+//			if(task.getMessage().isSetField(7202)){
+//                task.getMessage().removeField(7202);
+//				//task.getMessage().setString(15012,"dummy_pegging");
+//            }
+//			if(task.getMessage().isSetField(7201)){
+//                task.getMessage().removeField(7201);
+//				//task.getMessage().setString(15012,"dummy_pegging");
+//            }
+//			if(task.getMessage().isSetField(7204)){
+//                task.getMessage().removeField(7204);
+//				//task.getMessage().setString(15012,"dummy_pegging");
+//            }
+//			if(task.getMessage().isSetField(7205)){
+//                task.getMessage().removeField(7205);
+//				//task.getMessage().setString(15012,"dummy_pegging");
+//            }
+//			if(task.getMessage().isSetField(7206)){
+//                task.getMessage().removeField(7206);
+//				//task.getMessage().setString(15012,"dummy_pegging");
+//            }
         LogFactory.droolsLog("After calling NewOrderRule : "+task.getMessage());
 end

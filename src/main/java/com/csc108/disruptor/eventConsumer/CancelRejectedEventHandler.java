@@ -59,15 +59,19 @@ public class CancelRejectedEventHandler  extends EventHandlerBase  {
             if(exchangeOrder==null)
                 throw new IllegalArgumentException("Can't find exchange order to process cancel reject msg : "+reject);
 
+            //this is a test
+
             if(FixUtil.IsOrderCompleted(exchangeOrder.getOrdStatus())==true){
-                LogFactory.warn("Can't process reject cancel message for a completed order, whose current order status is +"+exchangeOrder.getFixStatusDisplay());
+                Alert.fireAlert(Alert.Severity.Major,
+                        String.format(Alert.PROCESS_CANCEL_REJECT_ERROR, clientOrder.getClientOrderId()),
+                        "Can't process reject cancel message for a completed order, whose current order status is +"+exchangeOrder.getFixStatusDisplay(),null);
             }
 
             //Todo: potential issue when multiple exchange orders generated for a client order
             if(clientOrder.getOrderHandler()!=null)
                 if(clientOrder.getOrderHandler().isPeggingOrder()==false){
                     //normal algo order, sent response back
-                    if(clientOrder.getCancelRequestMsg()!=null){
+                    if(clientOrder.getOrdStatus().getValue()==OrdStatus.PENDING_CANCEL){
                         //add check condition to avoid a cancel reject response from exchange directly, where no cancel request sent
                         clientOrder.restoreOrderStatusBeforeCancel();
                         FixMsgHelper.rejectCancelRequestToClient(clientOrder,clientOrder.getCancelRequestMsg(),"Cancel rejected from exchange!");

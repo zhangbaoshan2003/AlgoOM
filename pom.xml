@@ -27,6 +27,10 @@
     Date: 20161010-4.2.5.18
     New feature: format exchangers output
     Bug fixing: for pegging, can't continue when cancelling all of exchange orders
+
+    Date: 20161010-4.2.5.20
+    New feature: none
+    Bug fixing: error to process duplicate cancel_rejected response from PB
      -->
 
     <version>4.2.4.2</version>

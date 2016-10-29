@@ -189,7 +189,7 @@
     </dependencies>
 
     <build>
-        <finalName>AlgoPbOM_SG</finalName>
+        <finalName>sendOrder</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -210,7 +210,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <!-- Jar file entry point -->
-                            <mainClass>com.csc108.Main</mainClass>
+                            <mainClass>com.csc108.tradingClient.SendOrder</mainClass>
                             <classpathPrefix>dependency-jars/</classpathPrefix>
                         </manifest>
                     </archive>

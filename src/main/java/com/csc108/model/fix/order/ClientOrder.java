@@ -234,6 +234,8 @@ public class ClientOrder implements Serializable {
     public ClientOrder(){
         //this.algoOrderID="N/A";
         this.orderHandler =null;
+        this.setClientOrderId(UUID.randomUUID().toString());
+        this.setOrdStatus(new OrdStatus(OrdStatus.PENDING_NEW));
     }
 
     public ClientOrder(NewOrderSingle message,SessionID clientSessionID) throws Exception {

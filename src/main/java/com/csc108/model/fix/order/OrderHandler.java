@@ -74,6 +74,13 @@ public class OrderHandler implements IDataHandler {
     }
 
     private DecisionChainManager decisionChain=null;
+    public void setDecisionChain(DecisionChainManager chainManager){
+        decisionChain = chainManager;
+    }
+    public DecisionChainManager getDecisionChain(){
+        return decisionChain;
+    }
+
 
     /*hold how many allocations have been calculated out for this client order*/
     private final ArrayList<Allocation> allocations = new ArrayList<>();
@@ -110,7 +117,7 @@ public class OrderHandler implements IDataHandler {
         this.clientOrder = order;
         order.setOrderHandler(this);
         this.controller = controller;
-        this.configCache.put(this.getClientOrder().getClientOrderId(),new SplitOrderDecisionConfig(1));
+        //this.configCache.put(this.getClientOrder().getClientOrderId(),new SplitOrderDecisionConfig(1));
     }
 
     public ClientOrder getClientOrder() {

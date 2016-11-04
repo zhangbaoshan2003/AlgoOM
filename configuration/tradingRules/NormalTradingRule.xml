@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Rules>
+    <Rule Name="MaximumOrdersRule">
+        <Evaluators>
+            <Evaluator Name="AccountIDEvaluator" Criteria="123456789">
+            </Evaluator>
+            <Evaluator Name="NumOfOrdersPerAccountEvaluator" Criteria="123456789:10">
+            </Evaluator>
+        </Evaluators>
+
+        <Handlers>
+            <Handler Name="RejectClientOrderHandler">
+            </Handler>
+        </Handlers>
+    </Rule>
+
+    <Rule Name="NormalOrderTradingRule">
+        <Evaluators>
+           <Evaluator Name="AlwaysTrueEvaluator" Criteria=""></Evaluator>
+        </Evaluators>
+
+        <Handlers>
+            <Handler Name="AssembleDecisionChainHandler">
+                <Parameters>
+                    <Para Name="Decision1" Value="DeliverToEngineDecision"></Para>
+                </Parameters>
+            </Handler>
+        </Handlers>
+    </Rule>
+</Rules>

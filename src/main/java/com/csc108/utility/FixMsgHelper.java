@@ -53,6 +53,8 @@ public class FixMsgHelper {
 
     public static final String CLIENT_IN_PAUSE="CLIENT << Restated";
 
+    public static final String CLIENT_OUT_REJECT_ORDER_LOG="CLIENT << Exec Report(Rejected)";
+
     public static void sendMessage(quickfix.Message message, SessionID sessionid,String logMessage,String tag)
             throws SessionNotFound, FieldNotFound {
 
@@ -277,7 +279,7 @@ public class FixMsgHelper {
     public static void handleNewOrderRequest(NewOrderSingle newOrderSingle,SessionID sessionID)  {
         responsePendingNewReport(newOrderSingle, sessionID);
         FixEvaluationData data = new FixEvaluationData(newOrderSingle,sessionID);
-        EventDispatcher.getInstance().dispatchEvent(EventType.NEW_SINGLE_ORDER,data);
+        EventDispatcher.getInstance().dispatchEvent(EventType.NEW_SINGLE_ORDER, data);
     }
 
     public static void handleCancelOrderRequest(OrderCancelRequest cancelRequest,SessionID sessionID)  {
@@ -380,5 +382,38 @@ public class FixMsgHelper {
 
         report.set(new ClOrdID(clientOrder.getClientOrderId()));
         sendMessage(report, clientOrder.getSessionID(), logMsg, clientOrder.getClientOrderId());
+    }
+
+    public static void rejectClientOrder(ClientOrder clientOrder){
+        NewOrderSingle request = clientOrder.getNewOrderRequestMsg();
+        String clientOrderId="";
+        try {
+            clientOrderId =request.getString(FixUtil.CLIENT_ORDER_ID);
+            ExecutionReport rejectReport= new ExecutionReport(
+                    new OrderID(clientOrderId),
+                    new ExecID(UUID.randomUUID().toString()),
+                    new ExecTransType(ExecTransType.NEW),
+                    new ExecType(ExecType.REJECTED),
+                    new OrdStatus(OrdStatus.REJECTED),
+                    new Symbol(request.getSymbol().getValue()),
+                    request.getSide(),
+                    new LeavesQty(0),
+                    new CumQty(request.getOrderQty().getValue()),
+                    new AvgPx(0)
+            );
+            rejectReport.set(new ClOrdID(clientOrderId));
+            sendMessage(rejectReport, clientOrder.getSessionID(), CLIENT_OUT_REJECT_ORDER_LOG, request.getString(FixUtil.CLIENT_ORDER_ID));
+            clientOrder.setOrdStatus(new OrdStatus(OrdStatus.REJECTED));
+            clientOrder.setOrderState(OrderState.COMPLETED);
+        }catch (SessionNotFound ex){
+            Alert.fireAlert(Alert.Severity.Critical,String.format(Alert.SESSION_NOT_FOUND_KEY,clientOrder.getSessionID(),clientOrderId),
+                    request.toString(),ex);
+        }catch (FieldNotFound ex){
+            Alert.fireAlert(Alert.Severity.Critical,String.format(Alert.FIELD_NOT_FOUND_KEY,"BeginString",clientOrderId),
+                    request.toString(),ex);
+        }catch (Exception ex){
+            Alert.fireAlert(Alert.Severity.Fatal,String.format(Alert.SENDING_MSG_ERROR,clientOrderId),
+                    ex.getMessage(),ex);
+        }
     }
 }

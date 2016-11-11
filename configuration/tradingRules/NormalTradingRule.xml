@@ -2,27 +2,56 @@
 <Rules>
     <Rule Name="MaximumOrdersRule">
         <Evaluators>
-            <Evaluator Name="AccountIDEvaluator" Criteria="123456789">
+            <Evaluator Name="AccountIDEvaluator" Criteria="Acct_PB_01">
             </Evaluator>
-            <Evaluator Name="NumOfOrdersPerAccountEvaluator" Criteria="123456789:10">
+            <Evaluator Name="NumOfOrdersPerAccountEvaluator" Criteria="Acct_PB_01:10">
             </Evaluator>
         </Evaluators>
 
         <Handlers>
-            <Handler Name="RejectClientOrderHandler">
+            <Handler Name="RejectClientOrderHandler" >
+                <Parameters>
+                    <Para Name="reason" Value="Exceed the top limit 10 orders allowed for the account 123456789"></Para>
+                </Parameters>
             </Handler>
         </Handlers>
     </Rule>
 
     <Rule Name="NormalOrderTradingRule">
         <Evaluators>
-           <Evaluator Name="AlwaysTrueEvaluator" Criteria=""></Evaluator>
+            <Evaluator Name="AlgoOrderTypeEvaluator" Criteria="Normal"></Evaluator>
         </Evaluators>
 
         <Handlers>
             <Handler Name="AssembleDecisionChainHandler">
                 <Parameters>
                     <Para Name="Decision1" Value="DeliverToEngineDecision"></Para>
+                </Parameters>
+            </Handler>
+
+            <Handler Name="CallingOrderHandlerProcessHandler">
+                <Parameters>
+                    <Para Name="flushLog" Value="false"></Para>
+                </Parameters>
+            </Handler>
+        </Handlers>
+    </Rule>
+
+    <Rule Name="PeggingOrderTradingRule">
+        <Evaluators>
+            <Evaluator Name="AlgoOrderTypeEvaluator" Criteria="Pegging"></Evaluator>
+        </Evaluators>
+
+        <Handlers>
+            <Handler Name="AssembleDecisionChainHandler">
+                <Parameters>
+                    <Para Name="Decision1" Value="PeggingDecision"></Para>
+                </Parameters>
+            </Handler>
+
+            <Handler Name="CallingOrderHandlerProcessHandler">
+                <Parameters>
+                    <Para Name="flushLog" Value="true"></Para>
                 </Parameters>
             </Handler>
         </Handlers>

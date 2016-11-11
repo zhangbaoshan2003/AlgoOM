@@ -42,6 +42,10 @@ public class ClientApplication  extends MessageCracker implements  Application {
 
     private final ConcurrentHashMap<String,CountDownLatch> gatewaysLocks = new ConcurrentHashMap<>();
 
+    public SessionID getSessionID(){
+        return sessionID;
+    }
+
     public ClientApplication(CountDownLatch logonLatch,ConcurrentHashMap<String,ClientOrder> orderSet) {
         this.orderSet = orderSet;
         this.logonLatch = logonLatch;
@@ -208,6 +212,18 @@ public class ClientApplication  extends MessageCracker implements  Application {
 
 
 
+                if(gateWay!=null){
+                    gateWay.countDown();
+                }
+                break;
+
+            case ExecType.REJECTED:
+                clientOrderId = message.getString(11);
+                gateWay = gatewaysLocks.get(clientOrderId);
+                clientOrder = orderSet.get(clientOrderId);
+
+                clientOrder.setOrdStatus(new OrdStatus(OrdStatus.REJECTED));
+                LogFactory.info("Receiving rejected response:" + clientOrderId);
                 if(gateWay!=null){
                     gateWay.countDown();
                 }

@@ -4,6 +4,7 @@ import com.csc108.model.data.OrderSide;
 import com.csc108.model.fix.order.ClientOrder;
 import com.csc108.model.fix.order.OrderHandler;
 import com.csc108.tradingRule.core.IHandler;
+import com.csc108.utility.Alert;
 import com.csc108.utility.FixMsgHelper;
 import com.csc108.utility.FixUtil;
 import quickfix.field.OrdStatus;
@@ -35,7 +36,15 @@ public class RejectClientOrderHandler implements IHandler {
         if(clientOrder.getOrdStatus().getValue()== OrdStatus.PENDING_CANCEL){
             throw new IllegalArgumentException(String.format("Can't reject a %s order @ %s",clientOrder.getFixStatusDisplay(),clientOrder.getClientOrderId()));
         }
+        String whyRejected="";
+        if(parameters.keySet().contains("reason")){
+            whyRejected = parameters.get("reason");
+        }
 
-        FixMsgHelper.rejectClientOrder(clientOrder);
+        FixMsgHelper.rejectClientOrder(clientOrder,whyRejected);
+
+        String alertKey = String.format("Reject client order [%s]",clientOrder.getClientOrderId());
+
+        Alert.fireAlert(Alert.Severity.Info,alertKey,whyRejected,null);
     }
 }

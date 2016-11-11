@@ -13,6 +13,7 @@ import com.csc108.model.fix.InitiatorApplication;
 import com.csc108.model.fix.SessionPool;
 import com.csc108.model.fix.order.ClientOrder;
 import com.csc108.model.fix.order.ExchangeOrder;
+import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.AlertManager;
 import junit.framework.TestCase;
 import org.apache.commons.io.FileUtils;
@@ -136,13 +137,9 @@ public class TestCaseBase  extends TestCase {
         int sessionPoolSize= SessionPool.getInstance().getClientSessions().size();
         System.out.println("Up stream session pool size:" + sessionPoolSize);
 
-        //GlobalConfig.setupReleaseMode(false);
         logon();
 
-//        DroolsUtility.init(GlobalConfig.getNewSingleOrderRuleFiles(), DroolsType.NEW_SINGLE_ORDER_REQUEST);
-//        DroolsUtility.init(GlobalConfig.getCancelRequestRuleFiles(), DroolsType.CANCEL_REQUEST);
-//        DroolsUtility.init(GlobalConfig.getExecutionReportRuleFiles(), DroolsType.EXECUTION_REPORT);
-//        DroolsUtility.init(GlobalConfig.getCancelRejectRuleFiles(), DroolsType.CANCEL_REJECTED);
+        TradingRuleProvider.getInstance().initialize("NormalTradingRule.xml");
     }
 
     @Override
@@ -222,7 +219,7 @@ public class TestCaseBase  extends TestCase {
 
         omAcceptorApplication = new AcceptorApplication();
         omAcceptorSessionID =  new SessionID(FixVersions.BEGINSTRING_FIX42,"OM","BANZAI");
-        SessionSettings settings = createAcceptorSessionSettings(omAcceptorSessionID,"6001");
+        SessionSettings settings = createAcceptorSessionSettings(omAcceptorSessionID,"6002");
         FileLogFactory logFactory = new FileLogFactory(settings);
         OmAcceptor=new ThreadedSocketAcceptor(omAcceptorApplication,new FileStoreFactory(settings),
                 settings,logFactory,new DefaultMessageFactory());
@@ -230,7 +227,7 @@ public class TestCaseBase  extends TestCase {
 
         clientApplication = new ClientApplication(initiatorLogonLatch,orderSet);
         clientSessionID = new SessionID(FixVersions.BEGINSTRING_FIX42,"BANZAI","OM");
-        settings = createInitiatorSessionSettings(clientSessionID,"6001");
+        settings = createInitiatorSessionSettings(clientSessionID,"6002");
         logFactory = new FileLogFactory(settings);
         clientInitiator = new ThreadedSocketInitiator(clientApplication,new FileStoreFactory(settings),
                 settings,logFactory,new DefaultMessageFactory());

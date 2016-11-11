@@ -8,6 +8,7 @@ import com.csc108.drools.OrderMessage;
 import com.csc108.log.LogFactory;
 import com.csc108.model.OrderState;
 import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.tradingRule.RuleEngine;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FixMsgHelper;
 import com.csc108.utility.FixUtil;
@@ -62,11 +63,7 @@ public class NewOrderEventHandler extends EventHandlerBase {
                         String.format(Alert.INITIALIZE_CLIENT_ORDER_KEY,clientOrderHandler.getAlertID()),"Can't initialize client order more than once!",null);
             }
 
-            try{
-                clientOrderHandler.process(false);
-            }catch (Exception ex){
-                Alert.fireAlert(Alert.Severity.Major,String.format(Alert.PROCESS_ORDER_ERROR,clientOrderHandler.getAlertID()), ex.getMessage(),ex);
-            }
+            RuleEngine.process(clientOrderHandler);
 
         }catch (Exception ex){
             LogFactory.error("handle new order event error!",ex);

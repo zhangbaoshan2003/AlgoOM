@@ -47,12 +47,7 @@ public class NumOfAccountEvaluatorTest extends TestCase {
             assertEquals(ex.getMessage(), "Invalid criteria set for NumOfOrdersPerAccountEvaluator @ test:154");
         }
 
-        try{
-            evaluator.evaluate(orderHandler,"Acct_check_025:154");
-        }catch (IllegalArgumentException ex){
-            System.out.println(ex.getMessage());
-            assertEquals(ex.getMessage(), "Invalid criteria set for NumOfOrdersPerAccountEvaluator @ Acct_check_025:154");
-        }
+        evaluator.evaluate(orderHandler,"Acct_check_025:154");
 
         try{
             evaluator.evaluate(orderHandler,"258795 154");

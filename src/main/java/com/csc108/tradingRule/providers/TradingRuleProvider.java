@@ -52,7 +52,7 @@ public class TradingRuleProvider {
 
         List<Element> elementLis = doc.getRootElement().getChildren("Rule");
         for (Element e:elementLis){
-            TradingRule rule = new TradingRule(e.getValue());
+            TradingRule rule = new TradingRule(e.getAttributeValue("Name"));
 
             //initialize evaluators and their corresponding criteria
             List<Element> evaluators = e.getChild("Evaluators").getChildren("Evaluator");

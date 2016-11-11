@@ -31,9 +31,13 @@
     Date: 20161010-4.2.5.20
     New feature: none
     Bug fixing: error to process duplicate cancel_rejected response from PB
+
+    Date: 20161109-4.3.0.2
+    New feature: Based on trading rules
+    Bug fixing: None
      -->
 
-    <version>4.2.4.2</version>
+    <version>4.3.0.2</version>
 
     <properties>
         <jdk.version>1.8</jdk.version>
@@ -194,7 +198,7 @@
     </dependencies>
 
     <build>
-        <finalName>sendOrder</finalName>
+        <finalName>AlgoPbOM_SG</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -215,7 +219,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <!-- Jar file entry point -->
-                            <mainClass>com.csc108.tradingClient.SendOrder</mainClass>
+                            <mainClass>com.csc108.Main</mainClass>
                             <classpathPrefix>dependency-jars/</classpathPrefix>
                         </manifest>
                     </archive>

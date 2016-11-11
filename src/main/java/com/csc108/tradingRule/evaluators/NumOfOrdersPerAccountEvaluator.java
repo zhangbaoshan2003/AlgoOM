@@ -15,7 +15,7 @@ public class NumOfOrdersPerAccountEvaluator extends BaseEvaluator {
 
     @Override
     protected boolean evaluate(){
-        if(criteria.matches("(\\d+|Acct_TPZC_\\d+):\\d+")==false)
+        if(criteria.matches("(\\d+|Acct_\\w+):\\d+")==false)
             throw new IllegalArgumentException("Invalid criteria set for NumOfOrdersPerAccountEvaluator @ "+criteria);
 
         String[] paras = criteria.split(":");

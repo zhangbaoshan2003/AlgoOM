@@ -333,62 +333,31 @@ public class OrderHandler implements IDataHandler {
             this.conditionalOrder=false;
         }
 
+        //set issue type
+        IssueType issueType  = IssueTypeDataManager.getInstance().IssueTypeHashMap().get(this.getClientOrder().getSecurityId());
+        if(issueType!=null){
+            this.getClientOrder().setStockName(issueType.getStockName());
+        }
+
         //initialize pegging order if it is
         this.pegConfiguration = PegConfiguration.build(this.getClientOrder().getNewOrderRequestMsg());
 
         //initialize decision chain if it is
-        this.decisionChain = DecisionMaker.build(this);
+        //this.decisionChain = DecisionMaker.build(this);
 
-        //only subscribe market data when it's a pegging order
-        if(this.pegConfiguration!=null){
-            subscribeOrderBookMarketData(this.getClientOrder().getSymbol() + "." + this.getClientOrder().getExchangeDest());
-            subscribeMarketData();
+//        //only subscribe market data when it's a pegging order
+//        if(this.pegConfiguration!=null){
+//            subscribeOrderBookMarketData(this.getClientOrder().getSymbol() + "." + this.getClientOrder().getExchangeDest());
+//            subscribeMarketData();
+//        }
 
-            MicroStructure ms = MicroStructureDataManager.getInstance().getMicroStructure(this.getClientOrder().getSecurityId());
-            if(ms==null){
-                Alert.fireAlert(Alert.Severity.Major,String.format(Alert.MARKET_DATA_SUBCRIBE_ERROR,this.getClientOrder().getClientOrderId()),
-                        "Neither "+this.getClientOrder().getSecurityId()+" nor default micro structure found!",null);
-            }else{
-                if(ms.getSymbol().contains("default")){
-                    Alert.fireAlert(Alert.Severity.Minor,String.format(Alert.MARKET_DATA_SUBCRIBE_ERROR,this.getClientOrder().getClientOrderId()),
-                            "No micro structure found for "+this.getClientOrder().getSecurityId(),null);
-                }
-
-                this.getClientOrder().setAdv20(ms.getAdv20());
-                this.getClientOrder().setMdv21(ms.getMdv21());
-            }
-
-            IssueType issueType  = IssueTypeDataManager.getInstance().IssueTypeHashMap().get(this.getClientOrder().getSecurityId());
-            if(issueType!=null){
-                this.getClientOrder().setStockName(issueType.getStockName());
-            }
-        }
-
-        //only subscribe reference market data when it's a conditional order
-        if(this.isConditionalOrder()==true){
-            subscribeOrderBookMarketData(this.condition.getReferSecurity());
-        }
+//        //only subscribe reference market data when it's a conditional order
+//        if(this.isConditionalOrder()==true){
+//            subscribeOrderBookMarketData(this.condition.getReferSecurity());
+//        }
     }
 
-    private void subscribeOrderBookMarketData(String symbol){
-        try{
-            OrderbookDataManager.getInstance().subscribeOrderBook(symbol, false, this);
-        }catch (Exception ex){
-            Alert.fireAlert(Alert.Severity.Major, String.format(Alert.MARKET_DATA_SUBCRIBE_ERROR, getClientOrder().getClientOrderId()),
-                    ex.getMessage(), ex);
-        }
-    }
 
-    private void subscribeMarketData(){
-        try{
-            RealTimeDataManager.getInstance().subscribeRealTimeData(this, false);
-            RealTimeDataManager.getInstance().subscribeIntervalData(this, false);
-            RealTimeDataManager.getInstance().subscribeAlldayIntervalData(this, false);
-        }catch (Exception ex){
-            Alert.fireAlert(Alert.Severity.Major, String.format(Alert.MARKET_DATA_SUBCRIBE_ERROR, getClientOrder().getClientOrderId()),
-                    ex.getMessage(), ex);
-        }
-    }
 
     //find out which exchange orders to create/cancel based on current allocations
     public void assignNewCancelExchangeOrders(List<Allocation> exchangeOrderToCreate,List<ExchangeOrder> exchangeOrderToCancel,

@@ -39,6 +39,7 @@ public class RuleEngine {
                     return false;
             }
         }
+
         return true;
     }
 
@@ -79,7 +80,7 @@ public class RuleEngine {
         }
     }
 
-    public void updateRuleEvaluator(String ruleName,String evaluatorName,String criteria) throws Exception {
+    public static void updateRuleEvaluator(String ruleName,String evaluatorName,String criteria) throws Exception {
         boolean readLockAvailable = readWriteLock.readLock().tryLock(defaultLockTimeOut, TimeUnit.MILLISECONDS);
 
         if(!readLockAvailable)

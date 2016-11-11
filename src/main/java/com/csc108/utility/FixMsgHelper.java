@@ -384,7 +384,7 @@ public class FixMsgHelper {
         sendMessage(report, clientOrder.getSessionID(), logMsg, clientOrder.getClientOrderId());
     }
 
-    public static void rejectClientOrder(ClientOrder clientOrder){
+    public static void rejectClientOrder(ClientOrder clientOrder,String why){
         NewOrderSingle request = clientOrder.getNewOrderRequestMsg();
         String clientOrderId="";
         try {
@@ -402,6 +402,7 @@ public class FixMsgHelper {
                     new AvgPx(0)
             );
             rejectReport.set(new ClOrdID(clientOrderId));
+            rejectReport.setString(58,why);
             sendMessage(rejectReport, clientOrder.getSessionID(), CLIENT_OUT_REJECT_ORDER_LOG, request.getString(FixUtil.CLIENT_ORDER_ID));
             clientOrder.setOrdStatus(new OrdStatus(OrdStatus.REJECTED));
             clientOrder.setOrderState(OrderState.COMPLETED);

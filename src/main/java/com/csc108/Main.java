@@ -11,6 +11,7 @@ import com.csc108.model.cache.*;
 import com.csc108.model.fix.AcceptorApplication;
 import com.csc108.model.fix.InitiatorApplication;
 import com.csc108.monitor.MonitorServer;
+import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.AlertManager;
 import com.csc108.utility.DateTimeUtil;
 import org.apache.commons.io.FileUtils;
@@ -77,6 +78,14 @@ public class Main {
             LogFactory.info("Begin initializing ...");
             LogFactory.info("Starting event dispatcher ...");
             EventDispatcher.getInstance().start();
+
+            try {
+                System.out.printf("Initializing trading rules ... %n");
+                TradingRuleProvider.getInstance().initialize("NormalTradingRule.xml");
+            }catch (Exception ex){
+                System.err.printf("Error initializing trading rules ... %n %s ",ex);
+                System.exit(-1);
+            }
 
             System.out.println("Initializing micro structure ... ");
             try{

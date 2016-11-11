@@ -76,19 +76,23 @@ rule "NewOrderRule"
 				task.getMessage().setString(109,"Cld_PEG_01");
 			}
 
-            if(task.getMessage().isSetField(7001) && !(task.getMessage().getString(7001).equals(null))){
-                String accountId = task.getMessage().getString(7001).trim();
-                int len = accountId.length();
-                switch (len){
-                    case 8:
-                        accountId ="0000"+accountId ;
-                        break;
-                    default:
-                }
-                task.getMessage().setString(1,accountId);
-            }else if((!task.getMessage().isSetField(7001)) || (task.getMessage().getString(7001).equals(null))||(task.getMessage().getString(7001).equals(""))){
-                task.getMessage().setString(1,"Acct_PEG_01");
-            }
+//            if(task.getMessage().isSetField(7001) && !(task.getMessage().getString(7001).equals(null))){
+//                String accountId = task.getMessage().getString(7001).trim();
+//                int len = accountId.length();
+//                switch (len){
+//                    case 8:
+//                        accountId ="0000"+accountId ;
+//                        break;
+//                    default:
+//                }
+//                task.getMessage().setString(1,accountId);
+//            }else if((!task.getMessage().isSetField(7001)) || (task.getMessage().getString(7001).equals(null))||(task.getMessage().getString(7001).equals(""))){
+//                task.getMessage().setString(1,"Acct_PEG_01");
+//            }
+
+             if(!task.getMessage().isSetField(1)){
+                task.getMessage().setString(1,"Acct_PB_01");
+             }
 			
 			//remove conditonal order related tag
 //			if(task.getMessage().isSetField(7200)){

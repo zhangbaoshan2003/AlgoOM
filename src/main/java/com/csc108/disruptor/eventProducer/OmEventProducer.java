@@ -43,12 +43,6 @@ public class OmEventProducer {
         if(dataHandler!=null){
             dataHandler.setEnqueueTimeStamp(SystemTime.currentTimeMillis());
         }
-
-//        long eventsInquueue =ringBuffer.getCursor() % GlobalConfig.getBufferSize();
-//        if(eventsInquueue+10>GlobalConfig.getBufferSize()){
-//            Alert.fireAlert(Alert.Severity.Critical,"Too many events in ring bugger!@"+ringBuffer.getCursor(),
-//                    Long.toString(eventsInquueue) ,null);
-//        }
         ringBuffer.publishEvent(TRANSLATOR, eventType, dataHandler, triggerData);
     }
 }

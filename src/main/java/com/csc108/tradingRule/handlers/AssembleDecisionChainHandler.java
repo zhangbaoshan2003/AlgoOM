@@ -7,6 +7,7 @@ import com.csc108.decision.algo.PauseResumeDecision;
 import com.csc108.decision.pegging.PeggingDecision;
 import com.csc108.model.fix.order.OrderHandler;
 import com.csc108.tradingRule.core.IHandler;
+import com.csc108.utility.Alert;
 
 import java.util.*;
 
@@ -45,6 +46,5 @@ public class AssembleDecisionChainHandler implements IHandler {
 
         DecisionChainManager manager = new DecisionChainManager(decisions);
         orderHandler.setDecisionChain(manager);
-
     }
 }

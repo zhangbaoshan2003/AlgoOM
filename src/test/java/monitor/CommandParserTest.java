@@ -11,6 +11,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
+import org.apache.commons.io.output.StringBuilderWriter;
 import utility.TestCaseBase;
 
 import java.time.LocalDateTime;
@@ -77,5 +78,15 @@ public class CommandParserTest extends TestCaseBase {
         System.out.println(response);
     }
 
+    public void test_trading_rule_list_command_parse(){
+        String[] args = new String[]{"trading","rule","list"};
+        String result = CommandFactory.getInstance().runCommand(args);
+        System.out.println(result);
+    }
 
+    public void test_trading_rule_dislay_command(){
+        String[] args = new String[]{"trading","rule","display","-i","0"};
+        String result = CommandFactory.getInstance().runCommand(args);
+        System.out.println(result);
+    }
 }

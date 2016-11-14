@@ -38,6 +38,11 @@ public class CommandFactory {
         secCommands = new HashMap<>();
         secCommands.putIfAbsent(cmd.getSecondLevelKey(),cmd);
         commandDic.putIfAbsent(cmd.getFirstLevelKey(),secCommands);
+
+        cmd= new TradingRuleCommand();
+        secCommands = new HashMap<>();
+        secCommands.putIfAbsent(cmd.getSecondLevelKey(),cmd);
+        commandDic.putIfAbsent(cmd.getFirstLevelKey(),secCommands);
     }
 
     public String runCommand(String[] args){

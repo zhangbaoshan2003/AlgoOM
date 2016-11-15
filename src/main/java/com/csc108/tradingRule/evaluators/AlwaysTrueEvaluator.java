@@ -17,4 +17,9 @@ public class AlwaysTrueEvaluator implements IEvaluator {
     public boolean evaluate(OrderHandler orderHandler, String criteria) throws Exception {
         return true;
     }
+
+    @Override
+    public void validate(String criteria) throws IllegalArgumentException {
+
+    }
 }

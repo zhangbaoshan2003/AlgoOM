@@ -5,6 +5,8 @@ import com.csc108.model.fix.order.ClientOrder;
 import com.csc108.monitor.command.ClientOrderCommand;
 import com.csc108.monitor.command.CommandBase;
 import com.csc108.monitor.command.CommandFactory;
+import com.csc108.tradingRule.core.IRule;
+import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.DateTimeUtil;
 import junit.framework.TestCase;
 import org.apache.commons.cli.CommandLine;
@@ -84,9 +86,23 @@ public class CommandParserTest extends TestCaseBase {
         System.out.println(result);
     }
 
-    public void test_trading_rule_dislay_command(){
+    public void test_trading_rule_display_command(){
         String[] args = new String[]{"trading","rule","display","-i","0"};
         String result = CommandFactory.getInstance().runCommand(args);
         System.out.println(result);
+    }
+
+    public void test_trading_rule_ue_command(){
+        IRule rule= TradingRuleProvider.getInstance().getTradingRules().get(0);
+        assertEquals("MaximumOrdersRule",rule.getRuleName());
+        assertEquals("Acct_PB_01:10",rule.getEvaluatorCriterias().get(1).get("NumOfOrdersPerAccountEvaluator"));
+
+        String[] args = new String[]{"trading","rule","ue","-i","0","-n","NumOfOrdersPerAccountEvaluator","-c","Acct_PB_01:20"};
+
+        String result = CommandFactory.getInstance().runCommand(args);
+        assertEquals("update successfully!",result);
+
+        assertEquals("Acct_PB_01:20",rule.getEvaluatorCriterias().get(1).get("NumOfOrdersPerAccountEvaluator"));
+
     }
 }

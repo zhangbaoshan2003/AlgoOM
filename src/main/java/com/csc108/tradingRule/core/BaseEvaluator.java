@@ -20,11 +20,17 @@ public abstract class BaseEvaluator implements IEvaluator {
         if(_criteria==null || _criteria.isEmpty()){
             throw new IllegalArgumentException("Criteria is not set!");
         }
-
         orderHandler = _orderHandler;
+
+        validate(_criteria);
         criteria = _criteria;
 
         return evaluate();
+    }
+
+    @Override
+    public void validate(String criteria) throws IllegalArgumentException {
+
     }
 
     protected boolean evaluate(){

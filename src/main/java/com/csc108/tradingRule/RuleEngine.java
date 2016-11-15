@@ -12,13 +12,12 @@ import com.csc108.tradingRule.providers.HandlerProvider;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.AlertManager;
 import com.sun.javaws.exceptions.InvalidArgumentException;
+import org.drools.runtime.rule.Evaluator;
 
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.awt.*;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -81,6 +80,13 @@ public class RuleEngine {
     }
 
     public static void updateRuleEvaluator(String ruleName,String evaluatorName,String criteria) throws Exception {
+        IEvaluator evaluator = EvaluatorProvider.getEvaluators().get(evaluatorName);
+        if(evaluator==null)
+            throw new IllegalArgumentException( "Can't find evaluator "+evaluatorName);
+
+        //make sure the new criteria is vailid
+        evaluator.validate(criteria);
+
         boolean readLockAvailable = readWriteLock.readLock().tryLock(defaultLockTimeOut, TimeUnit.MILLISECONDS);
 
         if(!readLockAvailable)
@@ -99,6 +105,16 @@ public class RuleEngine {
         boolean lockAvailable = false;
         try{
             lockAvailable= readWriteLock.writeLock().tryLock(defaultLockTimeOut, TimeUnit.MILLISECONDS);
+            Iterator<HashMap<String,String>> iterator = tradingRule.getEvaluatorCriterias().iterator();
+            while (iterator.hasNext()){
+                HashMap<String,String> criteriaMap = iterator.next();
+                criteriaMap.forEach((k,v)->{
+                    if(k.equalsIgnoreCase(evaluatorName)){
+                        criteriaMap.put(k,criteria);
+                        return;
+                    }
+                });
+            }
 
         }catch (Exception ex){
             throw new TimeoutException("Failed to acquire write lock after @ "+defaultLockTimeOut);

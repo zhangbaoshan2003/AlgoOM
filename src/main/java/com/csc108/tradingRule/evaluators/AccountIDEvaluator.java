@@ -13,10 +13,13 @@ public class AccountIDEvaluator extends BaseEvaluator {
 
     @Override
     protected boolean evaluate(){
+        return this.orderHandler.getClientOrder().getAccountId().equals(criteria);
+    }
+
+    @Override
+    public void validate(String criteria){
         if(orderHandler.getClientOrder().getAccountId().isEmpty() ||orderHandler.getClientOrder().getAccountId()==null
                 || orderHandler.getClientOrder().getAccountId().equals(""))
             throw new IllegalArgumentException ("No account id set for evaluation!");
-
-        return this.orderHandler.getClientOrder().getAccountId().equals(criteria);
     }
 }

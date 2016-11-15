@@ -4,14 +4,14 @@
         <Evaluators>
             <Evaluator Name="AccountIDEvaluator" Criteria="Acct_PB_01">
             </Evaluator>
-            <Evaluator Name="NumOfOrdersPerAccountEvaluator" Criteria="Acct_PB_01:1000000">
+            <Evaluator Name="NumOfOrdersPerAccountEvaluator" Criteria="Acct_PB_01:10">
             </Evaluator>
         </Evaluators>
 
         <Handlers>
             <Handler Name="RejectClientOrderHandler" >
                 <Parameters>
-                    <Para Name="reason" Value="Exceed the top limit 1000000 orders allowed for the account Acct_PB_01"></Para>
+                    <Para Name="reason" Value="Exceed the top limit 10 orders allowed for the account Acct_PB_01"></Para>
                 </Parameters>
             </Handler>
         </Handlers>

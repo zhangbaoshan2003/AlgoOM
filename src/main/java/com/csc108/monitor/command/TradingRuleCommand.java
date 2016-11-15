@@ -2,6 +2,7 @@ package com.csc108.monitor.command;
 
 import com.csc108.log.LogFactory;
 import com.csc108.model.fix.SessionPool;
+import com.csc108.tradingRule.RuleEngine;
 import com.csc108.tradingRule.core.IRule;
 import com.csc108.tradingRule.core.TradingRule;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
@@ -22,6 +23,8 @@ import java.util.Objects;
 public class TradingRuleCommand extends CommandBase {
     public TradingRuleCommand(){
         options.addOption("i",true,"trading rule id to display");
+        options.addOption("n",true,"evaluator name to update");
+        options.addOption("c",true,"new criteria to apply");
     }
 
     @Override
@@ -118,6 +121,44 @@ public class TradingRuleCommand extends CommandBase {
         }catch (Exception ex){
             LogFactory.error("Display trading rule error!",ex);
             return  "Error happened when Displaying rule !"+ex;
+        }
+    }
+
+    //update evaluator
+    public String ue(String[] args){
+        try{
+            CommandLine cml= parser.parse(options, args);
+            if(cml.hasOption("i")==false){
+                return "rule id is not provided!";
+            }
+            int id = Integer.parseInt(cml.getOptionValue("i"));
+
+            if(TradingRuleProvider.getInstance().getTradingRules().size()<=id){
+                return String.format("%d exceed the total rules %d !",id,TradingRuleProvider.getInstance().getTradingRules().size());
+            }
+
+            IRule rule = TradingRuleProvider.getInstance().getTradingRules().get(id);
+            if(rule==null){
+                return String.format("Can't find %d trading rule!",id) ;
+            }
+
+            if(cml.hasOption("n")==false){
+                return "evaluator name is not provided!";
+            }
+            String evaluatorName = cml.getOptionValue('n');
+
+            if(cml.hasOption("c")==false){
+                return "new criteria to apply is not provided!";
+            }
+            String newCreteria = cml.getOptionValue("c");
+
+            System.out.printf("Begin to update rule %s's evaluator %s with new certeria %s \n",rule.getRuleName(),evaluatorName,newCreteria);
+            RuleEngine.updateRuleEvaluator(rule.getRuleName(),evaluatorName,newCreteria);
+            System.out.println("update successfully!");
+            return "update successfully!";
+        }catch (Exception ex){
+            System.err.println(ex);
+            return "Error updating rule \n "+ex;
         }
     }
 }

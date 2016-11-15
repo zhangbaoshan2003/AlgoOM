@@ -44,5 +44,24 @@ public class TradingRuleEngineTest extends TestCaseBase {
         Thread.sleep(500);
         assertEquals(OrdStatus.REJECTED, clientOrder.getOrdStatus().getValue());
 
+        //change the rule at run time
+        RuleEngine.updateRuleEvaluator("MaximumOrdersRule","NumOfOrdersPerAccountEvaluator","Acct_PB_01:11");
+
+        //send out again, this time, shouldn't be rejected any longer
+        newOrderSingle = TestFixMsgHelper.Instance.buildNewOrderSingleMsg("IBM", new Side(Side.BUY) ,new OrdType(OrdType.MARKET) ,10000,10.25);
+        clientOrder = new ClientOrder(newOrderSingle,clientApplication.getSessionID());
+        clientApplication.getOrderSet().putIfAbsent(clientOrder.getClientOrderId(),clientOrder);
+        Session.sendToTarget(newOrderSingle, clientSessionId);
+        Thread.sleep(500);
+        assertEquals(OrdStatus.FILLED, clientOrder.getOrdStatus().getValue());
+
+        //send out again, this time, should be rejected any longer
+        newOrderSingle = TestFixMsgHelper.Instance.buildNewOrderSingleMsg("IBM", new Side(Side.BUY) ,new OrdType(OrdType.MARKET) ,10000,10.25);
+        clientOrder = new ClientOrder(newOrderSingle,clientApplication.getSessionID());
+        clientApplication.getOrderSet().putIfAbsent(clientOrder.getClientOrderId(),clientOrder);
+        Session.sendToTarget(newOrderSingle, clientSessionId);
+        Thread.sleep(500);
+        assertEquals(OrdStatus.REJECTED, clientOrder.getOrdStatus().getValue());
+
     }
 }

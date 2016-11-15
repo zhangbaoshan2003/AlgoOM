@@ -8,4 +8,5 @@ import com.csc108.model.fix.order.OrderHandler;
 public interface IEvaluator {
     String getEvaluatorName();
     boolean evaluate(OrderHandler orderHandler,String criteria) throws Exception;
+    void validate(String criteria) throws IllegalArgumentException;
 }

@@ -15,9 +15,6 @@ public class NumOfOrdersPerAccountEvaluator extends BaseEvaluator {
 
     @Override
     protected boolean evaluate(){
-        if(criteria.matches("(\\d+|Acct_\\w+):\\d+")==false)
-            throw new IllegalArgumentException("Invalid criteria set for NumOfOrdersPerAccountEvaluator @ "+criteria);
-
         String[] paras = criteria.split(":");
         if(paras.length!=2)
             throw new IllegalArgumentException("Invalid criteria set for NumOfOrdersPerAccountEvaluator @ "+criteria);
@@ -30,5 +27,18 @@ public class NumOfOrdersPerAccountEvaluator extends BaseEvaluator {
                  .count();
 
         return numOfOrdersAllowed<totalOrders;
+    }
+
+    @Override
+    public void validate(String _criteria){
+        if(_criteria.matches("(\\d+|Acct_\\w+):\\d+")==false)
+            throw new IllegalArgumentException("Invalid criteria set for NumOfOrdersPerAccountEvaluator @ "+_criteria);
+
+        String[] paras = _criteria.split(":");
+        if(paras.length!=2)
+            throw new IllegalArgumentException("Invalid criteria set for NumOfOrdersPerAccountEvaluator @ "+_criteria);
+
+        String accountId = paras[0];
+        int numOfOrdersAllowed = Integer.parseInt(paras[1]);
     }
 }

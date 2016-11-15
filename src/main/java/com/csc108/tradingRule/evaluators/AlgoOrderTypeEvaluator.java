@@ -15,9 +15,6 @@ public class AlgoOrderTypeEvaluator extends BaseEvaluator {
 
     @Override
     protected boolean evaluate(){
-        if(criteria.matches("(Normal|Pegging|Conditional)")==false)
-            throw new IllegalArgumentException("Invalid criteria set for AlgoOrderTypeEvaluator @ "+criteria);
-
         if(criteria.equals("Pegging") && orderHandler.isPeggingOrder()){
             return true;
         }
@@ -30,6 +27,12 @@ public class AlgoOrderTypeEvaluator extends BaseEvaluator {
             return true;
 
         return false;
+    }
+
+    @Override
+    public void validate(String _criteria){
+        if(_criteria.matches("(Normal|Pegging|Conditional)")==false)
+            throw new IllegalArgumentException("Invalid criteria set for AlgoOrderTypeEvaluator @ "+_criteria);
     }
 
 }

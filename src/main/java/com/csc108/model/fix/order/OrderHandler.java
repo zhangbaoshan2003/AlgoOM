@@ -220,6 +220,7 @@ public class OrderHandler implements IDataHandler {
                     this.getClientOrder().getNewOrderRequestMsg().toString(),ex);
         }
 
+        //set account
         try{
             String accountId="";
             if(this.getClientOrder().getNewOrderRequestMsg().isSetField(7001)){

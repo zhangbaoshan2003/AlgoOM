@@ -105,4 +105,8 @@ public class RuleEngineTest extends TestCase {
         OrderPool.getClientOrderMap().put(newOrder.getClientOrderId(), newOrder);
         RuleEngine.process(orderHandler);
     }
+
+    public void testStringFormat(){
+        System.out.printf("%10s%s%-10s","========","client","========");
+    }
 }

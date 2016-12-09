@@ -1,24 +1,18 @@
 package model;
 
 import com.csc108.log.LogFactory;
-import com.csc108.model.cache.TradeDataMqManager;
-import com.csc108.model.fix.SessionPool;
-import com.csc108.monitor.command.ClientOrderCommand;
+import com.csc108.model.fix.sessionPool.SessionPool;
 import com.csc108.monitor.command.FixEngineCommand;
-import com.csc108.utility.Alert;
 import com.csc108.utility.AlertManager;
 import junit.framework.TestCase;
 import org.apache.commons.io.FileUtils;
 import quickfix.SessionID;
-import utility.TestUtility;
 
 import java.io.File;
 import java.time.LocalTime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by zhangbaoshan on 2016/9/9.

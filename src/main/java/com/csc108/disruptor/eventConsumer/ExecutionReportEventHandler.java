@@ -76,6 +76,9 @@ public class ExecutionReportEventHandler extends EventHandlerBase {
 
             orderHandler.publishMsg(false);
 
+
+
+
         }catch (Exception ex){
             LogFactory.error("Execution report handler process error!",ex);
         }

@@ -5,6 +5,8 @@
     <bookmark url="file://$PROJECT_DIR$/src/test/java/database/SqlSessionTest.java" />
     <bookmark url="file://$PROJECT_DIR$/src/test/java/database/MicroStructureTest.java" />
     <bookmark url="file://$PROJECT_DIR$/src/test/java/model/OrderBookTest.java" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/OrderHandler.java" line="521" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/OrderHandler.java" line="525" />
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="c3f78471-1439-4987-9627-3eec00af7d8b" name="Default" comment="" />
@@ -20,12 +22,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/AlgoOM$tradingRule_in_AlgoOM.coverage" NAME="tradingRule in AlgoOM Coverage Results" MODIFIED="1478154355991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>tradingRule.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/AlgoOM$Main.coverage" NAME="Main Coverage Results" MODIFIED="1472002061001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.csc108.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/AlgoOM$tradingRule_in_AlgoOM.coverage" NAME="tradingRule in AlgoOM Coverage Results" MODIFIED="1478154355991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>tradingRule.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/AlgoOM$com_csc108_tradingRule_in_AlgoOM.coverage" NAME="com.csc108.tradingRule in AlgoOM Coverage Results" MODIFIED="1478153970641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.csc108.tradingRule.*</FILTER>
@@ -40,59 +43,117 @@
     <option name="SORT_CHILDREN" value="false" />
     <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="NormalTradingRule.xml" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/configuration/tradingRules/NormalTradingRule.xml">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="656">
-                    <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="AlgoOM" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="NewOrderRule.drl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/configuration/drools/PB/NewOrderRule.drl">
+    <leaf>
+      <file leaf-file-name="OrderHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/OrderHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TradingRuleEngineTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/tradingRule/TradingRuleEngineTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="58" column="83" selection-start-line="58" selection-start-column="83" selection-end-line="58" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="737" column="79" selection-start-line="737" selection-start-column="79" selection-end-line="737" selection-end-column="79" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#2073#2074#0" expanded="false" />
+                <element signature="e#2106#2107#0" expanded="false" />
+                <element signature="e#2212#2213#0" expanded="false" />
+                <element signature="e#2251#2252#0" expanded="false" />
+                <element signature="e#2289#2290#0" expanded="false" />
+                <element signature="e#2346#2347#0" expanded="false" />
+                <element signature="e#2469#2470#0" expanded="false" />
+                <element signature="e#2513#2514#0" expanded="false" />
+                <element signature="e#2565#2566#0" expanded="false" />
+                <element signature="e#2601#2602#0" expanded="false" />
+                <element signature="e#2707#2708#0" expanded="false" />
+                <element signature="e#2747#2748#0" expanded="false" />
+                <element signature="e#3232#3233#0" expanded="false" />
+                <element signature="e#3269#3270#0" expanded="false" />
+                <element signature="e#4378#4379#0" expanded="false" />
+                <element signature="e#4441#4442#0" expanded="false" />
+                <element signature="e#4794#4795#0" expanded="false" />
+                <element signature="e#4833#4834#0" expanded="false" />
+                <element signature="e#4895#4896#0" expanded="false" />
+                <element signature="e#4951#4952#0" expanded="false" />
+                <element signature="e#4992#4993#0" expanded="false" />
+                <element signature="e#5031#5032#0" expanded="false" />
+                <element signature="e#5093#5094#0" expanded="false" />
+                <element signature="e#5149#5150#0" expanded="false" />
+                <element signature="e#5190#5191#0" expanded="false" />
+                <element signature="e#5229#5230#0" expanded="false" />
+                <element signature="e#5291#5292#0" expanded="false" />
+                <element signature="e#5347#5348#0" expanded="false" />
+                <element signature="e#5413#5414#0" expanded="false" />
+                <element signature="e#5461#5462#0" expanded="false" />
+                <element signature="e#5516#5517#0" expanded="false" />
+                <element signature="e#5560#5561#0" expanded="false" />
+                <element signature="e#5611#5612#0" expanded="false" />
+                <element signature="e#5645#5646#0" expanded="false" />
+                <element signature="e#21825#21826#0" expanded="false" />
+                <element signature="e#21864#21865#0" expanded="false" />
+                <element signature="e#21903#21904#0" expanded="false" />
+                <element signature="e#21935#21936#0" expanded="false" />
+                <element signature="e#22075#22076#0" expanded="false" />
+                <element signature="e#22109#22110#0" expanded="false" />
+                <element signature="e#22147#22148#0" expanded="false" />
+                <element signature="e#22182#22183#0" expanded="false" />
+                <element signature="e#28059#28060#0" expanded="false" />
+                <element signature="e#28099#28100#0" expanded="false" />
+                <element signature="e#35292#35293#0" expanded="false" />
+                <element signature="e#35333#35334#0" expanded="false" />
+                <element signature="e#35530#35531#0" expanded="false" />
+                <element signature="e#35571#35572#0" expanded="false" />
+                <element signature="e#35780#35781#0" expanded="false" />
+                <element signature="e#35827#35828#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandParserTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/monitor/CommandParserTest.java">
+      <file leaf-file-name="EventDispatcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/concurrent/EventDispatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="865">
-              <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="178" column="46" selection-start-line="178" selection-start-column="46" selection-end-line="178" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1867#1868#0" expanded="false" />
+                <element signature="e#1898#1899#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExecutionReportEventHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/ExecutionReportEventHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#785#786#0" expanded="false" />
+                <element signature="e#837#838#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExchangeOrder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/ExchangeOrder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="135" column="61" selection-start-line="135" selection-start-column="61" selection-end-line="135" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NormalTradingRule.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration/tradingRules/PeggingRule/NormalTradingRule.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -101,69 +162,183 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.07079646">
+              <caret line="47" column="20" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceSupport.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/activemq/activemq-core/5.7.0/activemq-core-5.7.0.jar!/org/apache/activemq/util/ServiceSupport.class">
+      <file leaf-file-name="EvaluationEventHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/EvaluationEventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1554">
-              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#712#713#0" expanded="false" />
+                <element signature="e#759#760#0" expanded="false" />
+                <element signature="e#2022#2023#0" expanded="false" />
+                <element signature="e#2058#2059#0" expanded="false" />
+                <element signature="e#2114#2115#0" expanded="false" />
+                <element signature="e#2164#2165#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TradingRuleCommand.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/TradingRuleCommand.java">
+      <file leaf-file-name="EventHandlerBase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/EventHandlerBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="147" column="38" selection-start-line="147" selection-start-column="38" selection-end-line="147" selection-end-column="38" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1527#1528#0" expanded="false" />
+                <element signature="e#1556#1557#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="initiator.cfg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/configuration/initiator.cfg">
+      <file leaf-file-name="LogFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/log/LogFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1107">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1336#1337#0" expanded="false" />
+                <element signature="e#1384#1385#0" expanded="false" />
+                <element signature="e#1438#1439#0" expanded="false" />
+                <element signature="e#1473#1474#0" expanded="false" />
+                <element signature="e#1519#1520#0" expanded="false" />
+                <element signature="e#1559#1560#0" expanded="false" />
+                <element signature="e#2143#2144#0" expanded="false" />
+                <element signature="e#2184#2185#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/Main.java">
+      <file leaf-file-name="ClientOrder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/ClientOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-123">
-              <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Config.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/configuration/Config.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1117">
-              <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="acceptor.cfg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/configuration/acceptor.cfg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2776#2777#0" expanded="false" />
+                <element signature="e#2815#2816#0" expanded="false" />
+                <element signature="e#2882#2883#0" expanded="false" />
+                <element signature="e#2938#2939#0" expanded="false" />
+                <element signature="e#3072#3073#0" expanded="false" />
+                <element signature="e#3122#3123#0" expanded="false" />
+                <element signature="e#3175#3176#0" expanded="false" />
+                <element signature="e#3224#3225#0" expanded="false" />
+                <element signature="e#3423#3424#0" expanded="false" />
+                <element signature="e#3455#3456#0" expanded="false" />
+                <element signature="e#4611#4612#0" expanded="false" />
+                <element signature="e#4660#4661#0" expanded="false" />
+                <element signature="e#5191#5192#0" expanded="false" />
+                <element signature="e#5224#5225#0" expanded="false" />
+                <element signature="e#5280#5281#0" expanded="false" />
+                <element signature="e#5324#5325#0" expanded="false" />
+                <element signature="e#5356#5357#0" expanded="false" />
+                <element signature="e#5384#5385#0" expanded="false" />
+                <element signature="e#5429#5430#0" expanded="false" />
+                <element signature="e#5465#5466#0" expanded="false" />
+                <element signature="e#5501#5502#0" expanded="false" />
+                <element signature="e#5533#5534#0" expanded="false" />
+                <element signature="e#5583#5584#0" expanded="false" />
+                <element signature="e#5625#5626#0" expanded="false" />
+                <element signature="e#5676#5677#0" expanded="false" />
+                <element signature="e#5718#5719#0" expanded="false" />
+                <element signature="e#5754#5755#0" expanded="false" />
+                <element signature="e#5792#5793#0" expanded="false" />
+                <element signature="e#5825#5826#0" expanded="false" />
+                <element signature="e#5856#5857#0" expanded="false" />
+                <element signature="e#5902#5903#0" expanded="false" />
+                <element signature="e#5942#5943#0" expanded="false" />
+                <element signature="e#5973#5974#0" expanded="false" />
+                <element signature="e#6002#6003#0" expanded="false" />
+                <element signature="e#6044#6045#0" expanded="false" />
+                <element signature="e#6080#6081#0" expanded="false" />
+                <element signature="e#6116#6117#0" expanded="false" />
+                <element signature="e#6156#6157#0" expanded="false" />
+                <element signature="e#6203#6204#0" expanded="false" />
+                <element signature="e#6239#6240#0" expanded="false" />
+                <element signature="e#6304#6305#0" expanded="false" />
+                <element signature="e#6354#6355#0" expanded="false" />
+                <element signature="e#6398#6399#0" expanded="false" />
+                <element signature="e#6431#6432#0" expanded="false" />
+                <element signature="e#6490#6491#0" expanded="false" />
+                <element signature="e#6534#6535#0" expanded="false" />
+                <element signature="e#6587#6588#0" expanded="false" />
+                <element signature="e#6628#6629#0" expanded="false" />
+                <element signature="e#6683#6684#0" expanded="false" />
+                <element signature="e#6722#6723#0" expanded="false" />
+                <element signature="e#6802#6803#0" expanded="false" />
+                <element signature="e#6858#6859#0" expanded="false" />
+                <element signature="e#6897#6898#0" expanded="false" />
+                <element signature="e#6929#6930#0" expanded="false" />
+                <element signature="e#6982#6983#0" expanded="false" />
+                <element signature="e#7024#7025#0" expanded="false" />
+                <element signature="e#7638#7639#0" expanded="false" />
+                <element signature="e#7667#7668#0" expanded="false" />
+                <element signature="e#7704#7705#0" expanded="false" />
+                <element signature="e#7757#7758#0" expanded="false" />
+                <element signature="e#7801#7802#0" expanded="false" />
+                <element signature="e#7837#7838#0" expanded="false" />
+                <element signature="e#7871#7872#0" expanded="false" />
+                <element signature="e#7903#7904#0" expanded="false" />
+                <element signature="e#7951#7952#0" expanded="false" />
+                <element signature="e#7993#7994#0" expanded="false" />
+                <element signature="e#12604#12605#0" expanded="false" />
+                <element signature="e#12639#12640#0" expanded="false" />
+                <element signature="e#12701#12702#0" expanded="false" />
+                <element signature="e#12749#12750#0" expanded="false" />
+                <element signature="e#12785#12786#0" expanded="false" />
+                <element signature="e#12817#12818#0" expanded="false" />
+                <element signature="e#12867#12868#0" expanded="false" />
+                <element signature="e#12909#12910#0" expanded="false" />
+                <element signature="e#12950#12951#0" expanded="false" />
+                <element signature="e#12987#12988#0" expanded="false" />
+                <element signature="e#13047#13048#0" expanded="false" />
+                <element signature="e#13099#13100#0" expanded="false" />
+                <element signature="e#13138#13139#0" expanded="false" />
+                <element signature="e#13173#13174#0" expanded="false" />
+                <element signature="e#13229#13230#0" expanded="false" />
+                <element signature="e#13277#13278#0" expanded="false" />
+                <element signature="e#13316#13317#0" expanded="false" />
+                <element signature="e#13351#13352#0" expanded="false" />
+                <element signature="e#13407#13408#0" expanded="false" />
+                <element signature="e#13455#13456#0" expanded="false" />
+                <element signature="e#24955#24956#0" expanded="false" />
+                <element signature="e#24987#24988#0" expanded="false" />
+                <element signature="e#25037#25038#0" expanded="false" />
+                <element signature="e#25079#25080#0" expanded="false" />
+                <element signature="e#25132#25133#0" expanded="false" />
+                <element signature="e#25177#25178#0" expanded="false" />
+                <element signature="e#25220#25221#0" expanded="false" />
+                <element signature="e#25265#25266#0" expanded="false" />
+                <element signature="e#25295#25296#0" expanded="false" />
+                <element signature="e#25323#25324#0" expanded="false" />
+                <element signature="e#25363#25364#0" expanded="false" />
+                <element signature="e#25397#25398#0" expanded="false" />
+                <element signature="e#25427#25428#0" expanded="false" />
+                <element signature="e#25455#25456#0" expanded="false" />
+                <element signature="e#25495#25496#0" expanded="false" />
+                <element signature="e#25529#25530#0" expanded="false" />
+                <element signature="e#25565#25566#0" expanded="false" />
+                <element signature="e#25597#25598#0" expanded="false" />
+                <element signature="e#25647#25648#0" expanded="false" />
+                <element signature="e#25689#25690#0" expanded="false" />
+                <element signature="e#25724#25725#0" expanded="false" />
+                <element signature="e#25755#25756#0" expanded="false" />
+                <element signature="e#25803#25804#0" expanded="false" />
+                <element signature="e#25843#25844#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,8 +351,8 @@
         <option value="drools.rule" />
         <option value="Enum" />
         <option value="spring-beans.schema" />
-        <option value="Interface" />
         <option value="JUnit3 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -190,32 +365,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/AllwaysTrueEvaluator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/providers/EvaluatorProvider.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/csc108/tradingRule/evaluators/AlgoOrderTypeEvaluatorTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tradingRule/evalautors/AlgoOrderTypeEvaluatorTest.java" />
-        <option value="$PROJECT_DIR$/configuration/TradingRules.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/IHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/IRule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/TradingRule.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tradingRule/handlers/AssembleDescisonHandlerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tradingRule/handlers/RejectClientOrderHandlerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tradingRule/TradingRuleProviderTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/SubcribeMarketDataHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/SubscribeMarketDataHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/AssembleDecisionChainHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventProducer/OmEventProducer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/providers/HandlerProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/providers/TradingRuleProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/NewOrderEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/disruptor/concurrent/EventDispatcher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/CallingOrderHandlerProcessHandler.java" />
-        <option value="$PROJECT_DIR$/src/test/java/descision/BusinessCaseTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/Main.java" />
-        <option value="$PROJECT_DIR$/configuration/acceptor.cfg" />
-        <option value="$PROJECT_DIR$/src/test/java/tradingRule/RuleEngineTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/utility/TestCaseBase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/utility/TestFixMsgHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/utility/ClientApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/utility/FixMsgHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/tradingRule/evalautors/NumOfAccountEvaluatorTest.java" />
@@ -223,32 +372,57 @@
         <option value="$PROJECT_DIR$/src/test/java/database/SqlSessionTest.java" />
         <option value="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/JUnit38ClassRunner.class" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/cache/MicroStructureDataManager.java" />
-        <option value="$PROJECT_DIR$/configuration/sqlserver.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/CommandFactory.java" />
-        <option value="$PROJECT_DIR$/configuration/tradingRules/NormalTradingRule.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/IEvaluator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/AccountIDEvaluator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/AlgoOrderTypeEvaluator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/AlwaysTrueEvaluator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/NumOfOrdersPerAccountEvaluator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/OrderHandler.java" />
-        <option value="$PROJECT_DIR$/configuration/drools/PB/NewOrderRule.drl" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/BaseEvaluator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/RuleEngine.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tradingRule/TradingRuleEngineTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/monitor/CommandParserTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/TradingRuleCommand.java" />
         <option value="$PROJECT_DIR$/configuration/initiator.cfg" />
+        <option value="$PROJECT_DIR$/configuration/sqlserver.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/tradingRule/TradingRuleEngineTest.java" />
         <option value="$PROJECT_DIR$/configuration/Config.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/utility/TestFixMsgHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/ISessionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/SessionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/PeggingSessionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/SessionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/AlgoSessionPool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/AlgoSessionPoolPicker.java" />
+        <option value="$PROJECT_DIR$/src/test/java/descision/PeggingOrderTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/descision/BusinessCaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/tradingRule/RuleEngineTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/AssembleDecisionChainHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/PeggingSessionPoolPicker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/ISessionPoolPicker.java" />
+        <option value="$PROJECT_DIR$/configuration/tradingRules/NormalTradingRule.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/SessionPickerAssignHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/providers/HandlerProvider.java" />
+        <option value="$PROJECT_DIR$/configuration/drools/PB/NewOrderRule.drl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/ExecutionReportEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/OrderCancelRequestEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/ExchangeOrder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/CallingOrderHandlerProcessHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/MarketDataUpdatedEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/EvaluationEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/Main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/FixEngineCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/OrderHandler.java" />
+        <option value="$PROJECT_DIR$/src/test/java/log/NewFilePerOrderLoggingTest.java" />
+        <option value="$PROJECT_DIR$/configuration/drools/RootNet/NewOrderRule.drl" />
+        <option value="$PROJECT_DIR$/configuration/acceptor.cfg" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -267,11 +441,14 @@
       </PATH>
     </treeState>
   </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-13" />
-    <option name="y" value="-13" />
-    <option name="width" value="2906" />
-    <option name="height" value="1746" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -310,8 +487,6 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="ProjectPane">
@@ -342,51 +517,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlgoOM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlgoOM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlgoOM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlgoOM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="csc108" />
+              <option name="myItemId" value="configuration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -403,11 +534,37 @@
               <option name="myItemId" value="configuration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tradingRules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlgoOM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlgoOM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="configuration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tradingRules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PeggingRule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -428,13 +585,25 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.csc108.tradingRule.evaluators" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\my work\AlgoOM\configuration" />
+      <recent name="D:\my work\AlgoOM\configuration\tradingRules" />
+      <recent name="D:\my work\AlgoOM\configuration\local" />
+      <recent name="D:\my work\AlgoOM\configuration\tradingRules\MG_Rule" />
+      <recent name="D:\my work\AlgoOM\configuration\tradingRules\PeggingRule" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\my work\AlgoOM\configuration\local" />
       <recent name="D:\my work\AlgoOM\configuration\tradingRules" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.csc108.tradingRule.evaluators" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.csc108.model.market" />
@@ -443,56 +612,20 @@
       <recent name="com.csc108.utility" />
       <recent name="com.csc108.model.data" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="junit.framework.TestCase" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\my work\AlgoOM\configuration" />
-      <recent name="D:\AlgoOM\configuration" />
-      <recent name="D:\AlgoOM\configuration\drools\RootNet" />
-      <recent name="D:\AlgoOM\src\test\java\model" />
-      <recent name="D:\AlgoOM\src\main\java\com\csc108\monitor" />
-    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration default="false" name="CommandParserTest.test_trading_rule_dislay_command" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="BusinessCaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="monitor.*" />
+          <option name="PATTERN" value="descision.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="AlgoOM" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="monitor" />
-      <option name="MAIN_CLASS_NAME" value="monitor.CommandParserTest" />
-      <option name="METHOD_NAME" value="test_trading_rule_dislay_command" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="TradingRuleEngineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="tradingRule.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="AlgoOM" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tradingRule" />
-      <option name="MAIN_CLASS_NAME" value="tradingRule.TradingRuleEngineTest" />
+      <option name="PACKAGE_NAME" value="descision" />
+      <option name="MAIN_CLASS_NAME" value="descision.BusinessCaseTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -507,19 +640,19 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="TradingRuleEngineTest.testTopLimitOrdersExceedTradingRule" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="BusinessCaseTest.test002CancelWithIncorrectQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="tradingRule.*" />
+          <option name="PATTERN" value="descision.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="AlgoOM" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tradingRule" />
-      <option name="MAIN_CLASS_NAME" value="tradingRule.TradingRuleEngineTest" />
-      <option name="METHOD_NAME" value="testTopLimitOrdersExceedTradingRule" />
+      <option name="PACKAGE_NAME" value="descision" />
+      <option name="MAIN_CLASS_NAME" value="descision.BusinessCaseTest" />
+      <option name="METHOD_NAME" value="test002CancelWithIncorrectQuantity" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -533,19 +666,19 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="CommandParserTest.test_trading_rule_ue_command" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="BusinessCaseTest.test001OrderbookChangedNotOverallolcatedOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="monitor.*" />
+          <option name="PATTERN" value="descision.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="AlgoOM" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="monitor" />
-      <option name="MAIN_CLASS_NAME" value="monitor.CommandParserTest" />
-      <option name="METHOD_NAME" value="test_trading_rule_ue_command" />
+      <option name="PACKAGE_NAME" value="descision" />
+      <option name="MAIN_CLASS_NAME" value="descision.BusinessCaseTest" />
+      <option name="METHOD_NAME" value="test001OrderbookChangedNotOverallolcatedOrder" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -579,6 +712,32 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="false" name="NewFilePerOrderLoggingTest.testLogFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="log.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="AlgoOM" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="log" />
+      <option name="MAIN_CLASS_NAME" value="log.NewFilePerOrderLoggingTest" />
+      <option name="METHOD_NAME" value="testLogFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -587,26 +746,22 @@
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="GAPID_DISABLE_PCS" value="false" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -616,20 +771,18 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="GAPID_DISABLE_PCS" value="false" />
-      </Profilers>
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -654,66 +807,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" web_path="">
       <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
@@ -801,12 +895,13 @@
       <method />
     </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <module name="" />
       <setting name="vmparams" value="" />
       <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="false" />
       <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -830,74 +925,12 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SCRATCH_FILE_ID" value="0" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="AlgoOM" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -942,48 +975,12 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -994,27 +991,25 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.CommandParserTest.test_trading_rule_dislay_command" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.TradingRuleEngineTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.TradingRuleEngineTest.testTopLimitOrdersExceedTradingRule" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CommandParserTest.test_trading_rule_ue_command" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.BusinessCaseTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.BusinessCaseTest.test002CancelWithIncorrectQuantity" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.BusinessCaseTest.test001OrderbookChangedNotOverallolcatedOrder" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.NewFilePerOrderLoggingTest.testLogFile" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CommandParserTest.test_trading_rule_ue_command" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TradingRuleEngineTest.testTopLimitOrdersExceedTradingRule" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TradingRuleEngineTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CommandParserTest.test_trading_rule_dislay_command" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.NewFilePerOrderLoggingTest.testLogFile" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.BusinessCaseTest.test002CancelWithIncorrectQuantity" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.BusinessCaseTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.BusinessCaseTest.test001OrderbookChangedNotOverallolcatedOrder" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>C:\Users\NIUXX\AppData\Roaming\Subversion</configuration>
+    <configuration>C:\Users\zhangbaoshan\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
@@ -1022,7 +1017,6 @@
       <changelist id="c3f78471-1439-4987-9627-3eec00af7d8b" name="Default" comment="" />
       <created>1461813159210</created>
       <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
       <updated>1461813159210</updated>
       <workItem from="1461813161671" duration="10158000" />
       <workItem from="1461982905811" duration="143000" />
@@ -1139,6 +1133,10 @@
       <workItem from="1479004916918" duration="230000" />
       <workItem from="1479028792373" duration="65000" />
       <workItem from="1479091394241" duration="18986000" />
+      <workItem from="1479429762177" duration="4829000" />
+      <workItem from="1479805333333" duration="67176000" />
+      <workItem from="1480987858108" duration="22201000" />
+      <workItem from="1481187529803" duration="7892000" />
     </task>
     <servers />
   </component>
@@ -1175,7 +1173,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2010837000" />
+    <option name="totallyTimeSpent" value="2112935000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1187,63 +1185,63 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="2906" height="1746" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54641145" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31229013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55406696" sideWeight="0.26226014" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24042982" sideWeight="0.77831715" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32822967" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907993" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20758769" sideWeight="0.47574627" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1748401" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5171256" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46205506" sideWeight="0.73773986" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36084142" sideWeight="0.5242537" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.54641145" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.55406696" sideWeight="0.26226014" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822967" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32907993" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22441365" sideWeight="0.47574627" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1748401" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36084142" sideWeight="0.5242537" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46220097" sideWeight="0.73773986" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34258375" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32344496" sideWeight="0.77831715" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32889125" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5167464" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32796317" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32796317" sideWeight="0.197411" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30149597" sideWeight="0.802589" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3001618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.72727275" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47640967" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.197411" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30149597" sideWeight="0.802589" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3001618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.72727275" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47640967" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1259,25 +1257,19 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/NumOfOrdersPerAccountEvaluator.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="565" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="566" />
+      <option name="time" value="570" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
-        <watch expression="HandlerProvider.getHandlers().size" language="JAVA" />
+        <watch expression="clientOrder.getClientOrderId()" language="JAVA" custom="" />
       </configuration>
       <configuration name="Application">
         <watch expression="clientOrder.getClientOrderId()" language="JAVA" custom="" />
+        <watch expression="Double.toString(rcr * 100.0)" language="JAVA" custom="" />
+        <watch expression="rcr = 10" language="JAVA" custom="" />
       </configuration>
     </watches-manager>
   </component>
@@ -1286,418 +1278,574 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/TradingRule.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/descision/PeggingOrderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="122" column="35" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utility/ClientApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/tradingRule/RuleEngineTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="225" column="80" selection-start-line="225" selection-start-column="80" selection-end-line="225" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="109" column="59" selection-start-line="109" selection-start-column="59" selection-end-line="109" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/CallingOrderHandlerProcessHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/ISessionPoolPicker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="32" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/utility/FixMsgHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/AlgoSessionPoolPicker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="417" column="9" selection-start-line="417" selection-start-column="9" selection-end-line="417" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tradingRule/evalautors/NumOfAccountEvaluatorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/SessionPickerAssignHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/RejectClientOrderHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/descision/BusinessCaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/database/SqlSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2132">
-          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/JUnit38ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/database/SqlSessionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1148">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/cache/MicroStructureDataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1476">
-          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-          <folding>
-            <element signature="e#3289#3290#0" expanded="false" />
-            <element signature="e#3321#3322#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/database/IssueTypeDataManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/database/MicroStructureTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/sqlserver.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/ClientOrderCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/FixEngineCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
-          <folding>
-            <element signature="method#list_all_sessions#0;class#FixEngineCommand#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/ExchangeOrderCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1189">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/utility/PrintTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/decision/pegging/PeggingDecision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1107">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utility/TestCaseBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4560">
-          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/AssembleDecisionChainHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="307" column="16" selection-start-line="307" selection-start-column="16" selection-end-line="307" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/providers/HandlerProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/CommandFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/decision/algo/DeliverToEngineDecision.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="54" column="81" selection-start-line="52" selection-start-column="11" selection-end-line="54" selection-end-column="81" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/DataCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/AssembleDecisionChainHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="43" column="57" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="57" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/IRule.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/sessionPool/PeggingSessionPoolPicker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/CommandBase.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/decision/pegging/PeggingDecision.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tradingRule/evalautors/AlgoOrderTypeEvaluatorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/OrderCancelRequestEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="31" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/IEvaluator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/MarketDataUpdatedEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="10" column="66" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="66" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="33" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/AlwaysTrueEvaluator.java">
+    <entry file="file://$PROJECT_DIR$/configuration/tradingRules/MG_Rule/NormalTradingRule.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/remote/Config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/utility/TestCaseBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="145" column="28" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/csc108/org.csc108.quickfix/1.5.3_1/org.csc108.quickfix-1.5.3_1.jar!/quickfix/Session.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.071428">
+          <caret line="1308" column="16" selection-start-line="1308" selection-start-column="16" selection-end-line="1308" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/csc108/org.csc108.quickfix/1.5.3_1/org.csc108.quickfix-1.5.3_1.jar!/quickfix/mina/SessionConnector.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.64285713">
+          <caret line="141" column="19" selection-start-line="141" selection-start-column="19" selection-end-line="141" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/csc108/org.csc108.quickfix/1.5.3_1/org.csc108.quickfix-1.5.3_1.jar!/quickfix/ThreadedSocketAcceptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.928572">
+          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/csc108/org.csc108.quickfix/1.5.3_1/org.csc108.quickfix-1.5.3_1.jar!/quickfix/ThreadedSocketInitiator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.0">
+          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/tradingRules/SG_Rule/NormalTradingRule.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/MonitorServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/FixEngineCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49557522">
+          <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/AlgoOrderTypeEvaluator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.2215909">
+          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1944" column="18" selection-start-line="1944" selection-start-column="18" selection-end-line="1944" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Syslog/Error.log">
+    <entry file="file://$PROJECT_DIR$/configuration/drools/RootNet/NewOrderRule.drl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="1710" column="68" selection-start-line="1710" selection-start-column="60" selection-end-line="1710" selection-end-column="68" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/utility/TestFixMsgHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/log/NewFilePerOrderLoggingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding />
+        <state vertical-scroll-proportion="0.5113636">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tradingRule/evalautors/AccountEvaluatorTest.java">
+    <entry file="file://$PROJECT_DIR$/configuration/remote/initiator.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/providers/TradingRuleProvider.java">
+    <entry file="file://$PROJECT_DIR$/configuration/remote/acceptor.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/OrderHandler.java">
+    <entry file="file://$PROJECT_DIR$/configuration/local/Config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/core/BaseEvaluator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/ClientOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-          <folding>
-            <element signature="e#12785#12786#0" expanded="true" />
-            <element signature="e#12817#12818#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/AccountIDEvaluator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding>
-            <element signature="e#344#345#0" expanded="false" />
-            <element signature="e#433#434#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/evaluators/NumOfOrdersPerAccountEvaluator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.3/commons-cli-1.3.jar!/org/apache/commons/cli/CommandLine.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/RuleEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="122" column="34" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/activemq/activemq-core/5.7.0/activemq-core-5.7.0.jar!/org/apache/activemq/util/ServiceSupport.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1554">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/monitor/command/TradingRuleCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="147" column="38" selection-start-line="147" selection-start-column="38" selection-end-line="147" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/acceptor.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/tradingRules/NormalTradingRule.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configuration/drools/PB/NewOrderRule.drl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/local/acceptor.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="31" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/utility/Alert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/SubscribeMarketDataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/tradingRules/NormalTradingRule.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configuration/initiator.cfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/acceptor.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configuration/Config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1117">
-          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tradingRule/TradingRuleEngineTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="58" column="83" selection-start-line="58" selection-start-column="83" selection-end-line="58" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="174" column="72" selection-start-line="174" selection-start-column="72" selection-end-line="174" selection-end-column="72" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/monitor/CommandParserTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/tradingRule/handlers/CallingOrderHandlerProcessHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="865">
-          <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#450#451#0" expanded="false" />
+            <element signature="e#508#509#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/ClientOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2776#2777#0" expanded="false" />
+            <element signature="e#2815#2816#0" expanded="false" />
+            <element signature="e#2882#2883#0" expanded="false" />
+            <element signature="e#2938#2939#0" expanded="false" />
+            <element signature="e#3072#3073#0" expanded="false" />
+            <element signature="e#3122#3123#0" expanded="false" />
+            <element signature="e#3175#3176#0" expanded="false" />
+            <element signature="e#3224#3225#0" expanded="false" />
+            <element signature="e#3423#3424#0" expanded="false" />
+            <element signature="e#3455#3456#0" expanded="false" />
+            <element signature="e#4611#4612#0" expanded="false" />
+            <element signature="e#4660#4661#0" expanded="false" />
+            <element signature="e#5191#5192#0" expanded="false" />
+            <element signature="e#5224#5225#0" expanded="false" />
+            <element signature="e#5280#5281#0" expanded="false" />
+            <element signature="e#5324#5325#0" expanded="false" />
+            <element signature="e#5356#5357#0" expanded="false" />
+            <element signature="e#5384#5385#0" expanded="false" />
+            <element signature="e#5429#5430#0" expanded="false" />
+            <element signature="e#5465#5466#0" expanded="false" />
+            <element signature="e#5501#5502#0" expanded="false" />
+            <element signature="e#5533#5534#0" expanded="false" />
+            <element signature="e#5583#5584#0" expanded="false" />
+            <element signature="e#5625#5626#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="false" />
+            <element signature="e#5718#5719#0" expanded="false" />
+            <element signature="e#5754#5755#0" expanded="false" />
+            <element signature="e#5792#5793#0" expanded="false" />
+            <element signature="e#5825#5826#0" expanded="false" />
+            <element signature="e#5856#5857#0" expanded="false" />
+            <element signature="e#5902#5903#0" expanded="false" />
+            <element signature="e#5942#5943#0" expanded="false" />
+            <element signature="e#5973#5974#0" expanded="false" />
+            <element signature="e#6002#6003#0" expanded="false" />
+            <element signature="e#6044#6045#0" expanded="false" />
+            <element signature="e#6080#6081#0" expanded="false" />
+            <element signature="e#6116#6117#0" expanded="false" />
+            <element signature="e#6156#6157#0" expanded="false" />
+            <element signature="e#6203#6204#0" expanded="false" />
+            <element signature="e#6239#6240#0" expanded="false" />
+            <element signature="e#6304#6305#0" expanded="false" />
+            <element signature="e#6354#6355#0" expanded="false" />
+            <element signature="e#6398#6399#0" expanded="false" />
+            <element signature="e#6431#6432#0" expanded="false" />
+            <element signature="e#6490#6491#0" expanded="false" />
+            <element signature="e#6534#6535#0" expanded="false" />
+            <element signature="e#6587#6588#0" expanded="false" />
+            <element signature="e#6628#6629#0" expanded="false" />
+            <element signature="e#6683#6684#0" expanded="false" />
+            <element signature="e#6722#6723#0" expanded="false" />
+            <element signature="e#6802#6803#0" expanded="false" />
+            <element signature="e#6858#6859#0" expanded="false" />
+            <element signature="e#6897#6898#0" expanded="false" />
+            <element signature="e#6929#6930#0" expanded="false" />
+            <element signature="e#6982#6983#0" expanded="false" />
+            <element signature="e#7024#7025#0" expanded="false" />
+            <element signature="e#7638#7639#0" expanded="false" />
+            <element signature="e#7667#7668#0" expanded="false" />
+            <element signature="e#7704#7705#0" expanded="false" />
+            <element signature="e#7757#7758#0" expanded="false" />
+            <element signature="e#7801#7802#0" expanded="false" />
+            <element signature="e#7837#7838#0" expanded="false" />
+            <element signature="e#7871#7872#0" expanded="false" />
+            <element signature="e#7903#7904#0" expanded="false" />
+            <element signature="e#7951#7952#0" expanded="false" />
+            <element signature="e#7993#7994#0" expanded="false" />
+            <element signature="e#12604#12605#0" expanded="false" />
+            <element signature="e#12639#12640#0" expanded="false" />
+            <element signature="e#12701#12702#0" expanded="false" />
+            <element signature="e#12749#12750#0" expanded="false" />
+            <element signature="e#12785#12786#0" expanded="false" />
+            <element signature="e#12817#12818#0" expanded="false" />
+            <element signature="e#12867#12868#0" expanded="false" />
+            <element signature="e#12909#12910#0" expanded="false" />
+            <element signature="e#12950#12951#0" expanded="false" />
+            <element signature="e#12987#12988#0" expanded="false" />
+            <element signature="e#13047#13048#0" expanded="false" />
+            <element signature="e#13099#13100#0" expanded="false" />
+            <element signature="e#13138#13139#0" expanded="false" />
+            <element signature="e#13173#13174#0" expanded="false" />
+            <element signature="e#13229#13230#0" expanded="false" />
+            <element signature="e#13277#13278#0" expanded="false" />
+            <element signature="e#13316#13317#0" expanded="false" />
+            <element signature="e#13351#13352#0" expanded="false" />
+            <element signature="e#13407#13408#0" expanded="false" />
+            <element signature="e#13455#13456#0" expanded="false" />
+            <element signature="e#24955#24956#0" expanded="false" />
+            <element signature="e#24987#24988#0" expanded="false" />
+            <element signature="e#25037#25038#0" expanded="false" />
+            <element signature="e#25079#25080#0" expanded="false" />
+            <element signature="e#25132#25133#0" expanded="false" />
+            <element signature="e#25177#25178#0" expanded="false" />
+            <element signature="e#25220#25221#0" expanded="false" />
+            <element signature="e#25265#25266#0" expanded="false" />
+            <element signature="e#25295#25296#0" expanded="false" />
+            <element signature="e#25323#25324#0" expanded="false" />
+            <element signature="e#25363#25364#0" expanded="false" />
+            <element signature="e#25397#25398#0" expanded="false" />
+            <element signature="e#25427#25428#0" expanded="false" />
+            <element signature="e#25455#25456#0" expanded="false" />
+            <element signature="e#25495#25496#0" expanded="false" />
+            <element signature="e#25529#25530#0" expanded="false" />
+            <element signature="e#25565#25566#0" expanded="false" />
+            <element signature="e#25597#25598#0" expanded="false" />
+            <element signature="e#25647#25648#0" expanded="false" />
+            <element signature="e#25689#25690#0" expanded="false" />
+            <element signature="e#25724#25725#0" expanded="false" />
+            <element signature="e#25755#25756#0" expanded="false" />
+            <element signature="e#25803#25804#0" expanded="false" />
+            <element signature="e#25843#25844#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/log/LogFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1336#1337#0" expanded="false" />
+            <element signature="e#1384#1385#0" expanded="false" />
+            <element signature="e#1438#1439#0" expanded="false" />
+            <element signature="e#1473#1474#0" expanded="false" />
+            <element signature="e#1519#1520#0" expanded="false" />
+            <element signature="e#1559#1560#0" expanded="false" />
+            <element signature="e#2143#2144#0" expanded="false" />
+            <element signature="e#2184#2185#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/EvaluationEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#712#713#0" expanded="false" />
+            <element signature="e#759#760#0" expanded="false" />
+            <element signature="e#2022#2023#0" expanded="false" />
+            <element signature="e#2058#2059#0" expanded="false" />
+            <element signature="e#2114#2115#0" expanded="false" />
+            <element signature="e#2164#2165#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/EventHandlerBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1527#1528#0" expanded="false" />
+            <element signature="e#1556#1557#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/OrderHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="737" column="79" selection-start-line="737" selection-start-column="79" selection-end-line="737" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2073#2074#0" expanded="false" />
+            <element signature="e#2106#2107#0" expanded="false" />
+            <element signature="e#2212#2213#0" expanded="false" />
+            <element signature="e#2251#2252#0" expanded="false" />
+            <element signature="e#2289#2290#0" expanded="false" />
+            <element signature="e#2346#2347#0" expanded="false" />
+            <element signature="e#2469#2470#0" expanded="false" />
+            <element signature="e#2513#2514#0" expanded="false" />
+            <element signature="e#2565#2566#0" expanded="false" />
+            <element signature="e#2601#2602#0" expanded="false" />
+            <element signature="e#2707#2708#0" expanded="false" />
+            <element signature="e#2747#2748#0" expanded="false" />
+            <element signature="e#3232#3233#0" expanded="false" />
+            <element signature="e#3269#3270#0" expanded="false" />
+            <element signature="e#4378#4379#0" expanded="false" />
+            <element signature="e#4441#4442#0" expanded="false" />
+            <element signature="e#4794#4795#0" expanded="false" />
+            <element signature="e#4833#4834#0" expanded="false" />
+            <element signature="e#4895#4896#0" expanded="false" />
+            <element signature="e#4951#4952#0" expanded="false" />
+            <element signature="e#4992#4993#0" expanded="false" />
+            <element signature="e#5031#5032#0" expanded="false" />
+            <element signature="e#5093#5094#0" expanded="false" />
+            <element signature="e#5149#5150#0" expanded="false" />
+            <element signature="e#5190#5191#0" expanded="false" />
+            <element signature="e#5229#5230#0" expanded="false" />
+            <element signature="e#5291#5292#0" expanded="false" />
+            <element signature="e#5347#5348#0" expanded="false" />
+            <element signature="e#5413#5414#0" expanded="false" />
+            <element signature="e#5461#5462#0" expanded="false" />
+            <element signature="e#5516#5517#0" expanded="false" />
+            <element signature="e#5560#5561#0" expanded="false" />
+            <element signature="e#5611#5612#0" expanded="false" />
+            <element signature="e#5645#5646#0" expanded="false" />
+            <element signature="e#21825#21826#0" expanded="false" />
+            <element signature="e#21864#21865#0" expanded="false" />
+            <element signature="e#21903#21904#0" expanded="false" />
+            <element signature="e#21935#21936#0" expanded="false" />
+            <element signature="e#22075#22076#0" expanded="false" />
+            <element signature="e#22109#22110#0" expanded="false" />
+            <element signature="e#22147#22148#0" expanded="false" />
+            <element signature="e#22182#22183#0" expanded="false" />
+            <element signature="e#28059#28060#0" expanded="false" />
+            <element signature="e#28099#28100#0" expanded="false" />
+            <element signature="e#35292#35293#0" expanded="false" />
+            <element signature="e#35333#35334#0" expanded="false" />
+            <element signature="e#35530#35531#0" expanded="false" />
+            <element signature="e#35571#35572#0" expanded="false" />
+            <element signature="e#35780#35781#0" expanded="false" />
+            <element signature="e#35827#35828#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/concurrent/EventDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="178" column="46" selection-start-line="178" selection-start-column="46" selection-end-line="178" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1867#1868#0" expanded="false" />
+            <element signature="e#1898#1899#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/disruptor/eventConsumer/ExecutionReportEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#837#838#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/csc108/model/fix/order/ExchangeOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="135" column="61" selection-start-line="135" selection-start-column="61" selection-end-line="135" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/tradingRules/PeggingRule/NormalTradingRule.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.07079646">
+          <caret line="47" column="20" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1759,6 +1907,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

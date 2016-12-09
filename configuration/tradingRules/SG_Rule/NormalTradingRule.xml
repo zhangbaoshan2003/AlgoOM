@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Rules>
+    <Rule Name="MaximumOrdersRule">
+        <Evaluators>
+            <Evaluator Name="AccountIDEvaluator" Criteria="Acct_PB_01">
+            </Evaluator>
+            <Evaluator Name="NumOfOrdersPerAccountEvaluator" Criteria="Acct_PB_01:1000">
+            </Evaluator>
+        </Evaluators>
+
+        <Handlers>
+            <Handler Name="RejectClientOrderHandler" >
+                <Parameters>
+                    <Para Name="reason" Value="Exceed the top limit 1000 orders allowed for the account Acct_PB_01"></Para>
+                </Parameters>
+            </Handler>
+        </Handlers>
+    </Rule>
+
+     <Rule Name="NormalOrderTradingRule">
+        <Evaluators>
+            <Evaluator Name="AlgoOrderTypeEvaluator" Criteria="Normal"></Evaluator>
+        </Evaluators>
+
+        <Handlers>
+            <Handler Name="SessionPickerAssignHandler">
+                <Parameters>
+                    <Para Name="PickerName" Value="AlgoSessionPoolPicker"></Para>
+                </Parameters>
+            </Handler>
+
+            <Handler Name="AssembleDecisionChainHandler">
+                <Parameters>
+                    <Para Name="Decision1" Value="DeliverToEngineDecision"></Para>
+                </Parameters>
+            </Handler>
+
+            <Handler Name="CallingOrderHandlerProcessHandler">
+                <Parameters>
+                    <Para Name="flushLog" Value="false"></Para>
+                </Parameters>
+            </Handler>
+        </Handlers>
+    </Rule>
+
+    <Rule Name="PeggingOrderTradingRule">
+        <Evaluators>
+            <Evaluator Name="AlgoOrderTypeEvaluator" Criteria="Pegging"></Evaluator>
+        </Evaluators>
+
+        <Handlers>
+            <Handler Name="SessionPickerAssignHandler">
+                <Parameters>
+                    <Para Name="PickerName" Value="PeggingSessionPoolPicker"></Para>
+                </Parameters>
+            </Handler>
+
+            <!--<Handler Name="SubscribeMarketDataHandler">-->
+            <!--</Handler>-->
+
+            <!--<Handler Name="AssembleDecisionChainHandler">-->
+                <!--<Parameters>-->
+                    <!--<Para Name="Decision1" Value="PeggingDecision"></Para>-->
+                <!--</Parameters>-->
+            <!--</Handler>-->
+
+            <Handler Name="AssembleDecisionChainHandler">
+                <Parameters>
+                    <Para Name="Decision1" Value="DeliverToEngineDecision"></Para>
+                </Parameters>
+            </Handler>
+
+            <Handler Name="CallingOrderHandlerProcessHandler">
+                <Parameters>
+                    <Para Name="flushLog" Value="false"></Para>
+                </Parameters>
+            </Handler>
+        </Handlers>
+    </Rule>
+</Rules>

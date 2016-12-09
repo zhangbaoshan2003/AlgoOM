@@ -37,9 +37,12 @@ public class ExchangeOrder extends ClientOrder {
     private SessionID sessionID;
 
     public void reportProgress() throws Exception {
-        if(this.getParent().getOrderHandler().isPeggingOrder()==false){
-            return;
-        }
+//        if(this.getParent().getOrderHandler().isPeggingOrder()==false){
+//            return;
+//        }
+
+
+
 
         HashMap<String, String> data = new HashMap<>();
         data.put("OrderId", this.getClientOrderId());
@@ -319,7 +322,7 @@ public class ExchangeOrder extends ClientOrder {
 
         }
 
-        if(this.getParent().getOrderHandler().isPeggingOrder()==true){
+        if(this.getParent().getOrderHandler().isReportProgressNeeded()==true){
             reportProgress();
         }
     }

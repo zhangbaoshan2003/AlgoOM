@@ -74,5 +74,11 @@ rule "NewOrderRule"
 			if(!task.getMessage().isSetField(6064)){
           	    task.getMessage().setString(6064,"30");
             }
+			
+			if(task.getMessage().isSetField(526)){
+				String tag526 =task.getMessage().getString(526);
+				task.getMessage().setString(1,tag526.substring(0,tag526.indexOf('_')));
+			}
+			
         LogFactory.droolsLog("After calling NewOrderRule : "+task.getMessage());
 end

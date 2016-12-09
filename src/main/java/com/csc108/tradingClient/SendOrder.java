@@ -1,16 +1,6 @@
 package com.csc108.tradingClient;
 
-import com.csc108.drools.DroolsType;
-import com.csc108.drools.DroolsUtility;
-import com.csc108.drools.OrderMessage;
-import com.csc108.model.fix.InitiatorApplication;
-import com.csc108.model.fix.SessionPool;
-import com.csc108.utility.FixMsgHelper;
 import quickfix.*;
-import quickfix.fix42.ExecutionReport;
-import quickfix.fix42.NewOrderSingle;
-import quickfix.fix42.OrderCancelReject;
-import quickfix.fix42.OrderPauseResumeRequest;
 
 import java.util.concurrent.CountDownLatch;
 

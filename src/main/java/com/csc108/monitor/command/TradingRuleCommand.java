@@ -1,21 +1,15 @@
 package com.csc108.monitor.command;
 
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.SessionPool;
 import com.csc108.tradingRule.RuleEngine;
 import com.csc108.tradingRule.core.IRule;
-import com.csc108.tradingRule.core.TradingRule;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.FormattedTable;
-import com.csc108.utility.PrintTable;
 import org.apache.commons.cli.CommandLine;
-import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.commons.lang3.SystemUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by NIUXX on 2016/11/14.

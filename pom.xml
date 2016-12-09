@@ -35,9 +35,17 @@
     Date: 20161109-4.3.0.2
     New feature: Based on trading rules
     Bug fixing: None
+
+    Date: 20161125-4.3.3.4
+    New feature: Rule based pegging
+    Bug fixing: None
+
+    Date: 20161125-4.3.3.5
+    New feature: calling omAcceptor/omInitiator
+    Bug fixing: None
      -->
 
-    <version>4.3.1.0</version>
+    <version>4.3.3.5</version>
 
     <properties>
         <jdk.version>1.8</jdk.version>

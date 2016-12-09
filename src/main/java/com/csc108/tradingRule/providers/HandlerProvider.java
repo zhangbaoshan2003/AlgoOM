@@ -5,9 +5,7 @@ import com.csc108.model.data.Security;
 import com.csc108.model.data.SecurityType;
 import com.csc108.model.market.OrderBook;
 import com.csc108.tradingRule.core.IHandler;
-import com.csc108.tradingRule.handlers.AssembleDecisionChainHandler;
-import com.csc108.tradingRule.handlers.CallingOrderHandlerProcessHandler;
-import com.csc108.tradingRule.handlers.RejectClientOrderHandler;
+import com.csc108.tradingRule.handlers.*;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
@@ -35,6 +33,12 @@ public class HandlerProvider {
         handlers.put(handler.getHandlerName(),handler);
 
         handler = new CallingOrderHandlerProcessHandler();
+        handlers.put(handler.getHandlerName(),handler);
+
+        handler = new SubscribeMarketDataHandler();
+        handlers.put(handler.getHandlerName(),handler);
+
+        handler = new SessionPickerAssignHandler();
         handlers.put(handler.getHandlerName(),handler);
     }
 }

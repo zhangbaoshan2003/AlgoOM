@@ -1,27 +1,20 @@
 package descision;
 
-import com.csc108.decision.pegging.PeggingDecision;
 import com.csc108.log.LogFactory;
-import com.csc108.model.Allocation;
 import com.csc108.model.cache.OrderbookDataManager;
-import com.csc108.model.fix.SessionPool;
+import com.csc108.model.fix.sessionPool.SessionPool;
 import com.csc108.model.fix.order.ClientOrder;
 import com.csc108.model.fix.order.ManuallyOrder;
-import com.csc108.model.fix.order.OrderHandler;
 import com.csc108.model.fix.order.OrderPool;
 import com.csc108.model.market.OrderBook;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 import quickfix.SessionID;
 import quickfix.field.OrdStatus;
-import quickfix.field.Side;
-import utility.ClientApplication;
 import utility.TestCaseBase;
 import utility.TestPurpose;
 import utility.TestUtility;
 
-import java.util.ArrayList;
-import java.util.Optional;
 import java.util.concurrent.*;
 
 /**
@@ -147,6 +140,11 @@ public class BusinessCaseTest extends TestCaseBase {
 
         long totalNotFilled= clientApplication.getOrderSet().values().stream().filter(x -> Double.compare(x.getLeavesQty(),0)!=0)
                 .count();
+        if(totalNotFilled!=0){
+            String clientOrid =clientApplication.getOrderSet().values().stream().filter(x -> Double.compare(x.getLeavesQty(), 0) != 0).findAny().get().getClientOrderId();
+            System.out.printf("%10s[%s]%-10s","-",clientOrid,"-");
+        }
+
         assertEquals(0, totalNotFilled);
     }
 
@@ -161,8 +159,8 @@ public class BusinessCaseTest extends TestCaseBase {
             //TestUtility.IS_PARTIALLY_FILL=false;
 
             //simulate no available exchange session
-            exchangeSessionId  = SessionPool.getInstance().getExchangeSessions().get(0);
-            SessionPool.getInstance().getExchangeSessions().clear();
+            exchangeSessionId  = SessionPool.getInstance().getAlgoExchangeSessions().get(0);
+            SessionPool.getInstance().getAlgoExchangeSessions().clear();
             Thread.sleep(100);
 
             for(int i=0;i<mainGateway.getCount();i++){
@@ -189,9 +187,9 @@ public class BusinessCaseTest extends TestCaseBase {
         clientApplication.getOrderSet().clear();
         TestUtility.Purpose = TestPurpose.PARTIAL_FILL_THEN_CANCEL;
 
-        if(SessionPool.getInstance().getExchangeSessions().size()==0 &&
+        if(SessionPool.getInstance().getAlgoExchangeSessions().size()==0 &&
                 exchangeSessionId!=null){
-            SessionPool.getInstance().getExchangeSessions().add(exchangeSessionId);
+            SessionPool.getInstance().getAlgoExchangeSessions().add(exchangeSessionId);
         }
 
         for(int i=0;i<mainGateway.getCount();i++){
@@ -217,9 +215,9 @@ public class BusinessCaseTest extends TestCaseBase {
         clientApplication.getOrderSet().clear();
         TestUtility.Purpose = TestPurpose.CANCEL_REJECTED;
 
-        if(SessionPool.getInstance().getExchangeSessions().size()==0 &&
+        if(SessionPool.getInstance().getAlgoExchangeSessions().size()==0 &&
                 exchangeSessionId!=null){
-            SessionPool.getInstance().getExchangeSessions().add(exchangeSessionId);
+            SessionPool.getInstance().getAlgoExchangeSessions().add(exchangeSessionId);
         }
 
         CountDownLatch mainGateway = new CountDownLatch(1);

@@ -45,13 +45,13 @@ public class EvaluationEventHandler extends EventHandlerBase {
         }
 
         try{
-            boolean flushLog=false;
-            if(eventSource.getTriggerData() != null){
-                if (eventSource.getTriggerData() instanceof OrderBookEvaluationData) {
-                    flushLog=true;
-                }
-            }
-            clientOrderHandler.process(flushLog);
+//            boolean flushLog=false;
+//            if(eventSource.getTriggerData() != null){
+//                if (eventSource.getTriggerData() instanceof OrderBookEvaluationData) {
+//                    flushLog=true;
+//                }
+//            }
+            clientOrderHandler.process();
         }catch (Exception ex){
             Alert.fireAlert(Alert.Severity.Major,String.format(Alert.PROCESS_ORDER_ERROR,clientOrderId), ex.getMessage(),ex);
         }

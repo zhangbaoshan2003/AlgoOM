@@ -1,9 +1,7 @@
 package com.csc108.monitor.command;
 
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.SessionPool;
 import com.csc108.utility.PrintTable;
-import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;

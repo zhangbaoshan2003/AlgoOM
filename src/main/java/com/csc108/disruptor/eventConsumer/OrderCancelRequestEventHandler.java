@@ -83,13 +83,15 @@ public class OrderCancelRequestEventHandler extends EventHandlerBase {
                         filter(x -> x.getOrderState() == OrderState.SENT_TO_EXCHANGE).findAny().isPresent()==false){
 
             try{
-                clientOrderManager.getExchangeOrders().forEach(x->x.setOrdStatus(new OrdStatus(OrdStatus.CANCELED)));
+                clientOrderManager.getExchangeOrders().forEach(x -> x.setOrdStatus(new OrdStatus(OrdStatus.CANCELED)));
 
                 clientOrder.setOrdStatus(new OrdStatus(OrdStatus.CANCELED));
 
                 FixMsgHelper.responseCancelRequestClientOrder(clientOrder, clientOrder.getOrdStatus(),
                         new ExecType(ExecType.CANCELED), FixMsgHelper.CLIENT_IN_REPORT_CANCELED, cancelRequest);
+
                 clientOrderManager.publishMsg(false);
+
 
             }catch (Exception ex){
                 Alert.fireAlert(Alert.Severity.Critical,String.format(Alert.DIRECT_CANCEL_ORDER_ERROR_KEY,clientOrder.getClientOrderId()),

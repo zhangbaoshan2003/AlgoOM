@@ -32,7 +32,11 @@ public class CallingOrderHandlerProcessHandler implements IHandler {
                 flushLog = Boolean.parseBoolean(parameters.get("flushLog")) ;
             }
 
-            orderHandler.process(flushLog);
+            //set flag to indicate if report progress is needed
+            orderHandler.setReportProgressNeeded(flushLog);
+
+            orderHandler.process();
+
         }catch (Exception ex){
             Alert.fireAlert(Alert.Severity.Major, String.format(Alert.PROCESS_ORDER_ERROR, orderHandler.getAlertID()), ex.getMessage(), ex);
         }

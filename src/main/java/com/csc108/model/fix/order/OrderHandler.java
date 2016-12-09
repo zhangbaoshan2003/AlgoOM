@@ -2,9 +2,7 @@ package com.csc108.model.fix.order;
 
 import com.csc108.configuration.GlobalConfig;
 import com.csc108.decision.DecisionChainManager;
-import com.csc108.decision.DecisionMaker;
 import com.csc108.decision.configuration.PegConfiguration;
-import com.csc108.decision.configuration.SplitOrderDecisionConfig;
 import com.csc108.disruptor.concurrent.DisruptorController;
 import com.csc108.disruptor.event.*;
 import com.csc108.disruptor.event.EventType;
@@ -14,8 +12,8 @@ import com.csc108.model.IDataHandler;
 import com.csc108.model.OrderState;
 import com.csc108.model.cache.*;
 import com.csc108.model.criteria.*;
-import com.csc108.model.data.OrderSide;
-import com.csc108.model.fix.SessionPool;
+import com.csc108.model.fix.sessionPool.ISessionPoolPicker;
+import com.csc108.model.fix.sessionPool.SessionPool;
 import com.csc108.model.market.*;
 import com.csc108.utility.*;
 import org.apache.commons.lang3.StringUtils;
@@ -26,10 +24,7 @@ import quickfix.fix42.OrderPauseResumeRequest;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.temporal.TemporalUnit;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -81,6 +76,14 @@ public class OrderHandler implements IDataHandler {
         return decisionChain;
     }
 
+    private ISessionPoolPicker sessionPoolPicker;
+    public ISessionPoolPicker getSessionPoolPicker() {
+        return sessionPoolPicker;
+    }
+
+    public void setSessionPoolPicker(ISessionPoolPicker sessionPoolPicker) {
+        this.sessionPoolPicker = sessionPoolPicker;
+    }
 
     /*hold how many allocations have been calculated out for this client order*/
     private final ArrayList<Allocation> allocations = new ArrayList<>();
@@ -231,7 +234,8 @@ public class OrderHandler implements IDataHandler {
             this.getClientOrder().setAccountId(accountId);
 
         }catch (Exception ex){
-            //LogFactory.error("Invalid accountId",ex);
+            Alert.fireAlert(Alert.Severity.Major,String.format(Alert.FIELD_NOT_FOUND_KEY,"AccountID(Tag1)",this.getID()),
+                    this.getClientOrder().getNewOrderRequestMsg().toString(),ex);
         }
 
         try{
@@ -239,7 +243,7 @@ public class OrderHandler implements IDataHandler {
             this.getClientOrder().setSecondaryCloId(secondaryCloId);
 
         }catch (Exception ex){
-            //LogFactory.error("Invalid secondaryCloId",ex);
+            LogFactory.error(String.format("SecondaryCloId (Tag526) not specified @[%s] %n",this.getClientOrder().getClientOrderId()),ex);
         }
 
         //set type
@@ -402,7 +406,7 @@ public class OrderHandler implements IDataHandler {
         });
     }
 
-    public void process(boolean flushLog) throws Exception {
+    public void process() throws Exception {
         //Todo: should use unallocated qty to tell if should split and sent out
         ArrayList<Allocation> allocations = new ArrayList<>();
         ArrayList<OmEvent> events = new ArrayList<>();
@@ -466,7 +470,7 @@ public class OrderHandler implements IDataHandler {
                 logLines.add("Generate the following exchange orders ...");
                 ArrayList<ExchangeOrder> exchangeOrdersToGenerate = new ArrayList<>();
                 for(Allocation allocation:exchangeOrderToCreate){
-                    SessionID sessionID = SessionPool.getInstance().pickupExchangeSessionID(this);
+                    SessionID sessionID = getSessionPoolPicker().pickUpSession(); //SessionPool.getInstance().pickupExchangeSessionID(this);
                     ExchangeOrder exchangeOrder = new ExchangeOrder(this.getClientOrder(),sessionID,
                             allocation.getAllocatedQuantity(),allocation.getAllocatedPrice(),allocation.getDecisionType(),allocation.getCategory());
                     try{
@@ -507,7 +511,7 @@ public class OrderHandler implements IDataHandler {
         //flush log
         publishMsg(false);
 
-        if(flushLog==true){
+        if(this.isReportProgressNeeded()==true){
             LogFactory.logOrder(this.getClientOrder().getClientOrderId(),logLines);
         }
     }
@@ -667,7 +671,11 @@ public class OrderHandler implements IDataHandler {
     //only directly called by test case
     public void publishMsg(Boolean force ){
 
-        if(this.isPeggingOrder()==false){
+//        if(this.isPeggingOrder()==false){
+//            return;
+//        }
+
+        if(this.isReportProgressNeeded()==false){
             return;
         }
 
@@ -781,6 +789,10 @@ public class OrderHandler implements IDataHandler {
             msgDic.put("AllExchSliceTopic", allExchSlicesTopic);
             TradeDataMqManager.getInstance().sendMsg("ORD.CLIENT." + order.getClientOrderId(), msgDic, force, "");
 
+//            if(this.isReportProgressNeeded()==true){
+//
+//            }
+
             this.getExchangeOrders().forEach(x->{
                 try {
                     x.reportProgress();
@@ -788,7 +800,6 @@ public class OrderHandler implements IDataHandler {
                     LogFactory.error("exchange order report prgress error!",ex);
                 }
             });
-
         }catch (Exception ex){
             Alert.fireAlert(Alert.Severity.Critical,"ORD.CLIENT." + order.getClientOrderId(),"publish msg error",ex);
         }
@@ -817,5 +828,14 @@ public class OrderHandler implements IDataHandler {
 
     public void setAllDayIntervalMarketData(AllDayIntervalMarketData allDayIntervalMarketData) {
         this.allDayIntervalMarketData = allDayIntervalMarketData;
+    }
+
+    //set flag as if the hander should report current progress of execution report
+    private boolean reportProgressNeeded=false;
+    public boolean isReportProgressNeeded() {
+        return reportProgressNeeded;
+    }
+    public void setReportProgressNeeded(boolean reportProgressNeeded) {
+        this.reportProgressNeeded = reportProgressNeeded;
     }
 }

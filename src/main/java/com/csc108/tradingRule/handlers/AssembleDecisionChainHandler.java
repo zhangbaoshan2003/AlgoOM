@@ -6,6 +6,8 @@ import com.csc108.decision.algo.DeliverToEngineDecision;
 import com.csc108.decision.algo.PauseResumeDecision;
 import com.csc108.decision.pegging.PeggingDecision;
 import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fix.sessionPool.AlgoSessionPoolPicker;
+import com.csc108.model.fix.sessionPool.PeggingSessionPoolPicker;
 import com.csc108.tradingRule.core.IHandler;
 import com.csc108.utility.Alert;
 
@@ -32,6 +34,7 @@ public class AssembleDecisionChainHandler implements IHandler {
             if(decisionName.equals("PeggingDecision")){
                 decisions.add(new PeggingDecision());
             }
+
             if(decisionName.equals("DeliverToEngineDecision")){
                 decisions.add(new DeliverToEngineDecision());
             }

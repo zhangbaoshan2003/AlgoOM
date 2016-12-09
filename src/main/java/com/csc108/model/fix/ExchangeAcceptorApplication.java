@@ -2,6 +2,7 @@ package com.csc108.model.fix;
 
 
 import com.csc108.log.LogFactory;
+import com.csc108.model.fix.sessionPool.SessionPool;
 import quickfix.*;
 import quickfix.field.Text;
 import quickfix.fix42.ExecutionReport;
@@ -22,7 +23,7 @@ public class ExchangeAcceptorApplication extends MessageCracker implements Appli
 
     public void onLogon(SessionID sessionID) {
         try {
-            SessionPool.getInstance().getExchangeSessions().add(sessionID);
+            SessionPool.getInstance().getAlgoExchangeSessions().add(sessionID);
             LogFactory.info("Acceptor application logon as :" + sessionID);
         }catch (Exception ex){
             com.csc108.log.LogFactory.error("Error happened when logon down acceptor as "+sessionID,ex);
@@ -32,7 +33,7 @@ public class ExchangeAcceptorApplication extends MessageCracker implements Appli
 
     public void onLogout(SessionID sessionID) {
         try {
-            SessionPool.getInstance().getExchangeSessions().remove(sessionID);
+            SessionPool.getInstance().getAlgoExchangeSessions().remove(sessionID);
             LogFactory.info("Acceptor application logout as :" + sessionID);
         }catch (Exception ex){
             com.csc108.log.LogFactory.error("Error happened when logout down acceptor as "+sessionID,ex);

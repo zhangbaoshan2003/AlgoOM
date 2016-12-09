@@ -33,6 +33,7 @@ public class TestFixMsgHelper {
         newOrderSingle.set(new OrderQty(qty));
         newOrderSingle.set(new Price(price));
         newOrderSingle.set(new SecurityExchange("SS"));
+        newOrderSingle.set(new SecondaryClOrdID (UUID.randomUUID().toString()));
         newOrderSingleRequestPool.add(newOrderSingle);
 
         return newOrderSingle;

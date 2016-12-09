@@ -1,12 +1,11 @@
 package com.csc108.model.fix.order;
 
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.SessionPool;
+import com.csc108.model.fix.sessionPool.SessionPool;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FixMsgHelper;
 import com.csc108.utility.FixUtil;
 import quickfix.FieldNotFound;
-import quickfix.SessionID;
 import quickfix.field.*;
 import quickfix.fix42.ExecutionReport;
 import quickfix.fix42.OrderCancelReject;
@@ -284,7 +283,7 @@ public class ManuallyOrder {
     }
 
     public void notifyClient(OrderCancelRequest cancelRequest) throws Exception {
-        SessionPool.getInstance().getExchangeSessions().forEach(sessionID -> {
+        SessionPool.getInstance().getAlgoExchangeSessions().forEach(sessionID -> {
             try {
                 FixMsgHelper.sendMessage(cancelRequest, sessionID, "EXG << Order Cancel Request(Manually Order)", this.manuallyClOrdID);
             } catch (Exception ex) {

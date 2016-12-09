@@ -19,7 +19,7 @@ import utility.TestUtility;
  */
 public class TradingRuleEngineTest extends TestCaseBase {
 
-    public void testTopLimitOrdersExceedTradingRule() throws Exception {
+    public void test001TopLimitOrdersExceedTradingRule() throws Exception {
         assertEquals(3, TradingRuleProvider.getInstance().getTradingRules().size());
 
         TestUtility.Purpose = TestPurpose.FULL_FILL;
@@ -62,6 +62,10 @@ public class TradingRuleEngineTest extends TestCaseBase {
         Session.sendToTarget(newOrderSingle, clientSessionId);
         Thread.sleep(500);
         assertEquals(OrdStatus.REJECTED, clientOrder.getOrdStatus().getValue());
+
+    }
+
+    public void test002PeggingOrderTradingRuleWork(){
 
     }
 }

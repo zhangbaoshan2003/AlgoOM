@@ -4,13 +4,10 @@ import com.csc108.drools.DroolsType;
 import com.csc108.drools.DroolsUtility;
 import com.csc108.drools.OrderMessage;
 import com.csc108.log.LogFactory;
-import com.csc108.utility.Alert;
+import com.csc108.model.fix.sessionPool.SessionPool;
 import com.csc108.utility.FixMsgHelper;
 import quickfix.*;
-import quickfix.field.ExecType;
-import quickfix.field.Text;
 import quickfix.fix42.ExecutionReport;
-import quickfix.fix42.NewOrderSingle;
 import quickfix.fix42.OrderCancelReject;
 import quickfix.fix42.OrderPauseResumeRequest;
 

@@ -224,7 +224,23 @@ public class Main {
                 LogFactory.error("Close trade data subscriber error!", ex);
             }
 
+            try{
+                System.out.println("Closing acceptor ...");
+                OmAcceptor.stop(true);
+            }catch (Exception ex){
+                LogFactory.error("Closing acceptor error@",ex);
+            }
+
+            try{
+                System.out.println("Closing initiator ...");
+                omInitiator.stop(true);
+            }catch (Exception ex){
+                LogFactory.error("Closing initiator error@",ex);
+            }
+
             System.exit(0);
+
+
         }catch (Exception ex){
             System.out.println("Error happened in main method!@"+ex);
 

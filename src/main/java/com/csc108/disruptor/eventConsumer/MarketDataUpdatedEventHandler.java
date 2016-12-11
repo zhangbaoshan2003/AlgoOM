@@ -1,7 +1,7 @@
 package com.csc108.disruptor.eventConsumer;
 
 import com.csc108.disruptor.event.OmEvent;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.model.market.AllDayIntervalMarketData;
 import com.csc108.model.market.IntervalMarketData;
 import com.csc108.model.market.RealTimeMarketData;

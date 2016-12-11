@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class Alert {
     public static final String SESSION_NOT_FOUND_KEY="Session %s not found for order %s";
     public static final String FIELD_NOT_FOUND_KEY="%s not defined for order %s";
-    public static final String SENDING_MSG_ERROR="Sending fix msg failed for order %s";
+    public static final String SENDING_MSG_ERROR="Sending fixModel msg failed for order %s";
     //public static final String PROCESS_ORDER_ERROR="Process %s error";
     public static final String SEND_OUT_EXCHANGE_ORDER_ERROR_KEY="Send out exg order %s error";
     public static final String REJECT_CANCEL_ERROR_KEY="Reject order %s cancel error";

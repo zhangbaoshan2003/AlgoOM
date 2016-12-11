@@ -1,8 +1,6 @@
 package com.csc108.tradingRule.handlers;
 
-import com.csc108.log.LogFactory;
-import com.csc108.model.fix.order.OrderHandler;
-import com.csc108.model.fix.order.OrderPool;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.tradingRule.core.IHandler;
 import com.csc108.utility.Alert;
 

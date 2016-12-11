@@ -4,8 +4,7 @@ import com.csc108.decision.algo.ConditionalOrderSentOutOrNotDecision;
 import com.csc108.decision.algo.DeliverToEngineDecision;
 import com.csc108.decision.algo.PauseResumeDecision;
 import com.csc108.decision.pegging.PeggingDecision;
-import com.csc108.model.fix.order.OrderHandler;
-import quickfix.fix42.NewOrderSingle;
+import com.csc108.model.fixModel.order.OrderHandler;
 
 import java.util.ArrayList;
 

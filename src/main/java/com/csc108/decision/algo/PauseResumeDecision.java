@@ -10,7 +10,7 @@ import com.csc108.model.PauseResumeEvaluationData;
 import com.csc108.model.WakeupEvaluationData;
 import com.csc108.model.criteria.Condition;
 import com.csc108.model.criteria.TradeAction;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.utility.Alert;
 
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class PauseResumeDecision extends BaseDecision {
                     pauseResumeEvent.setTriggerData(pauseResumeEvaluationData);
                     events.add(pauseResumeEvent);
 
-//                    //schedule a wake up event to evaluate at a fix interval
+//                    //schedule a wake up event to evaluate at a fixModel interval
 //                    OmEvent wakeupEvent = new OmEvent();
 //                    wakeupEvent.setTriggerData(new WakeupEvaluationData(System.currentTimeMillis() + GlobalConfig.getWakeupInterval() * 1000));
 //                    wakeupEvent.setEventType(EventType.WAKEUP);

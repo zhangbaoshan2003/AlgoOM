@@ -5,7 +5,7 @@ import com.csc108.model.IEvaluationData;
 
 /**
  * Created by zhangbaoshan on 2016/5/6.
- * This is the event holding will be put to ring buffer, including fix message event and market
+ * This is the event holding will be put to ring buffer, including fixModel message event and market
  * data update triggered event
  */
 public class OmEvent {
@@ -15,10 +15,10 @@ public class OmEvent {
     //what type of this event is
     private EventType eventType;
 
-    /*data wrapper and manager for a fix related or market data updated related event*/
+    /*data wrapper and manager for a fixModel related or market data updated related event*/
     private IDataHandler dataManager;
 
-    //link to an fix message or a market data
+    //link to an fixModel message or a market data
     private IEvaluationData triggerData;
 
     public IDataHandler getDataHandler() {

@@ -1,8 +1,6 @@
 package com.csc108.tradingRule.evaluators;
 
-import com.csc108.model.fix.order.OrderPool;
 import com.csc108.tradingRule.core.BaseEvaluator;
-import quickfix.field.OrdStatus;
 
 /**
  * Created by zhangbaoshan on 2016/11/2.

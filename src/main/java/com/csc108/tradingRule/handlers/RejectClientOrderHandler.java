@@ -1,15 +1,13 @@
 package com.csc108.tradingRule.handlers;
 
-import com.csc108.model.data.OrderSide;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.tradingRule.core.IHandler;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FixMsgHelper;
 import com.csc108.utility.FixUtil;
 import quickfix.field.OrdStatus;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**
@@ -25,7 +23,7 @@ public class RejectClientOrderHandler implements IHandler {
     @Override
     public void handle(OrderHandler handler, LinkedHashMap<String, String> parameters) {
         if(handler.getClientOrder().getNewOrderRequestMsg()==null)
-            throw new IllegalArgumentException("No request fix msg found @ "+handler.getClientOrder().getClientOrderId());
+            throw new IllegalArgumentException("No request fixModel msg found @ "+handler.getClientOrder().getClientOrderId());
 
         ClientOrder clientOrder = handler.getClientOrder();
 

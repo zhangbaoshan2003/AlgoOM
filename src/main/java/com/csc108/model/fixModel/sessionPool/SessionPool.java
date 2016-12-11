@@ -1,4 +1,4 @@
-package com.csc108.model.fix.sessionPool;
+package com.csc108.model.fixModel.sessionPool;
 
 import com.csc108.log.LogFactory;
 import com.csc108.utility.Alert;

@@ -1,7 +1,7 @@
-package com.csc108.model.fix.order;
+package com.csc108.model.fixModel.order;
 
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.sessionPool.SessionPool;
+import com.csc108.model.fixModel.sessionPool.SessionPool;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FixMsgHelper;
 import com.csc108.utility.FixUtil;

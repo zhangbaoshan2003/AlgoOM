@@ -9,7 +9,7 @@ import com.csc108.infrastructure.pooledActiveMQ.PooledSession;
 import com.csc108.log.LogFactory;
 import com.csc108.model.data.Security;
 import com.csc108.model.data.SecurityType;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.model.market.*;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FormattedTable;

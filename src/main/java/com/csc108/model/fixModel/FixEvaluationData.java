@@ -1,4 +1,4 @@
-package com.csc108.model.fix;
+package com.csc108.model.fixModel;
 
 import com.csc108.model.IEvaluationData;
 import quickfix.Message;

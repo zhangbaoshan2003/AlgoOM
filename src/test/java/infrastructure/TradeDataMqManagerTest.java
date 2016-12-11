@@ -3,23 +3,15 @@ package infrastructure;
 import com.csc108.model.Allocation;
 import com.csc108.model.OrderState;
 import com.csc108.model.cache.OrderbookDataManager;
-import com.csc108.model.cache.TradeDataMqManager;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderHandler;
-import com.csc108.model.fix.order.OrderPool;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderPool;
 import com.csc108.model.market.OrderBook;
-import junit.framework.TestCase;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
-import quickfix.field.Side;
 import utility.TestCaseBase;
 import utility.TestUtility;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**

@@ -4,11 +4,10 @@ import com.csc108.disruptor.concurrent.EventDispatcher;
 import com.csc108.disruptor.event.EventType;
 import com.csc108.log.LogFactory;
 import com.csc108.model.OrderState;
-import com.csc108.model.fix.FixEvaluationData;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.ExchangeOrder;
+import com.csc108.model.fixModel.FixEvaluationData;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.ExchangeOrder;
 import quickfix.*;
-import quickfix.Message;
 import quickfix.field.*;
 import quickfix.fix42.*;
 

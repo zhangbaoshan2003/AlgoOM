@@ -4,15 +4,12 @@ import com.csc108.decision.DecisionChainManager;
 import com.csc108.decision.algo.DeliverToEngineDecision;
 import com.csc108.decision.algo.PauseResumeDecision;
 import com.csc108.decision.pegging.PeggingDecision;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.tradingRule.handlers.AssembleDecisionChainHandler;
 import junit.framework.TestCase;
 
-import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 
 /**
  * Created by zhangbaoshan on 2016/11/3.

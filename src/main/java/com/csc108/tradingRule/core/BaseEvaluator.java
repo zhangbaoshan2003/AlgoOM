@@ -1,7 +1,6 @@
 package com.csc108.tradingRule.core;
 
-import com.csc108.model.fix.order.OrderHandler;
-import com.csc108.tradingRule.core.IEvaluator;
+import com.csc108.model.fixModel.order.OrderHandler;
 
 /**
  * Created by zhangbaoshan on 2016/11/1.

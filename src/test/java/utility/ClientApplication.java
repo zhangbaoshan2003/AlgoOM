@@ -1,21 +1,16 @@
 package utility;
 
 import com.csc108.decision.configuration.PegConfiguration;
-import com.csc108.decision.pegging.PeggingDecision;
 import com.csc108.log.LogFactory;
 import com.csc108.model.criteria.Condition;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderHandler;
 import quickfix.*;
 import quickfix.Message;
 import quickfix.MessageCracker;
 import quickfix.field.*;
-import quickfix.field.converter.DoubleConverter;
 import quickfix.fix42.*;
-import sun.rmi.runtime.*;
-import sun.rmi.runtime.Log;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.UUID;

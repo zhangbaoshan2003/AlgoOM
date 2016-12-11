@@ -2,9 +2,8 @@ package com.csc108.decision;
 
 import com.csc108.decision.configuration.Ref;
 import com.csc108.disruptor.event.OmEvent;
-import com.csc108.exceptions.OverAllocateException;
 import com.csc108.model.Allocation;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 
 import java.util.ArrayList;
 import java.util.List;

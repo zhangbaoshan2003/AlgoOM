@@ -1,4 +1,4 @@
-package com.csc108.model.fix.sessionPool;
+package com.csc108.model.fixModel.sessionPool;
 
 import quickfix.SessionID;
 

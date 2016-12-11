@@ -5,11 +5,8 @@ import com.csc108.decision.DecisionChainManager;
 import com.csc108.decision.algo.DeliverToEngineDecision;
 import com.csc108.decision.algo.PauseResumeDecision;
 import com.csc108.decision.pegging.PeggingDecision;
-import com.csc108.model.fix.order.OrderHandler;
-import com.csc108.model.fix.sessionPool.AlgoSessionPoolPicker;
-import com.csc108.model.fix.sessionPool.PeggingSessionPoolPicker;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.tradingRule.core.IHandler;
-import com.csc108.utility.Alert;
 
 import java.util.*;
 

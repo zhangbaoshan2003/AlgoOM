@@ -1,15 +1,13 @@
 package com.csc108;
 
 import com.csc108.configuration.GlobalConfig;
-import com.csc108.disruptor.concurrent.DisruptorController;
 import com.csc108.disruptor.concurrent.EventDispatcher;
 import com.csc108.drools.DroolsType;
 import com.csc108.drools.DroolsUtility;
-import com.csc108.log.*;
 import com.csc108.log.LogFactory;
 import com.csc108.model.cache.*;
-import com.csc108.model.fix.AcceptorApplication;
-import com.csc108.model.fix.InitiatorApplication;
+import com.csc108.model.fixModel.AcceptorApplication;
+import com.csc108.model.fixModel.InitiatorApplication;
 import com.csc108.monitor.MonitorServer;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.AlertManager;

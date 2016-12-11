@@ -4,16 +4,14 @@ import com.csc108.decision.BaseDecision;
 import com.csc108.decision.configuration.PegConfiguration;
 import com.csc108.decision.configuration.Ref;
 import com.csc108.disruptor.event.OmEvent;
-import com.csc108.log.LogFactory;
 import com.csc108.model.Allocation;
 import com.csc108.model.AllocationCategory;
 import com.csc108.model.AllocationDecisionType;
 import com.csc108.model.cache.OrderbookDataManager;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.model.market.OrderBook;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FormattedTable;
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import quickfix.field.Side;
 
 import java.util.ArrayList;

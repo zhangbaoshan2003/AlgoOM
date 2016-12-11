@@ -1,17 +1,10 @@
 package com.csc108.tradingRule.handlers;
 
-import com.csc108.decision.BaseDecision;
-import com.csc108.decision.DecisionChainManager;
-import com.csc108.decision.algo.DeliverToEngineDecision;
-import com.csc108.decision.algo.PauseResumeDecision;
-import com.csc108.decision.pegging.PeggingDecision;
-import com.csc108.model.fix.order.OrderHandler;
-import com.csc108.model.fix.sessionPool.AlgoSessionPoolPicker;
-import com.csc108.model.fix.sessionPool.PeggingSessionPoolPicker;
+import com.csc108.model.fixModel.order.OrderHandler;
+import com.csc108.model.fixModel.sessionPool.AlgoSessionPoolPicker;
+import com.csc108.model.fixModel.sessionPool.PeggingSessionPoolPicker;
 import com.csc108.tradingRule.core.IHandler;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 /**

@@ -1,13 +1,12 @@
 package com.csc108.disruptor.eventConsumer;
 
-import com.csc108.disruptor.concurrent.DisruptorController;
 import com.csc108.disruptor.event.OmEvent;
 import com.csc108.drools.DroolsType;
 import com.csc108.drools.DroolsUtility;
 import com.csc108.drools.OrderMessage;
 import com.csc108.log.LogFactory;
 import com.csc108.model.OrderState;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.tradingRule.RuleEngine;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FixMsgHelper;

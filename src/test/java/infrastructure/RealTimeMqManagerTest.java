@@ -1,22 +1,11 @@
 package infrastructure;
 
-import com.csc108.configuration.GlobalConfig;
-import com.csc108.model.Allocation;
-import com.csc108.model.cache.OrderbookDataManager;
 import com.csc108.model.cache.RealTimeDataManager;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderHandler;
-import com.csc108.model.fix.order.OrderPool;
-import com.csc108.model.market.OrderBook;
-import com.csc108.model.market.RealTimeMarketData;
-import com.csc108.utility.DateTimeUtil;
-import junit.framework.TestCase;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderPool;
 import utility.TestCaseBase;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.concurrent.*;
 import java.util.regex.Pattern;

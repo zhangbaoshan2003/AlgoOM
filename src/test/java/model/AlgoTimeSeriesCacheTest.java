@@ -1,8 +1,8 @@
 package model;
 
 import com.csc108.model.cache.AlgoTimeSeriesDataCache;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderSnapshot;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderSnapshot;
 import junit.framework.TestCase;
 
 import java.util.Random;

@@ -1,4 +1,4 @@
-package com.csc108.model.fix.order;
+package com.csc108.model.fixModel.order;
 
 import com.csc108.configuration.GlobalConfig;
 import com.csc108.decision.DecisionChainManager;
@@ -12,8 +12,7 @@ import com.csc108.model.IDataHandler;
 import com.csc108.model.OrderState;
 import com.csc108.model.cache.*;
 import com.csc108.model.criteria.*;
-import com.csc108.model.fix.sessionPool.ISessionPoolPicker;
-import com.csc108.model.fix.sessionPool.SessionPool;
+import com.csc108.model.fixModel.sessionPool.ISessionPoolPicker;
 import com.csc108.model.market.*;
 import com.csc108.utility.*;
 import org.apache.commons.lang3.StringUtils;

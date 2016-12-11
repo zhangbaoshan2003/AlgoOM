@@ -1,15 +1,10 @@
 package utility;
 
-import com.csc108.log.*;
 import com.csc108.log.LogFactory;
 import com.csc108.model.AllocationCategory;
 import com.csc108.model.AllocationDecisionType;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.ExchangeOrder;
-import com.csc108.model.fix.order.ManuallyOrder;
-import com.csc108.utility.FixMsgHelper;
-import com.sun.corba.se.impl.protocol.giopmsgheaders.CancelRequestMessage;
-import junit.framework.Test;
+import com.csc108.model.fixModel.order.ExchangeOrder;
+import com.csc108.model.fixModel.order.ManuallyOrder;
 import quickfix.*;
 import quickfix.Message;
 import quickfix.MessageCracker;

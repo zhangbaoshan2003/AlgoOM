@@ -1,4 +1,4 @@
-package com.csc108.model.fix.order;
+package com.csc108.model.fixModel.order;
 
 import java.util.concurrent.ConcurrentHashMap;
 

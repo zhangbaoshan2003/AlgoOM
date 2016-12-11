@@ -1,10 +1,10 @@
-package com.csc108.model.fix;
+package com.csc108.model.fixModel;
 
 import com.csc108.drools.DroolsType;
 import com.csc108.drools.DroolsUtility;
 import com.csc108.drools.OrderMessage;
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.sessionPool.SessionPool;
+import com.csc108.model.fixModel.sessionPool.SessionPool;
 import com.csc108.utility.FixMsgHelper;
 import quickfix.*;
 import quickfix.fix42.ExecutionReport;

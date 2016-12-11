@@ -2,10 +2,10 @@ package descision;
 
 import com.csc108.log.LogFactory;
 import com.csc108.model.cache.OrderbookDataManager;
-import com.csc108.model.fix.sessionPool.SessionPool;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.ManuallyOrder;
-import com.csc108.model.fix.order.OrderPool;
+import com.csc108.model.fixModel.sessionPool.SessionPool;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.ManuallyOrder;
+import com.csc108.model.fixModel.order.OrderPool;
 import com.csc108.model.market.OrderBook;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;

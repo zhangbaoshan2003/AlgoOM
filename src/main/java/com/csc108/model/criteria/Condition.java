@@ -3,10 +3,9 @@ package com.csc108.model.criteria;
 import com.csc108.model.cache.OrderbookDataManager;
 import com.csc108.model.data.Security;
 import com.csc108.model.data.SecurityType;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.model.market.OrderBook;
 import com.csc108.model.market.Quote;
-import org.apache.commons.collections4.queue.CircularFifoQueue;
 import quickfix.Message;
 
 import java.util.ArrayList;

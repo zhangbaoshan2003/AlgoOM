@@ -5,23 +5,18 @@ import com.csc108.disruptor.event.EventType;
 import com.csc108.log.LogFactory;
 import com.csc108.model.PauseResumeEvaluationData;
 import com.csc108.model.criteria.TradeAction;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.ExchangeOrder;
-import com.csc108.model.fix.order.OrderPool;
-import com.csc108.model.market.OrderBook;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderPool;
 import com.csc108.utility.FixMsgHelper;
 import com.csc108.utility.FixUtil;
 import com.csc108.utility.FormattedTable;
-import com.sun.deploy.util.SessionState;
 import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.Options;
 import quickfix.field.*;
 import quickfix.fix42.OrderCancelRequest;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 /**

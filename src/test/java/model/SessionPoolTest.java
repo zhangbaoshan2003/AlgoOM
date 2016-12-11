@@ -1,7 +1,7 @@
 package model;
 
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.sessionPool.SessionPool;
+import com.csc108.model.fixModel.sessionPool.SessionPool;
 import com.csc108.monitor.command.FixEngineCommand;
 import com.csc108.utility.AlertManager;
 import junit.framework.TestCase;

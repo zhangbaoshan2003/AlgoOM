@@ -1,6 +1,6 @@
 package tradingRule;
 
-import com.csc108.model.fix.order.ClientOrder;
+import com.csc108.model.fixModel.order.ClientOrder;
 import com.csc108.tradingRule.RuleEngine;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
 import quickfix.Session;

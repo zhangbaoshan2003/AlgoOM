@@ -1,9 +1,9 @@
 package tradingRule;
 import static org.mockito.Mockito.*;
 
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderHandler;
-import com.csc108.model.fix.order.OrderPool;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderPool;
 import com.csc108.tradingRule.RuleEngine;
 import com.csc108.tradingRule.evaluators.AccountIDEvaluator;
 import com.csc108.tradingRule.evaluators.AlwaysTrueEvaluator;
@@ -17,14 +17,11 @@ import com.csc108.tradingRule.providers.TradingRuleProvider;
 import junit.framework.TestCase;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.internal.verification.Times;
 import quickfix.field.OrdType;
 import quickfix.field.Side;
 import quickfix.fix42.NewOrderSingle;
-import utility.TestCaseBase;
 import utility.TestFixMsgHelper;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**

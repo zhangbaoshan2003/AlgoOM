@@ -1,4 +1,4 @@
-package com.csc108.model.fix.order;
+package com.csc108.model.fixModel.order;
 
 import com.csc108.log.LogFactory;
 import com.csc108.model.OrderState;
@@ -7,7 +7,6 @@ import com.csc108.model.cache.TradeDataMqManager;
 import com.csc108.utility.FixMsgHelper;
 import com.csc108.utility.FixUtil;
 import com.csc108.utility.FormattedTable;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.LocatorEx;
 import quickfix.SessionID;
 import quickfix.field.*;
 import quickfix.fix42.ExecutionReport;
@@ -521,7 +520,7 @@ public class ClientOrder implements Serializable {
                 double lastFillSharesTotalFromExchange = this.getOrderHandler().getExchangeOrders().stream().mapToDouble(x->x.getLastShares()).sum();
                 double lastPxWeighted = lastFillSharesTotalFromExchange>0?lastPxTotalWeightedFromExchange/lastFillSharesTotalFromExchange:0;
 
-                //fix bug: when no partial fiiled happend, the lastPxWeighted would be 0, to avoid it, use
+                //fixModel bug: when no partial fiiled happend, the lastPxWeighted would be 0, to avoid it, use
                 // order price instead
                 if(Double.compare(lastPxWeighted,0)==0){
                     lastPxWeighted = this.getPrice();

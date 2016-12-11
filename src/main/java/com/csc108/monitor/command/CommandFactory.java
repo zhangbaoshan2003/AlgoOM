@@ -22,7 +22,7 @@ public class CommandFactory {
         FixEngineCommand fixEngineCommand= new FixEngineCommand();
         secCommands = new HashMap<>();
         secCommands.putIfAbsent(fixEngineCommand.getSecondLevelKey(),fixEngineCommand);
-        commandDic.putIfAbsent("fix",secCommands);
+        commandDic.putIfAbsent("fixModel",secCommands);
 
         CommandBase clientOrderCommand= new ClientOrderCommand();
         secCommands = new HashMap<>();

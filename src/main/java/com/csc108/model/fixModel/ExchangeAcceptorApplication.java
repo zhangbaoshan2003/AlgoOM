@@ -1,8 +1,8 @@
-package com.csc108.model.fix;
+package com.csc108.model.fixModel;
 
 
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.sessionPool.SessionPool;
+import com.csc108.model.fixModel.sessionPool.SessionPool;
 import quickfix.*;
 import quickfix.field.Text;
 import quickfix.fix42.ExecutionReport;

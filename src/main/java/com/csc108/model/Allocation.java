@@ -1,6 +1,6 @@
 package com.csc108.model;
 
-import com.csc108.model.fix.order.ExchangeOrder;
+import com.csc108.model.fixModel.order.ExchangeOrder;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

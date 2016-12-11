@@ -1,17 +1,9 @@
 package com.csc108.monitor.command;
 
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.ExchangeOrder;
-import com.csc108.model.fix.order.OrderPool;
+import com.csc108.model.fixModel.order.ExchangeOrder;
+import com.csc108.model.fixModel.order.OrderPool;
 import com.csc108.utility.FixMsgHelper;
 import org.apache.commons.cli.CommandLine;
-import quickfix.field.ClOrdID;
-import quickfix.field.OrigClOrdID;
-import quickfix.field.Symbol;
-import quickfix.field.TransactTime;
-import quickfix.fix42.OrderCancelRequest;
-
-import java.util.UUID;
 
 /**
  * Created by zhangbaoshan on 2016/5/27.

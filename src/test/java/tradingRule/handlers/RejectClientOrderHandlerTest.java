@@ -1,11 +1,10 @@
 package tradingRule.handlers;
 
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.tradingRule.core.IHandler;
 import com.csc108.tradingRule.handlers.RejectClientOrderHandler;
 import junit.framework.TestCase;
-import org.springframework.core.annotation.Order;
 import quickfix.SessionID;
 import quickfix.field.OrdStatus;
 import quickfix.field.OrdType;
@@ -13,9 +12,7 @@ import quickfix.field.Side;
 import quickfix.fix42.NewOrderSingle;
 import utility.TestFixMsgHelper;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 
 import static org.mockito.Mockito.*;
 

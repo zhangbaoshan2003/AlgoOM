@@ -2,20 +2,14 @@ package com.csc108.tradingRule;
 
 import com.csc108.exceptions.TimeOutException;
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.tradingRule.core.IEvaluator;
 import com.csc108.tradingRule.core.IHandler;
 import com.csc108.tradingRule.core.IRule;
-import com.csc108.tradingRule.core.TradingRule;
 import com.csc108.tradingRule.providers.EvaluatorProvider;
 import com.csc108.tradingRule.providers.HandlerProvider;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
-import com.csc108.utility.AlertManager;
-import com.sun.javaws.exceptions.InvalidArgumentException;
-import org.drools.runtime.rule.Evaluator;
 
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
-import java.awt.*;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;

@@ -9,7 +9,7 @@ import com.csc108.model.Allocation;
 import com.csc108.model.WakeupEvaluationData;
 import com.csc108.model.criteria.Condition;
 import com.csc108.model.criteria.TradeAction;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.utility.Alert;
 import quickfix.field.OrdStatus;
 
@@ -39,7 +39,7 @@ public class ConditionalOrderSentOutOrNotDecision extends BaseDecision {
                 Alert.fireAlert(Alert.Severity.Major,String.format(Alert.PROCESS_CONDITION_ORDER_ERROR,orderHandler.getAlertID()),
                         String.format("No condition is built for the conditional order's {%s} ",orderHandler.getClientOrder().getSymbol()) ,null);
 
-                //schedule a wake up event to evaluate at fix interval
+                //schedule a wake up event to evaluate at fixModel interval
                 OmEvent wakeupEvent = new OmEvent();
                 wakeupEvent.setTriggerData(new WakeupEvaluationData(System.currentTimeMillis() + GlobalConfig.getWakeupInterval() * 1000));
                 wakeupEvent.setEventType(EventType.WAKEUP);

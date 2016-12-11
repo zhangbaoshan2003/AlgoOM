@@ -3,7 +3,7 @@ package com.csc108.tradingRule.handlers;
 import com.csc108.model.cache.MicroStructureDataManager;
 import com.csc108.model.cache.OrderbookDataManager;
 import com.csc108.model.cache.RealTimeDataManager;
-import com.csc108.model.fix.order.OrderHandler;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.model.market.MicroStructure;
 import com.csc108.tradingRule.core.IHandler;
 import com.csc108.utility.Alert;

@@ -2,16 +2,14 @@ package com.csc108.disruptor.concurrent;
 
 import com.csc108.configuration.GlobalConfig;
 import com.csc108.disruptor.event.EventType;
-import com.csc108.disruptor.event.OmEvent;
 import com.csc108.exceptions.InvalidEventException;
 import com.csc108.log.LogFactory;
 import com.csc108.model.IDataHandler;
 import com.csc108.model.IEvaluationData;
 import com.csc108.model.PauseResumeEvaluationData;
-import com.csc108.model.WakeupEvaluationData;
 import com.csc108.model.criteria.TradeAction;
-import com.csc108.model.fix.FixEvaluationData;
-import com.csc108.model.fix.order.*;
+import com.csc108.model.fixModel.FixEvaluationData;
+import com.csc108.model.fixModel.order.*;
 import com.csc108.utility.FixMsgHelper;
 import com.csc108.utility.FixUtil;
 import quickfix.SessionID;

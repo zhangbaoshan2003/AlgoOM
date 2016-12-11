@@ -1,12 +1,8 @@
 package com.csc108.monitor.command;
 
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.sessionPool.SessionPool;
+import com.csc108.model.fixModel.sessionPool.SessionPool;
 import com.csc108.utility.PrintTable;
-import org.apache.activemq.command.Command;
-import org.apache.commons.cli.CommandLine;
-import quickfix.Session;
-import quickfix.SessionID;
 
 /**
  * Created by zhangbaoshan on 2016/5/27.
@@ -15,7 +11,7 @@ public class FixEngineCommand extends CommandBase {
 
     @Override
     public String getFirstLevelKey(){
-        return "fix";
+        return "fixModel";
     }
 
     @Override

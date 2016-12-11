@@ -1,6 +1,6 @@
 package com.csc108.tradingClient;
 
-import com.csc108.model.fix.sessionPool.SessionPool;
+import com.csc108.model.fixModel.sessionPool.SessionPool;
 import quickfix.*;
 import quickfix.fix42.ExecutionReport;
 import quickfix.fix42.OrderCancelReject;

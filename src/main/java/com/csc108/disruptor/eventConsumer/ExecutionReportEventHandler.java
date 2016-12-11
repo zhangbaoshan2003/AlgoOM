@@ -1,14 +1,9 @@
 package com.csc108.disruptor.eventConsumer;
 
-import com.csc108.disruptor.concurrent.DisruptorController;
 import com.csc108.disruptor.event.*;
-import com.csc108.disruptor.event.EventType;
 import com.csc108.log.LogFactory;
-import com.csc108.model.OrderState;
-import com.csc108.model.fix.FixEvaluationData;
-import com.csc108.model.fix.order.*;
-import com.csc108.utility.Alert;
-import com.csc108.utility.FixMsgHelper;
+import com.csc108.model.fixModel.FixEvaluationData;
+import com.csc108.model.fixModel.order.*;
 import quickfix.field.*;
 import quickfix.fix42.ExecutionReport;
 

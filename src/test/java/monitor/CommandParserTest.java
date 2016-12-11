@@ -1,24 +1,16 @@
 package monitor;
 
 
-import com.csc108.model.fix.order.ClientOrder;
+import com.csc108.model.fixModel.order.ClientOrder;
 import com.csc108.monitor.command.ClientOrderCommand;
-import com.csc108.monitor.command.CommandBase;
 import com.csc108.monitor.command.CommandFactory;
 import com.csc108.tradingRule.core.IRule;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.DateTimeUtil;
-import junit.framework.TestCase;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.Options;
-import org.apache.commons.io.output.StringBuilderWriter;
 import utility.TestCaseBase;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.CountDownLatch;
-import java.util.logging.Level;
 
 /**
  * Created by zhangbaoshan on 2016/5/25.
@@ -27,7 +19,7 @@ public class CommandParserTest extends TestCaseBase {
 
     public static void testOptionArgumentValue() throws Exception {
         try {
-            String[] args = new String[]{"fix","engine","list_all_sessions"};
+            String[] args = new String[]{"fixModel","engine","list_all_sessions"};
             //CommandBase cmd = CommandFactory.getInstance().runCommand(args);
             //String response  = cmd.run(args);
 

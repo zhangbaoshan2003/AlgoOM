@@ -2,10 +2,8 @@ package com.csc108.disruptor.eventConsumer;
 
 import com.csc108.disruptor.event.OmEvent;
 import com.csc108.log.LogFactory;
-import com.csc108.model.fix.order.ClientOrder;
-import com.csc108.model.fix.order.OrderHandler;
-import com.csc108.model.market.OrderBookEvaluationData;
-import com.csc108.model.market.RealTimeMarketData;
+import com.csc108.model.fixModel.order.ClientOrder;
+import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.utility.Alert;
 import com.csc108.utility.FixUtil;
 

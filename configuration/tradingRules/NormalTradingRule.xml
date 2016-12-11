@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Rules>
-    <Rule Name="PeggingOrdersRule">
+   <Rule Name="NormalOrdersRule">
         <Evaluators>
             <Evaluator Name="AlwaysTrueEvaluator" Criteria="">
             </Evaluator>
@@ -13,18 +13,15 @@
                 </Parameters>
             </Handler>
 			
-			<Handler Name="SubscribeMarketDataHandler">
-            </Handler>
-	   
             <Handler Name="AssembleDecisionChainHandler">
                 <Parameters>
-                    <Para Name="Decision1" Value="PeggingDecision"></Para>
+                    <Para Name="Decision1" Value="DeliverToEngineDecision"></Para>
                 </Parameters>
             </Handler>
 
             <Handler Name="CallingOrderHandlerProcessHandler">
                 <Parameters>
-                    <Para Name="flushLog" Value="true"></Para>
+                    <Para Name="flushLog" Value="false"></Para>
                 </Parameters>
             </Handler>
         </Handlers>

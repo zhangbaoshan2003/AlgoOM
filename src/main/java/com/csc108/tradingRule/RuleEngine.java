@@ -81,24 +81,25 @@ public class RuleEngine {
         //make sure the new criteria is vailid
         evaluator.validate(criteria);
 
-        boolean readLockAvailable = readWriteLock.readLock().tryLock(defaultLockTimeOut, TimeUnit.MILLISECONDS);
-
-        if(!readLockAvailable)
-            throw new TimeOutException(String.format("Unable to acquire the lock after %s milliseconds", defaultLockTimeOut));
-
-        IRule tradingRule=null;
-        Optional<IRule> ruleOptional = TradingRuleProvider.getInstance().getTradingRules()
-                .stream().filter(x->x.getRuleName().equals(ruleName)).findFirst();
-
-        if(ruleOptional.isPresent()==false){
-            throw new IllegalArgumentException(String.format("Can't find rule %s to adjust",ruleName));
-        }
-
-        tradingRule = ruleOptional.get();
+//        boolean readLockAvailable = readWriteLock.readLock().tryLock(defaultLockTimeOut, TimeUnit.MILLISECONDS);
+//
+//        if(!readLockAvailable)
+//            throw new TimeOutException(String.format("Unable to acquire the lock after %s milliseconds", defaultLockTimeOut));
 
         boolean lockAvailable = false;
         try{
             lockAvailable= readWriteLock.writeLock().tryLock(defaultLockTimeOut, TimeUnit.MILLISECONDS);
+
+            IRule tradingRule=null;
+            Optional<IRule> ruleOptional = TradingRuleProvider.getInstance().getTradingRules()
+                    .stream().filter(x->x.getRuleName().equals(ruleName)).findFirst();
+
+            if(ruleOptional.isPresent()==false){
+                throw new IllegalArgumentException(String.format("Can't find rule %s to adjust",ruleName));
+            }
+
+            tradingRule = ruleOptional.get();
+
             Iterator<HashMap<String,String>> iterator = tradingRule.getEvaluatorCriterias().iterator();
             while (iterator.hasNext()){
                 HashMap<String,String> criteriaMap = iterator.next();
@@ -109,7 +110,6 @@ public class RuleEngine {
                     }
                 });
             }
-
         }catch (Exception ex){
             throw new TimeoutException("Failed to acquire write lock after @ "+defaultLockTimeOut);
         }finally {

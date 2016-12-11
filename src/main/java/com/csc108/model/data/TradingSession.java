@@ -18,20 +18,23 @@ public class TradingSession implements Comparable<TradingSession> {
 	@Getter
 	private String sessionGroup;
 
-
-	@Getter
 	private SessionType sessionType;
+	public SessionType getSessionType(){
+		return sessionType;
+	}
 
 	@Getter
 	private String date;
-	@Getter
+
 	private LocalDateTime startTime;
+	public LocalDateTime getStartTime(){
+		return startTime;
+	}
 
-
-
-	@Getter
 	private LocalDateTime endTime;
-
+	public LocalDateTime getEndTime(){
+		return endTime;
+	}
 
 	@Getter
 	private ImmutableList<Operation> operations;
@@ -43,6 +46,10 @@ public class TradingSession implements Comparable<TradingSession> {
 	// All means
 	public boolean isTradable(AuctionType type_) {
 		return isTradable && auctionType == type_;
+	}
+
+	public boolean isTradable(){
+		return isTradable;
 	}
 
 

@@ -38,7 +38,7 @@ public class MicroStructureDataManager {
             "          AS ( SELECT   *\n" +
             "               FROM     ( SELECT    ROW_NUMBER() OVER ( PARTITION BY stockId ORDER BY tradingDay DESC ) AS rn ,\n" +
             "                                    *\n" +
-            "                          FROM      (SELECT  top 100 * FROM dbo.Facts21 WHERE exchange='sh' ) F\n" +
+            "                          FROM      (SELECT  * FROM dbo.Facts21 WHERE   symbol in ('600583', '601001', '600030', '000596', '000768', '600585','600000','default') ) F\n" +
             "                        ) D\n" +
             "               WHERE    D.rn = 1\n" +
             "             ),\n" +
@@ -46,7 +46,7 @@ public class MicroStructureDataManager {
             "          AS ( SELECT   *\n" +
             "               FROM     ( SELECT    ROW_NUMBER() OVER ( PARTITION BY stockId ORDER BY tradingDay DESC ) AS rn ,\n" +
             "                                    *\n" +
-            "                          FROM      (SELECT top 100 * FROM dbo.DailyFacts WHERE exchange='sh' ) F\n" +
+            "                          FROM      (select  * from DailyFacts WHERE   symbol in ('600583', '601001', '600030', '000596', '000768', '600585','600000')) F\n" +
             "                        ) D\n" +
             "               WHERE    D.rn = 1\n" +
             "             )\n" +

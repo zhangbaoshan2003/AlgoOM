@@ -276,14 +276,14 @@ public class BusinessCaseTest extends TestCaseBase {
 
         //send a new order from client
         // should involve 5 steps :pending new->new ack->pending cancel->canceled->partial fill
-        CountDownLatch gateWay=new CountDownLatch(5);
+        CountDownLatch gateWay=new CountDownLatch(6);
         ClientOrder clientOrder = clientApplication.sendNewSingleOrderThenFilledIt("600000.sh", 5000, 10.2, gateWay);
         Thread.sleep(100);
         clientApplication.cancelOrder(clientOrder);
         if(gateWay.await(5,TimeUnit.SECONDS)==false){
             throw new AssertionError("Failed to process cancel then partial fill process");
         }
-        assertTrue(clientOrder.getOrdStatus().getValue()==OrdStatus.CANCELED);
+        assertEquals(clientOrder.getOrdStatus().getValue(),OrdStatus.CANCELED);
     }
 
     public void test08CancelDirectlyFromExchange() throws Exception {

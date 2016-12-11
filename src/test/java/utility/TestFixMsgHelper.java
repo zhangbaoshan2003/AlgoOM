@@ -34,6 +34,7 @@ public class TestFixMsgHelper {
         newOrderSingle.set(new Price(price));
         newOrderSingle.set(new SecurityExchange("SS"));
         newOrderSingle.set(new SecondaryClOrdID (UUID.randomUUID().toString()));
+        newOrderSingle.set(new Account("ZBS"));
         newOrderSingleRequestPool.add(newOrderSingle);
 
         return newOrderSingle;

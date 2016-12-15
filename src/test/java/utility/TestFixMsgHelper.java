@@ -36,7 +36,14 @@ public class TestFixMsgHelper {
         newOrderSingle.set(new SecondaryClOrdID (UUID.randomUUID().toString()));
         newOrderSingle.set(new Account("ZBS"));
         newOrderSingleRequestPool.add(newOrderSingle);
+        return newOrderSingle;
+    }
 
+    public synchronized NewOrderSingle buildNewOrderSingleMsg(String symbol,Side side,OrdType type,double qty,double price,String effectiveTime,String expireTime){
+        NewOrderSingle newOrderSingle = buildNewOrderSingleMsg(symbol,side,type,qty,price);
+
+        newOrderSingle.setString(6062,effectiveTime);
+        newOrderSingle.setString(6063,expireTime);
         return newOrderSingle;
     }
 

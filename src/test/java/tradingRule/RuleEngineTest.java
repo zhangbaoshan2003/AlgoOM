@@ -1,12 +1,15 @@
 package tradingRule;
 import static org.mockito.Mockito.*;
 
+import com.csc108.model.cache.ReferenceDataManager;
 import com.csc108.model.fixModel.order.ClientOrder;
 import com.csc108.model.fixModel.order.OrderHandler;
 import com.csc108.model.fixModel.order.OrderPool;
 import com.csc108.tradingRule.RuleEngine;
+import com.csc108.tradingRule.core.IEvaluator;
 import com.csc108.tradingRule.evaluators.AccountIDEvaluator;
 import com.csc108.tradingRule.evaluators.AlwaysTrueEvaluator;
+import com.csc108.tradingRule.evaluators.ClientOrderTradingTimeValidEvaluator;
 import com.csc108.tradingRule.evaluators.NumOfOrdersPerAccountEvaluator;
 import com.csc108.tradingRule.handlers.AssembleDecisionChainHandler;
 import com.csc108.tradingRule.handlers.CallingOrderHandlerProcessHandler;
@@ -14,12 +17,15 @@ import com.csc108.tradingRule.handlers.RejectClientOrderHandler;
 import com.csc108.tradingRule.providers.EvaluatorProvider;
 import com.csc108.tradingRule.providers.HandlerProvider;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
+import com.csc108.utility.AlertManager;
 import junit.framework.TestCase;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import quickfix.field.OrdStatus;
 import quickfix.field.OrdType;
 import quickfix.field.Side;
 import quickfix.fix42.NewOrderSingle;
+import quickfix.fix42.OrderCancelRequest;
 import utility.TestFixMsgHelper;
 
 import java.util.LinkedHashMap;
@@ -103,7 +109,4 @@ public class RuleEngineTest extends TestCase {
         RuleEngine.process(orderHandler);
     }
 
-    public void testStringFormat(){
-        System.out.printf("%10s%s%-10s","========","client","========");
-    }
 }

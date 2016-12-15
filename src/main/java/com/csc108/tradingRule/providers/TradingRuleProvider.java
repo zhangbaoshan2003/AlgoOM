@@ -40,6 +40,7 @@ public class TradingRuleProvider {
     public void initialize(String ruleFileName) throws Exception {
         EvaluatorProvider.initialize();
         HandlerProvider.initialize();
+        tradingRules.clear();
 
         String tradingRuleFilePath = String.format("configuration/tradingRules/%s",ruleFileName);
         if(Files.exists(Paths.get(tradingRuleFilePath))==false){

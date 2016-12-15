@@ -15,6 +15,7 @@ import quickfix.fix42.OrderCancelRequest;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -52,8 +53,8 @@ public class ClientOrder implements Serializable {
     private double lastShares;
     //private double leavesQty;
 
-    private LocalDateTime effectiveTime =null;// LocalDateTime.now().minusMinutes(5);
-    private LocalDateTime expireTime = null;//LocalDateTime.now().plusMinutes(5);
+    private LocalDateTime  effectiveTime =null;// LocalDateTime.now().minusMinutes(5);
+    private LocalDateTime  expireTime = null;//LocalDateTime.now().plusMinutes(5);
 
     private long adv20=0;
     private long mdv21 = 0;
@@ -201,7 +202,7 @@ public class ClientOrder implements Serializable {
         this.effectiveTime = effectiveTime;
     }
 
-    public LocalDateTime getExpireTime() {
+    public LocalDateTime  getExpireTime() {
         return expireTime;
     }
 

@@ -32,7 +32,6 @@ public class RuleEngine {
                     return false;
             }
         }
-
         return true;
     }
 

@@ -15,6 +15,7 @@ import quickfix.field.*;
 import quickfix.fix42.OrderCancelRequest;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -313,7 +314,7 @@ public class ClientOrderCommand extends CommandBase {
                 row.add(clientOrder.getExchangeDest());
                 //row.add(clientOrder.getSecurityType());
                 //row.add(clientOrder.get);
-                if(clientOrder.getEffectiveTime()!=LocalDateTime.MAX){
+                if(clientOrder.getEffectiveTime()!= LocalDateTime.MAX){
                     row.add(clientOrder.getEffectiveTime());
                 }else{
                     row.add("");

@@ -33,7 +33,7 @@ public class OrderHandler implements IDataHandler {
     //for check if always use same thread to process same client order
     long originalThreadId;
 
-    private LocalDateTime kickOffTime=LocalDateTime.MIN;
+    private LocalDateTime transactionTime =LocalDateTime.MIN;
 
     private RealTimeMarketData realTimeMarketData;
     private IntervalMarketData intervalMarketData;
@@ -115,7 +115,6 @@ public class OrderHandler implements IDataHandler {
     }
 
     public OrderHandler(ClientOrder order,DisruptorController controller){
-        this.kickOffTime = LocalDateTime.now().plusSeconds(2);
         this.clientOrder = order;
         order.setOrderHandler(this);
         this.controller = controller;
@@ -257,7 +256,7 @@ public class OrderHandler implements IDataHandler {
                 this.getClientOrder().setOrderType("UNKNOWN");
 
         }catch (Exception ex){
-            //LogFactory.error("Invalid order type",ex);
+            //gFactory.error("Invalid order type",ex);
         }
 
         //set participation rate
@@ -305,6 +304,7 @@ public class OrderHandler implements IDataHandler {
                 String  startTimeStr = this.getClientOrder().getNewOrderRequestMsg().getString(6062);
                 LocalDateTime startTime = DateTimeUtil.getDateTime5(startTimeStr);
                 this.getClientOrder().setEffectiveTime(startTime);
+                this.transactionTime = startTime.plusSeconds(5);
             }else{
                 this.getClientOrder().setEffectiveTime(LocalDateTime.now().plusSeconds(5));
             }
@@ -837,4 +837,9 @@ public class OrderHandler implements IDataHandler {
     public void setReportProgressNeeded(boolean reportProgressNeeded) {
         this.reportProgressNeeded = reportProgressNeeded;
     }
+
+    public LocalDateTime getTransactionTime() {
+        return transactionTime;
+    }
+
 }

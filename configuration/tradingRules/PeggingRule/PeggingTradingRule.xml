@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Rules>
+    <Rule Name="ValidateTradingTimeRule">
+        <Evaluators>
+            <Evaluator Name="ClientOrderTradingTimeValidEvaluator" Criteria="False">
+            </Evaluator>
+        </Evaluators>
+
+        <Handlers>
+            <Handler Name="RejectClientOrderHandler" >
+                <Parameters>
+                    <Para Name="reason" Value="Order's trading time validation is failed!"></Para>
+                </Parameters>
+            </Handler>
+        </Handlers>
+    </Rule>
+
     <Rule Name="PeggingOrdersRule">
         <Evaluators>
             <Evaluator Name="AlwaysTrueEvaluator" Criteria="">

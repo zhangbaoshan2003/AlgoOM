@@ -49,7 +49,7 @@ public class DateTimeUtil {
     }
 
     public static LocalDateTime getDateTime5(String dateStr_) {
-        return LocalDateTime.parse(dateStr_, Date_YYYYMMDD_HHMMSS).plusHours(8);
+        return LocalDateTime.of(LocalDate.now(),LocalDateTime.parse(dateStr_, Date_YYYYMMDD_HHMMSS).toLocalTime()) ;
     }
 
     public static LocalDateTime getDateTime6(String dateStr_) {

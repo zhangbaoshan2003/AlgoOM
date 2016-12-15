@@ -7,6 +7,7 @@ import lombok.Getter;
 import org.drools.marshalling.impl.ProtobufMessages;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 public class SessionGroup implements Comparable<SessionGroup> {
@@ -24,11 +25,11 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		sessions = ImmutableList.copyOf(sessions_);
 	}
 
-	public boolean isTradable(LocalDateTime dateTime_) {
+	public boolean isTradable(LocalTime dateTime_) {
 		return isTradable(dateTime_, IntervalType.End, AuctionType.All);
 	}
 
-	public boolean isTradable(LocalDateTime dateTime_, IntervalType inveralType_, AuctionType auctionType_) {
+	public boolean isTradable(LocalTime dateTime_, IntervalType inveralType_, AuctionType auctionType_) {
 		for (TradingSession ts : sessions) {
 			if (!ts.isAuctionMatch(auctionType_))
 				continue;
@@ -44,26 +45,26 @@ public class SessionGroup implements Comparable<SessionGroup> {
 	/**
 	 * note the sessions_ is already sorted symbol_ = 600000.sh
 	 */
-	public LocalDateTime getMarketOpen() {
+	public LocalTime getMarketOpen() {
 		return getMarketOpen(AuctionType.All);
 	}
 
-	public LocalDateTime getMarketOpen(AuctionType auctionType_) {
+	public LocalTime getMarketOpen(AuctionType auctionType_) {
 		for (TradingSession ts : sessions) {
 			if (!isAMAuction(auctionType_) && ts.isAMAuction())
 				continue;
 			if (ts.isTradable(AuctionType.All))
 				return ts.getStartTime();
 		}
-		return DateUtil.MaxValue;
+		return LocalTime.MAX;
 	}
 
-	public LocalDateTime getMarketClose() {
+	public LocalTime getMarketClose() {
 		return getMarketClose(AuctionType.All);
 	}
 
-	public LocalDateTime getMarketClose(AuctionType auctionType_) {
-		LocalDateTime closeTime = DateUtil.MinValue;
+	public LocalTime getMarketClose(AuctionType auctionType_) {
+		LocalTime closeTime = LocalTime.MIN;
 		for (TradingSession ts : sessions) {
 			if (!isClsAuction(auctionType_) && ts.isClsAuction())
 				continue;
@@ -75,46 +76,46 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		return closeTime;
 	}
 
-	public boolean isAuctionSession(LocalDateTime dateTime_) {
+	public boolean isAuctionSession(LocalTime dateTime_) {
 		return isAuctionSession(dateTime_, IntervalType.End);
 	}
 
-	public boolean isAuctionSession(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public boolean isAuctionSession(LocalTime dateTime_, IntervalType intervalType_) {
 		return isAMAuctionSession(dateTime_, intervalType_) || isPMAuctionSession(dateTime_, intervalType_) || isClsAuctionSession(dateTime_, intervalType_);
 	}
 
-	public boolean isLunchBreak(LocalDateTime dateTime_) {
+	public boolean isLunchBreak(LocalTime dateTime_) {
 		return isLunchBreak(dateTime_, IntervalType.End);
 	}
 
-	public boolean isLunchBreak(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public boolean isLunchBreak(LocalTime dateTime_, IntervalType intervalType_) {
 		TradingSession ts = getSessionByTime(dateTime_, intervalType_);
 		return ts.isLunchBreak();
 	}
 
-	public boolean isMarketClose(LocalDateTime dateTime_) {
+	public boolean isMarketClose(LocalTime dateTime_) {
 		return isMarketClose(dateTime_, IntervalType.End);
 	}
 
-	public boolean isMarketClose(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public boolean isMarketClose(LocalTime dateTime_, IntervalType intervalType_) {
 		TradingSession ts = getSessionByTime(dateTime_, intervalType_);
 		return ts.getSessionType() == SessionType.MarketClose;
 	}
 
-	public boolean isContinuousSession(LocalDateTime dateTime_) {
+	public boolean isContinuousSession(LocalTime dateTime_) {
 		return isContinuousSession(dateTime_, IntervalType.End);
 	}
 
-	public boolean isContinuousSession(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public boolean isContinuousSession(LocalTime dateTime_, IntervalType intervalType_) {
 		TradingSession ts = getSessionByTime(dateTime_, intervalType_);
 		return ts.getSessionType() == SessionType.AMContinuous || ts.getSessionType() == SessionType.PMContinuous;
 	}
 
-	public boolean isAMAuctionSession(LocalDateTime dateTime_) {
+	public boolean isAMAuctionSession(LocalTime dateTime_) {
 		return isAMAuctionSession(dateTime_, IntervalType.End);
 	}
 
-	public boolean isAMAuctionSession(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public boolean isAMAuctionSession(LocalTime dateTime_, IntervalType intervalType_) {
 		for (TradingSession ts : sessions) {
 			if (intervalType_ == IntervalType.End && dateTime_.isAfter(ts.getStartTime()) && !dateTime_.isAfter(ts.getEndTime())) {
 				return ts.isAMAuction();
@@ -125,11 +126,11 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		return false;
 	}
 
-	public boolean isPMAuctionSession(LocalDateTime dateTime_) {
+	public boolean isPMAuctionSession(LocalTime dateTime_) {
 		return isPMAuctionSession(dateTime_, IntervalType.End);
 	}
 
-	public boolean isPMAuctionSession(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public boolean isPMAuctionSession(LocalTime dateTime_, IntervalType intervalType_) {
 		for (TradingSession ts : sessions) {
 			if (intervalType_ == IntervalType.End && dateTime_.isAfter(ts.getStartTime()) && !dateTime_.isAfter(ts.getEndTime())) {
 				return ts.isPMAuction();
@@ -140,11 +141,11 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		return false;
 	}
 
-	public boolean isClsAuctionSession(LocalDateTime dateTime_) {
+	public boolean isClsAuctionSession(LocalTime dateTime_) {
 		return isClsAuctionSession(dateTime_, IntervalType.End);
 	}
 
-	public boolean isClsAuctionSession(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public boolean isClsAuctionSession(LocalTime dateTime_, IntervalType intervalType_) {
 		for (TradingSession ts : sessions) {
 			if (intervalType_ == IntervalType.End && dateTime_.isAfter(ts.getStartTime()) && !dateTime_.isAfter(ts.getEndTime())) {
 				return ts.isClsAuction();
@@ -164,11 +165,11 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		return null;
 	}
 
-	public TradingSession getSessionByTime(LocalDateTime dateTime_) {
+	public TradingSession getSessionByTime(LocalTime dateTime_) {
 		return getSessionByTime(dateTime_, IntervalType.End);
 	}
 
-	public TradingSession getSessionByTime(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public TradingSession getSessionByTime(LocalTime dateTime_, IntervalType intervalType_) {
 		for (TradingSession ts : sessions) {
 			if (intervalType_ == IntervalType.End && dateTime_.isAfter(ts.getStartTime()) && !dateTime_.isAfter(ts.getEndTime())) {
 				return ts;
@@ -179,11 +180,11 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		return null;
 	}
 
-	public TradingSession getNextSession(LocalDateTime dateTime_) {
+	public TradingSession getNextSession(LocalTime dateTime_) {
 		return getNextSession(dateTime_, IntervalType.End);
 	}
 
-	public TradingSession getNextSession(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public TradingSession getNextSession(LocalTime dateTime_, IntervalType intervalType_) {
 		for (int i = 0; i < sessions.size(); i++) {
 			TradingSession ts = sessions.get(i);
 			if (intervalType_ == IntervalType.End && dateTime_.isAfter(ts.getStartTime()) && !dateTime_.isAfter(ts.getEndTime())) {
@@ -199,11 +200,11 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		return null;
 	}
 
-	public TradingSession getNextTradableSession(LocalDateTime dateTime_) {
+	public TradingSession getNextTradableSession(LocalTime dateTime_) {
 		return getNextTradableSession(dateTime_, IntervalType.End, AuctionType.All);
 	}
 
-	public TradingSession getNextTradableSession(LocalDateTime dateTime_, IntervalType intervalType_, AuctionType auctionType_) {
+	public TradingSession getNextTradableSession(LocalTime dateTime_, IntervalType intervalType_, AuctionType auctionType_) {
 		for (int i = 0; i < sessions.size(); i++) {
 			TradingSession ts = sessions.get(i);
 			if (intervalType_ == IntervalType.End && dateTime_.isAfter(ts.getStartTime()) && !dateTime_.isAfter(ts.getEndTime())) {
@@ -256,11 +257,11 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		return tradingSession;
 	}
 
-	public TradingSession getPrevSession(LocalDateTime dateTime_) {
+	public TradingSession getPrevSession(LocalTime dateTime_) {
 		return getPrevSession(dateTime_, IntervalType.End);
 	}
 
-	public TradingSession getPrevSession(LocalDateTime dateTime_, IntervalType intervalType_) {
+	public TradingSession getPrevSession(LocalTime dateTime_, IntervalType intervalType_) {
 		for (int i = 0; i < sessions.size(); i++) {
 			TradingSession ts = sessions.get(i);
 			if (intervalType_ == IntervalType.End && dateTime_.isAfter(ts.getStartTime()) && !dateTime_.isAfter(ts.getEndTime())) {
@@ -276,11 +277,11 @@ public class SessionGroup implements Comparable<SessionGroup> {
 		return null;
 	}
 
-	public TradingSession getPrevTradableSession(LocalDateTime dateTime_) {
+	public TradingSession getPrevTradableSession(LocalTime dateTime_) {
 		return getPrevTradableSession(dateTime_, IntervalType.End, AuctionType.All);
 	}
 
-	public TradingSession getPrevTradableSession(LocalDateTime dateTime_, IntervalType intervalType_, AuctionType auctionType_) {
+	public TradingSession getPrevTradableSession(LocalTime dateTime_, IntervalType intervalType_, AuctionType auctionType_) {
 		for (int i = 0; i < sessions.size(); i++) {
 			TradingSession ts = sessions.get(i);
 			if (intervalType_ == IntervalType.End && dateTime_.isAfter(ts.getStartTime()) && !dateTime_.isAfter(ts.getEndTime())) {

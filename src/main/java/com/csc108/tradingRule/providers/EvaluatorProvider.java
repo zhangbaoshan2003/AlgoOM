@@ -2,10 +2,7 @@ package com.csc108.tradingRule.providers;
 
 import com.csc108.tradingRule.core.IEvaluator;
 import com.csc108.tradingRule.core.IHandler;
-import com.csc108.tradingRule.evaluators.AccountIDEvaluator;
-import com.csc108.tradingRule.evaluators.AlgoOrderTypeEvaluator;
-import com.csc108.tradingRule.evaluators.AlwaysTrueEvaluator;
-import com.csc108.tradingRule.evaluators.NumOfOrdersPerAccountEvaluator;
+import com.csc108.tradingRule.evaluators.*;
 import com.csc108.tradingRule.handlers.RejectClientOrderHandler;
 
 import java.util.HashMap;
@@ -30,6 +27,9 @@ public class EvaluatorProvider {
         evaluators.put(evaluator.getEvaluatorName(),evaluator);
 
         evaluator = new AlgoOrderTypeEvaluator();
+        evaluators.put(evaluator.getEvaluatorName(),evaluator);
+
+        evaluator = new ClientOrderTradingTimeValidEvaluator();
         evaluators.put(evaluator.getEvaluatorName(),evaluator);
     }
 }

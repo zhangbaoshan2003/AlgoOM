@@ -15,8 +15,11 @@ import java.util.*;
 
 //TODO: add unit test
 public class TradingSession implements Comparable<TradingSession> {
-	@Getter
+
 	private String sessionGroup;
+	public String getSessionGroup(){
+		return sessionGroup;
+	}
 
 	private SessionType sessionType;
 	public SessionType getSessionType(){
@@ -26,13 +29,13 @@ public class TradingSession implements Comparable<TradingSession> {
 	@Getter
 	private String date;
 
-	private LocalDateTime startTime;
-	public LocalDateTime getStartTime(){
+	private LocalTime startTime;
+	public LocalTime getStartTime(){
 		return startTime;
 	}
 
-	private LocalDateTime endTime;
-	public LocalDateTime getEndTime(){
+	private LocalTime endTime;
+	public LocalTime getEndTime(){
 		return endTime;
 	}
 
@@ -98,7 +101,7 @@ public class TradingSession implements Comparable<TradingSession> {
 		EmptyOperation = ImmutableList.of(Operation.None);
 	}
 
-	public TradingSession(String date_, String sessionGroup_, SessionType sessionType_, LocalDateTime startTime_, LocalDateTime endTime_, List<Operation> supportedOperions_, AuctionType auctionType_,
+	public TradingSession(String date_, String sessionGroup_, SessionType sessionType_, LocalTime startTime_, LocalTime endTime_, List<Operation> supportedOperions_, AuctionType auctionType_,
 			boolean isTradable_) {
 		date = date_;
 		sessionGroup = sessionGroup_;
@@ -110,7 +113,7 @@ public class TradingSession implements Comparable<TradingSession> {
 		isTradable = isTradable_;
 	}
 
-	public TradingSession(String date_, String sessionGroup_, SessionType sessionType_, LocalDateTime startTime_, LocalDateTime endTime_, String supportedOperions_, AuctionType auctionType_, boolean isTradable_) {
+	public TradingSession(String date_, String sessionGroup_, SessionType sessionType_, LocalTime startTime_, LocalTime endTime_, String supportedOperions_, AuctionType auctionType_, boolean isTradable_) {
 		date = date_;
 		sessionGroup = sessionGroup_;
 		sessionType = sessionType_;

@@ -50,6 +50,8 @@ public class Alert {
 
     public static final String PEG_NO_ALLOCATION_ERROR="order %s is not allocated!";
 
+    public static final String VALIDATE_ORDER_ERROR = "order [%s] is not valid!";
+
 
     private static Connection con;
     private static Session session;

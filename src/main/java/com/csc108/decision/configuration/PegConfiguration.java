@@ -1,14 +1,16 @@
 package com.csc108.decision.configuration;
 
+import com.csc108.decision.IDecisionConfig;
 import com.csc108.decision.pegging.PegCaptureMode;
 import com.csc108.decision.pegging.PegRiskFactor;
+import org.jdom2.Element;
 import quickfix.fix42.NewOrderSingle;
 
 /**
  * Created by zhangbaoshan on 2016/8/1.
  */
 
-public class PegConfiguration {
+public class PegConfiguration implements IDecisionConfig {
     public static final int PegDisplaySizeField = 15012;
 
     public static PegConfiguration build(NewOrderSingle newOrderSingle){
@@ -25,7 +27,7 @@ public class PegConfiguration {
     private int ladderLevel=3;
     private int pegReplenishPct=50;
 
-    private PegConfiguration(){
+    public PegConfiguration(){
 
     }
 
@@ -79,5 +81,10 @@ public class PegConfiguration {
 
     public String toString(){
         return String.format("display size:%d ladderLevel:%d",displaySize,ladderLevel);
+    }
+
+    @Override
+    public void init(Element configNode) {
+
     }
 }

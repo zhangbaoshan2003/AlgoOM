@@ -2,6 +2,7 @@ package com.csc108.tradingRule.providers;
 
 import com.csc108.log.LogFactory;
 import com.csc108.model.IEvaluationData;
+import com.csc108.model.cache.DecisionConfigCache;
 import com.csc108.model.data.Security;
 import com.csc108.model.data.SecurityType;
 import com.csc108.model.market.OrderBook;
@@ -32,6 +33,8 @@ public class TradingRuleProvider {
         return tradingRules;
     }
 
+    private DecisionConfigCache configCache = new DecisionConfigCache();
+
     private static final TradingRuleProvider instance = new TradingRuleProvider();
     public static final TradingRuleProvider getInstance(){
         return instance;
@@ -51,6 +54,7 @@ public class TradingRuleProvider {
         SAXBuilder builder = new SAXBuilder();
         doc = builder.build(tradingRuleFilePath);
 
+        //initialize trading rules
         List<Element> elementLis = doc.getRootElement().getChildren("Rule");
         for (Element e:elementLis){
             TradingRule rule = new TradingRule(e.getAttributeValue("Name"));
@@ -97,6 +101,13 @@ public class TradingRuleProvider {
             }
 
             tradingRules.add(rule);
+        }
+
+        //initialize decision configs
+        List<Element> configElements= doc.getRootElement().getChild("DecisionConfigs").getChildren();
+        for (Element configElement:configElements){
+            Object instance = Class.forName(configElement.getName()).newInstance();
+
         }
     }
 

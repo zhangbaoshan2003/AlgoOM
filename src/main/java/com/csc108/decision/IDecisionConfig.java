@@ -6,5 +6,5 @@ import org.jdom2.Element;
  * Created by zhangbaoshan on 2016/5/9.
  */
 public interface IDecisionConfig  {
-     void init(Element configNode);
+     void init(Element configNode) throws Exception ;
 }

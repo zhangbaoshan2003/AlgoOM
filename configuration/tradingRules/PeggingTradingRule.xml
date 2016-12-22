@@ -14,7 +14,6 @@
             </Handler>
         </Handlers>
     </Rule>
-
     <Rule Name="PeggingOrdersRule">
         <Evaluators>
             <Evaluator Name="AlwaysTrueEvaluator" Criteria="">
@@ -46,4 +45,21 @@
             </Handler>
         </Handlers>
     </Rule>
+
+    <DecisionConfigs>
+        <PeggingDecisionConfig>
+            <Criteria></Criteria>
+            <Data RiskFactor="Low" LadderLevel="3" DisplaySize="1000" ></Data>
+        </PeggingDecisionConfig>
+
+        <FinisherDecisionConfig>
+            <Config>
+                <Criteria/>
+                <Data Enable='true' FinishTimeOffSetInSec='60' MaxLevel2Hit='3' WakeUpIntervalInSec='2' PctOfParticipation='1.00'
+                      EnableRounding='true' MaxLevelPeggingAtNear='5' ToleranceMatchThreshold='0.25' EnableAggressiveSliceMerge='true'/>
+            </Config>
+        </FinisherDecisionConfig>
+
+    </DecisionConfigs>
 </Rules>
+

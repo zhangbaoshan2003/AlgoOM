@@ -47,14 +47,23 @@
     </Rule>
 
     <DecisionConfigs>
-        <PeggingDecisionConfig>
-            <Criteria></Criteria>
-            <Data RiskFactor="Low" LadderLevel="3" DisplaySize="1000" ></Data>
+        <PeggingDecisionConfig className="com.csc108.decision.configuration.PegConfiguration">
+            <Config Id="1">
+                <Evaluators>
+                    <Evaluator Name="AlwaysTrueEvaluator" Criteria="False">
+                    </Evaluator>
+                </Evaluators>
+                <Data RiskFactor="Low" LadderLevel="3" DisplaySize="1000" ></Data>
+            </Config>
+
         </PeggingDecisionConfig>
 
-        <FinisherDecisionConfig>
-            <Config>
-                <Criteria/>
+        <FinisherDecisionConfig className="com.csc108.decision.configuration.FinisherDecisionConfig">
+            <Config Id="1">
+                <Evaluators>
+                    <Evaluator Name="AlwaysTrueEvaluator" Criteria="False">
+                    </Evaluator>
+                </Evaluators>
                 <Data Enable='true' FinishTimeOffSetInSec='60' MaxLevel2Hit='3' WakeUpIntervalInSec='2' PctOfParticipation='1.00'
                       EnableRounding='true' MaxLevelPeggingAtNear='5' ToleranceMatchThreshold='0.25' EnableAggressiveSliceMerge='true'/>
             </Config>

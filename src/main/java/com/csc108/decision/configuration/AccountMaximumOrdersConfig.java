@@ -1,12 +1,13 @@
 package com.csc108.decision.configuration;
 
 import com.csc108.decision.IDecisionConfig;
+import com.csc108.decision.configuration.base.DecisionConfigBase;
 import org.jdom2.Element;
 
 /**
  * Created by LEGEN on 2016/10/29.
  */
-public class AccountMaximumOrdersConfig implements IDecisionConfig {
+public class AccountMaximumOrdersConfig extends DecisionConfigBase {
     int maximumOrdersAllowed=-1;
 
     public AccountMaximumOrdersConfig(){

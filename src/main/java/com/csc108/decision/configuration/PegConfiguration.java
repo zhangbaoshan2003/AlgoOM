@@ -1,16 +1,24 @@
 package com.csc108.decision.configuration;
 
 import com.csc108.decision.IDecisionConfig;
+import com.csc108.decision.configuration.base.DecisionConfigBase;
 import com.csc108.decision.pegging.PegCaptureMode;
 import com.csc108.decision.pegging.PegRiskFactor;
+import com.csc108.model.fixModel.order.OrderHandler;
+import com.csc108.tradingRule.core.IEvaluator;
 import org.jdom2.Element;
 import quickfix.fix42.NewOrderSingle;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhangbaoshan on 2016/8/1.
  */
 
-public class PegConfiguration implements IDecisionConfig {
+public class PegConfiguration extends DecisionConfigBase {
+    private String configId="";
+
     public static final int PegDisplaySizeField = 15012;
 
     public static PegConfiguration build(NewOrderSingle newOrderSingle){
@@ -84,7 +92,10 @@ public class PegConfiguration implements IDecisionConfig {
     }
 
     @Override
-    public void init(Element configNode) {
-
+    public void readConfigData(Element dataElement) throws Exception {
+        riskFactor = PegRiskFactor.valueOf(dataElement.getAttributeValue("RiskFactor"));
+        ladderLevel = dataElement.getAttribute("LadderLevel").getIntValue();
+        displaySize = dataElement.getAttribute("DisplaySize").getIntValue();
     }
+
 }

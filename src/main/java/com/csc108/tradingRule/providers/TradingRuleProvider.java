@@ -1,5 +1,7 @@
 package com.csc108.tradingRule.providers;
 
+import com.csc108.decision.IDecision;
+import com.csc108.decision.IDecisionConfig;
 import com.csc108.log.LogFactory;
 import com.csc108.model.IEvaluationData;
 import com.csc108.model.cache.DecisionConfigCache;
@@ -33,12 +35,16 @@ public class TradingRuleProvider {
         return tradingRules;
     }
 
-    private DecisionConfigCache configCache = new DecisionConfigCache();
+    private HashMap<String,ArrayList<IDecisionConfig>> configCache = new HashMap<>();
+    public HashMap<String,ArrayList<IDecisionConfig>> getConfigCache(){
+        return configCache;
+    }
 
     private static final TradingRuleProvider instance = new TradingRuleProvider();
     public static final TradingRuleProvider getInstance(){
         return instance;
     }
+
 
     public void initialize(String ruleFileName) throws Exception {
         EvaluatorProvider.initialize();
@@ -106,10 +112,22 @@ public class TradingRuleProvider {
         //initialize decision configs
         List<Element> configElements= doc.getRootElement().getChild("DecisionConfigs").getChildren();
         for (Element configElement:configElements){
-            Object instance = Class.forName(configElement.getName()).newInstance();
+            String className= configElement.getAttributeValue("className");
+            configCache.put(className,new ArrayList<>());
 
+            List<Element> configs = configElement.getChildren("Config");
+            configs.forEach(c->{
+                try{
+                    Object instance = Class.forName(className).newInstance();
+                    IDecisionConfig config = (IDecisionConfig) instance;
+                    if(config==null)
+                        throw new IllegalArgumentException("Invalid configuration !");
+                    config.init(c);
+                    configCache.get(className).add(config);
+                }catch (Exception ex){
+                    LogFactory.error("Initialize decision config error!",ex);
+                }
+            });
         }
     }
-
-
 }

@@ -2,6 +2,7 @@ package com.csc108.model.fixModel.order;
 
 import com.csc108.configuration.GlobalConfig;
 import com.csc108.decision.DecisionChainManager;
+import com.csc108.decision.IDecisionConfig;
 import com.csc108.decision.configuration.PegConfiguration;
 import com.csc108.disruptor.concurrent.DisruptorController;
 import com.csc108.disruptor.event.*;
@@ -14,8 +15,11 @@ import com.csc108.model.cache.*;
 import com.csc108.model.criteria.*;
 import com.csc108.model.fixModel.sessionPool.ISessionPoolPicker;
 import com.csc108.model.market.*;
+import com.csc108.tradingRule.providers.HandlerProvider;
+import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.*;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
 import quickfix.FieldNotFound;
 import quickfix.SessionID;
 import quickfix.field.*;
@@ -91,6 +95,11 @@ public class OrderHandler implements IDataHandler {
     private final ArrayList<ExchangeOrder> exchangeOrders = new ArrayList<>();
     public ArrayList<ExchangeOrder> getExchangeOrders(){
         return exchangeOrders;
+    }
+
+    private HashMap<String,IDecisionConfig> decisionConfigHashMap = new HashMap<>();
+    public HashMap<String,IDecisionConfig> getDecisionConfigHashMap(){
+        return decisionConfigHashMap;
     }
 
     public boolean noActiveExchangeOrders(){
@@ -343,25 +352,23 @@ public class OrderHandler implements IDataHandler {
             this.getClientOrder().setStockName(issueType.getStockName());
         }
 
-        //initialize pegging order if it is
         this.pegConfiguration = PegConfiguration.build(this.getClientOrder().getNewOrderRequestMsg());
 
-        //initialize decision chain if it is
-        //this.decisionChain = DecisionMaker.build(this);
-
-//        //only subscribe market data when it's a pegging order
-//        if(this.pegConfiguration!=null){
-//            subscribeOrderBookMarketData(this.getClientOrder().getSymbol() + "." + this.getClientOrder().getExchangeDest());
-//            subscribeMarketData();
-//        }
-
-//        //only subscribe reference market data when it's a conditional order
-//        if(this.isConditionalOrder()==true){
-//            subscribeOrderBookMarketData(this.condition.getReferSecurity());
-//        }
+        //initialize decision configuration list
+        TradingRuleProvider.getInstance().getConfigCache().keySet().forEach(className->{
+            try{
+                ArrayList<IDecisionConfig> configList =  TradingRuleProvider.getInstance().getConfigCache()
+                        .get(className);
+                configList.forEach(c->{
+                    if(c.evaluate(this)==true){
+                        decisionConfigHashMap.put(className,c);
+                    }
+                });
+            }catch (Exception ex){
+                LogFactory.error("Initialize decision config error",ex);
+            }
+        });
     }
-
-
 
     //find out which exchange orders to create/cancel based on current allocations
     public void assignNewCancelExchangeOrders(List<Allocation> exchangeOrderToCreate,List<ExchangeOrder> exchangeOrderToCancel,
@@ -379,7 +386,6 @@ public class OrderHandler implements IDataHandler {
             logLines.add("There are some exchange orders in pending cancel, no new exchange order to create.");
             return;
         }
-
 
         List<ExchangeOrder> matchedExchangeOrders= exchangeOrdersExisted.stream()
                 .filter(x -> FixUtil.IsOrderCompleted(x.getOrdStatus()) == false)
@@ -670,10 +676,6 @@ public class OrderHandler implements IDataHandler {
     //only directly called by test case
     public void publishMsg(Boolean force ){
 
-//        if(this.isPeggingOrder()==false){
-//            return;
-//        }
-
         if(this.isReportProgressNeeded()==false){
             return;
         }
@@ -787,10 +789,6 @@ public class OrderHandler implements IDataHandler {
 
             msgDic.put("AllExchSliceTopic", allExchSlicesTopic);
             TradeDataMqManager.getInstance().sendMsg("ORD.CLIENT." + order.getClientOrderId(), msgDic, force, "");
-
-//            if(this.isReportProgressNeeded()==true){
-//
-//            }
 
             this.getExchangeOrders().forEach(x->{
                 try {

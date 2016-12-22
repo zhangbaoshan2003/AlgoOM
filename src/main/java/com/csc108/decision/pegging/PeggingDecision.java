@@ -125,7 +125,9 @@ public class PeggingDecision  extends BaseDecision {
                                     ArrayList<Allocation> allocationDecisions_,
                                     ArrayList<OmEvent> events,  ArrayList<String> logLines) {
 
-        PegConfiguration configuration = orderHandler.getPegConfiguration();
+        //PegConfiguration configuration = orderHandler.getPegConfiguration();
+        PegConfiguration configuration = (PegConfiguration)orderHandler.getDecisionConfigHashMap().get(PegConfiguration.class.getName());
+
         if(configuration==null){
             throw new IllegalArgumentException("There is no pegging configuration for pegging order!");
         }

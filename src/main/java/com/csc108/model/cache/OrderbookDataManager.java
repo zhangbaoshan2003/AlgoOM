@@ -176,7 +176,7 @@ public class OrderbookDataManager {
 
     private void broadcastOrderBookUpdatedEvent(OrderBook obChanged) {
         try{
-            OrderBook localOrderBook = (OrderBook)obChanged.clone();
+            OrderBook localOrderBook = obChanged.clone();
             String securityChanged = localOrderBook.getSecurity().getSymbol();
 
             if(orderBookHandlerMap.get(securityChanged)!=null){

@@ -97,11 +97,6 @@ public class OrderHandler implements IDataHandler {
         return exchangeOrders;
     }
 
-    private HashMap<String,IDecisionConfig> decisionConfigHashMap = new HashMap<>();
-    public HashMap<String,IDecisionConfig> getDecisionConfigHashMap(){
-        return decisionConfigHashMap;
-    }
-
     public boolean noActiveExchangeOrders(){
         if(this.getExchangeOrders().size()==0)
             return true;
@@ -839,5 +834,24 @@ public class OrderHandler implements IDataHandler {
     public LocalDateTime getTransactionTime() {
         return transactionTime;
     }
+
+    //region newly added features for decision logic
+
+    private OrderBook orderBookProcessed=null;
+    public OrderBook getOrderBookProcessed() {
+        return orderBookProcessed;
+    }
+    public void setOrderBookProcessed(OrderBook orderBookProcessed) {
+        this.orderBookProcessed = orderBookProcessed;
+    }
+
+    private HashMap<String,IDecisionConfig> decisionConfigHashMap = new HashMap<>();
+    public HashMap<String,IDecisionConfig> getDecisionConfigHashMap(){
+        return decisionConfigHashMap;
+    }
+
+    //endregion
+
+
 
 }

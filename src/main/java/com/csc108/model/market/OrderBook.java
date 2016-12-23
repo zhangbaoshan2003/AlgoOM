@@ -6,6 +6,7 @@ import com.csc108.model.data.Security;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.springframework.core.annotation.Order;
 import quickfix.field.Side;
 import com.csc108.utility.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -318,7 +319,7 @@ public class OrderBook implements Cloneable, Serializable, ITimeable,Comparable<
 	}
 
 	@Override
-	public Object clone() {
+	public OrderBook clone() {
 		return Util.deepCopy(this);
 	}
 

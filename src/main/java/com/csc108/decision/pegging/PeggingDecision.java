@@ -134,7 +134,9 @@ public class PeggingDecision  extends BaseDecision {
 
         String securityID = orderHandler.getClientOrder().getSecurityId();
         logLines.add("Security id : " + securityID);
-        OrderBook theLatestOrderBook = OrderbookDataManager.getInstance().getLatestOrderBook(securityID);
+        //OrderBook theLatestOrderBook = OrderbookDataManager.getInstance().getLatestOrderBook(securityID);
+        OrderBook theLatestOrderBook = orderHandler.getOrderBookProcessed();
+
         if(theLatestOrderBook==null){
 
             Alert.fireAlert(Alert.Severity.Major,getAlertKey(orderHandler),"OrderBook "

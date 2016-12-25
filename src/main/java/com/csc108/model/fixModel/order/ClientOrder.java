@@ -235,7 +235,7 @@ public class ClientOrder implements Serializable {
         //this.algoOrderID="N/A";
         this.orderHandler =null;
         this.setClientOrderId(UUID.randomUUID().toString());
-        this.setOrdStatus(new OrdStatus(OrdStatus.PENDING_NEW));
+        this.setOrdStatus(new OrdStatus(OrdStatus.STOPPED));
     }
 
     public ClientOrder(NewOrderSingle message,SessionID clientSessionID) throws Exception {
@@ -291,13 +291,14 @@ public class ClientOrder implements Serializable {
     }
 
     public String getOrderStateDisplay() {
-        if (this.getOrderState().getValue() == 0) return "INITIALIZED";
+        if (this.getOrderState().getValue() == 0) return "Initialized";
         if (this.getOrderState().getValue() == 1) return "SENT_TO_EXCHANGE";
-        if (this.getOrderState().getValue() == 2) return "COMPLETED";
-        if (this.getOrderState().getValue() == 4) return "PENDING_PAUSE";
+        if (this.getOrderState().getValue() == 2) return "Completed";
+        if (this.getOrderState().getValue() == 4) return "Pending_Pause";
         if (this.getOrderState().getValue() == 5) return "PAUSED";
         if (this.getOrderState().getValue() == 6) return "PENDING_RESUME";
         if (this.getOrderState().getValue() == 7) return "RESUMED";
+        if (this.getOrderState().getValue() == 10) return "Frozen";
         return "<UNKNOWN>";
     }
 

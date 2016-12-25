@@ -52,6 +52,9 @@ public class Alert {
 
     public static final String VALIDATE_ORDER_ERROR = "order [%s] is not valid!";
 
+    public static final String INFO_ORDER_PROCESS_KEY="Order [%s] process info.";
+    public static final String TRANSFER_STATUS_ERROR_KEY="Order [%s] transfer status error.";
+
 
     private static Connection con;
     private static Session session;
@@ -94,7 +97,6 @@ public class Alert {
             synchronized (alertFlagContainer){
                 alertFlagContainer.put(key_, true);
             }
-
         }
 
         if(ex!=null)

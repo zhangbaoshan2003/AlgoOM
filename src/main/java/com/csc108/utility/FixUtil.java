@@ -27,6 +27,14 @@ public class FixUtil {
         return false;
     }
 
+    public static boolean isInPendingStatus(OrderHandler orderHandler){
+        OrdStatus ordStatus = orderHandler.getClientOrder().getOrdStatus();
+        if(ordStatus.getValue()==OrdStatus.PENDING_CANCEL || ordStatus.getValue()==OrdStatus.PENDING_NEW ){
+            return true;
+        }
+        return false;
+    }
+
     public static boolean IsClientOrderCompleted(OrderHandler orderManager){
         ClientOrder clientOrder = orderManager.getClientOrder();
         long totalInProgressExchangeOrders = orderManager.getExchangeOrders().stream().filter(x->FixUtil.IsOrderCompleted(x.getOrdStatus())==false)

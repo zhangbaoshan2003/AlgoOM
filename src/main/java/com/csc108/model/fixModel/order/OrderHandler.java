@@ -15,6 +15,7 @@ import com.csc108.model.cache.*;
 import com.csc108.model.criteria.*;
 import com.csc108.model.fixModel.sessionPool.ISessionPoolPicker;
 import com.csc108.model.market.*;
+import com.csc108.tradingRule.core.TradingRule;
 import com.csc108.tradingRule.providers.HandlerProvider;
 import com.csc108.tradingRule.providers.TradingRuleProvider;
 import com.csc108.utility.*;
@@ -308,7 +309,7 @@ public class OrderHandler implements IDataHandler {
                 String  startTimeStr = this.getClientOrder().getNewOrderRequestMsg().getString(6062);
                 LocalDateTime startTime = DateTimeUtil.getDateTime5(startTimeStr);
                 this.getClientOrder().setEffectiveTime(startTime);
-                this.transactionTime = startTime.plusSeconds(5);
+
             }else{
                 this.getClientOrder().setEffectiveTime(LocalDateTime.now().plusSeconds(5));
             }
@@ -407,6 +408,9 @@ public class OrderHandler implements IDataHandler {
     }
 
     public void process() throws Exception {
+
+        updateTransactionTime();
+
         //Todo: should use unallocated qty to tell if should split and sent out
         ArrayList<Allocation> allocations = new ArrayList<>();
         ArrayList<OmEvent> events = new ArrayList<>();
@@ -474,6 +478,16 @@ public class OrderHandler implements IDataHandler {
                     ExchangeOrder exchangeOrder = new ExchangeOrder(this.getClientOrder(),sessionID,
                             allocation.getAllocatedQuantity(),allocation.getAllocatedPrice(),allocation.getDecisionType(),allocation.getCategory());
                     try{
+                        //first time to send pending new status
+                        try{
+                            if(getClientOrder().getOrdStatus().getValue()==OrdStatus.STOPPED){
+                                getClientOrder().setOrdStatus(new OrdStatus(OrdStatus.PENDING_NEW));
+                            }
+                        }catch (Exception ex){
+                            Alert.fireAlert(Alert.Severity.Critical,String.format(Alert.TRANSFER_STATUS_ERROR_KEY,getClientOrder().getClientOrderId()),
+                                    ex.getMessage(),ex);
+                        }
+
                         FixMsgHelper.sendOutExchangeOrder(exchangeOrder);
                         OrderPool.getExchangeOrderMap().putIfAbsent(exchangeOrder.getClientOrderId(), exchangeOrder);
                         exchangeOrdersToGenerate.add(exchangeOrder);
@@ -831,11 +845,14 @@ public class OrderHandler implements IDataHandler {
         this.reportProgressNeeded = reportProgressNeeded;
     }
 
+    //region newly added features for decision logic
+
     public LocalDateTime getTransactionTime() {
         return transactionTime;
     }
-
-    //region newly added features for decision logic
+    public void updateTransactionTime(){
+        transactionTime = LocalDateTime.now().plusSeconds(TradingRuleProvider.getInstance().getMinimumLaunchTimeSpan());
+    }
 
     private OrderBook orderBookProcessed=null;
     public OrderBook getOrderBookProcessed() {
@@ -850,8 +867,21 @@ public class OrderHandler implements IDataHandler {
         return decisionConfigHashMap;
     }
 
+    private int newRejectedTimes=0;
+    public int getNewRejectedTimes() {
+        return newRejectedTimes;
+    }
+    public void increaseNewRejectedTimes() {
+        this.newRejectedTimes++;
+    }
+
+    private int cancelRejectedTimes=0;
+    public int getCancelRejectedTimes() {
+        return cancelRejectedTimes;
+    }
+    public void increaseCancelRejectedTimes(){
+        cancelRejectedTimes++;
+    }
+
     //endregion
-
-
-
 }

@@ -28,7 +28,9 @@ public class DecisionChainManager {
                 new Ref<Double>(clientOrderManager.getClientOrder().getLeavesQty());
 
         for(IDecision decision : decisions){
-            decision.allocateDecision(clientOrderManager,quantityToAllocate,allocations,events,logLines);
+            boolean ifContinue= decision.allocateDecision(clientOrderManager,quantityToAllocate,allocations,events,logLines);
+            if(ifContinue==false)
+                return;
         }
     }
 

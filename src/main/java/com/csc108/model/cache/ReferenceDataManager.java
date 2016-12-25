@@ -82,4 +82,20 @@ public class ReferenceDataManager  {
         }
     }
 
+    public boolean isInTradibleSession(OrderHandler orderHandler){
+        String symbol = orderHandler.getClientOrder().getSecurityId();
+        SessionGroup sessionGroup = tradingSessionGroupCache.get(TradingSession.symbol2SessionGroup(symbol));
+        return sessionGroup.isTradable(orderHandler.getTransactionTime().toLocalTime());
+    }
+
+    private double DEFAULT_LOT_SIZE=100.0;
+    public double getLotSize(String securityId){
+        return DEFAULT_LOT_SIZE;
+    }
+
+    private int rejectedTimesBeforeFrozen=20;
+    public int getRejectedTimesBeforeFrozen(){
+        return rejectedTimesBeforeFrozen;
+    }
+
 }

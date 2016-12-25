@@ -28,8 +28,6 @@ public class ExecutionReportEventHandler extends EventHandlerBase {
             //return;
         }
 
-        //logger.info(String.format("ExecutionReportEventHandler handle event %s @ thread %d",eventSource.getDataHandler().getID(),Thread.currentThread().getId()));
-
         OrderHandler orderHandler= (OrderHandler)eventSource.getDataHandler();
         ClientOrder clientOrder = orderHandler.getClientOrder();
 
@@ -70,10 +68,6 @@ public class ExecutionReportEventHandler extends EventHandlerBase {
             clientOrder.processExecutionReport(executionReport);
 
             orderHandler.publishMsg(false);
-
-
-
-
         }catch (Exception ex){
             LogFactory.error("Execution report handler process error!",ex);
         }

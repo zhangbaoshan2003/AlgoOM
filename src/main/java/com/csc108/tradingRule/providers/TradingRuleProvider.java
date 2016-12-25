@@ -45,6 +45,11 @@ public class TradingRuleProvider {
         return instance;
     }
 
+    //in seconds
+    private int minimumLaunchTimeSpan=5;
+    public int getMinimumLaunchTimeSpan(){
+        return minimumLaunchTimeSpan;
+    }
 
     public void initialize(String ruleFileName) throws Exception {
         EvaluatorProvider.initialize();

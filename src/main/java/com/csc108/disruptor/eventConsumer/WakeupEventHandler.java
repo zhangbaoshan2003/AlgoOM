@@ -31,7 +31,6 @@ public class WakeupEventHandler extends EventHandlerBase {
 
     @Override
     public void handle(OmEvent eventSource){
-
         if(eventSource.getDataHandler().getOriginalThreadId()!= Thread.currentThread().getId()){
             LogFactory.error("Evaluation event dispatch thread error", null);
             //return;
@@ -43,7 +42,7 @@ public class WakeupEventHandler extends EventHandlerBase {
         DisruptorController controller =clientOrderHandler.getController();
         //EventDispatcher.getInstance().getControllerMap().get(clientOrderId);
 
-        logger.info(String.format("Trigger wakeup handle event %s @ thread %d for order %s", eventSource.getDataHandler().getID(),
+        logger.info(String.format("Trigger wakeup event %s @ thread %d for order %s", eventSource.getDataHandler().getID(),
                 Thread.currentThread().getId(), clientOrder.getClientOrderId()));
 
         //Todo: should involve logic of avoiding too often wakeup
